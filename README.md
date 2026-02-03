@@ -25,6 +25,7 @@ In the current EVE Online ecosystem (Feb 2026), High Sec mining and trading have
 ## 📚 Project Documentation
 *   [Ore & Minerals Arbitrage](README.md) - Analysis of raw material trading.
 *   [Blueprints & Manufacturing](BLUEPRINTS.md) - How to turn minerals into ISK in High Sec.
+*   [Starter Strategy](STRATEGY.md) - My specific recommendations on where to start and which routes to fly.
 
 ## 📊 Market Resources
 *   [Cerlestes Ore Table](https://ore.cerlestes.de/ore) - Best for identifying current ISK/m³ yield per ship type.
