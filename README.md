@@ -47,3 +47,39 @@ High Sec Moons only provide **R4 (Ubiquitous) ores** (Zeolite, Bitumen, etc.).
 
 ### 🦐 Advanced Arbitrage: "The Blueprint Bridge"
 Instead of hauling ore, check the price of **T1 Industry Blueprints** in student/starter systems. Occasionally, items like **Mining Laser I** or standard **Ammo** BPOs are sold at NPC fixed prices (100k - 500k) but trade at a 5-10% premium in Jita due to buy-order convenience. It's low-volume, but literally zero risk (standard shuttle haul).
+
+## 📊 Industrial Cheat Sheets
+
+### 💎 High-Sec Ore Mineral Yields (Basic 100 Unit Batch)
+*Based on 2026 standard refinement base rates.*
+
+| Ore Type | Primary Mineral | Secondary Mineral | Tertiary Mineral | Niche Target |
+| :--- | :--- | :--- | :--- | :--- |
+| **Veldspar** | Tritanium (415) | - | - | Quantity King |
+| **Scordite** | Tritanium (346) | Pyerite (173) | - | Basic Alloy |
+| **Pyroxeres** | Pyerite (353) | Mexallon (49) | Tritanium (177) | **Arbitrage Target** |
+| **Plagioclase** | Tritanium (107) | Pyerite (213) | Mexallon (107) | Balanced Spread |
+| **Omber** | Tritanium (307) | Pyerite (123) | **Isogen (153)** | **Rare HS Bottleneck** |
+| **Kernite** | Tritanium (134) | Mexallon (267) | **Isogen (133)** | **High Value Anom** |
+
+### 📦 Compression Ratios & Logistics
+*Why compression is mandatory for high-volume arbitrage.*
+
+| Item | Volume (Standard) | Volume (Compressed) | Ratio | Max Haul (Iteron V) |
+| :--- | :--- | :--- | :--- | :--- |
+| **Raw Ore** | 0.10 - 16.0 m³ | 0.01 - 0.16 m³ | **100:1** | ~50k Units |
+| **Compressed** | - | 0.01 - 0.16 m³ | N/A | **~5M Raw Units** |
+| **Minerals** | 0.01 m³ | N/A | N/A | ~4M Units |
+
+### 📉 Region Spread Targets (Feb 2026 Estimate)
+*Target these spreads for maximum hauling efficiency.*
+
+| Buy Hub | Sell Hub | Primary Commodity | Typical Margin | Risk Level |
+| :--- | :--- | :--- | :--- | :--- |
+| **Amarr** | **Jita** | Comp. Pyroxeres | 4-7% | Low |
+| **Dodixie** | **Jita** | Kernite / Isogen | **11-18%** | Medium |
+| **Hek** | **Rens** | Refined Mexallon | 6-9% | Low |
+| **Starter Sys** | **Major Hub** | T1 Ammo BPOs | 5-10% | **Zero** |
+
+## 🛠️ Automated Price Tracking (Internal Dev Note)
+*I am currently building a Python script to poll these tables. Check the  folder for updates.*
