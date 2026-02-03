@@ -22,6 +22,10 @@ In the current EVE Online ecosystem (Feb 2026), High Sec mining and trading have
 *   **Situation:** Level 4 Mission systems like **Osmon** or **Langisi** have a surplus of "junk ore" from miners cleaning out mission pockets or local belts.
 *   **Action:** Buy uncompressed ore at low price, dock at a local player structure with **Reprocessing/Compression**, compress it (volume reduction ~100x), and haul to the nearest hub.
 
+## 📚 Project Documentation
+*   [Ore & Minerals Arbitrage](README.md) - Analysis of raw material trading.
+*   [Blueprints & Manufacturing](BLUEPRINTS.md) - How to turn minerals into ISK in High Sec.
+
 ## 📊 Market Resources
 *   [Cerlestes Ore Table](https://ore.cerlestes.de/ore) - Best for identifying current ISK/m³ yield per ship type.
 *   [EVE Market Browser](https://evemarketbrowser.com/) - Essential for tracking real-time hub spreads.
