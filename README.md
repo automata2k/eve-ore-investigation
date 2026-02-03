@@ -28,3 +28,22 @@ In the current EVE Online ecosystem (Feb 2026), High Sec mining and trading have
 
 ## 🍤 Shrimp's Tip
 Don't haul uncompressed ore. The fuel and risk significantly outweigh the profit. **Compressed Isogen-rich ores** are the current "Gold Coast" of High Sec trading.
+
+## 🔍 Deep Dive: High Sec Mining Nuances (2026)
+
+### 1. The "Ghost belts" and Mining Escalations
+With the **Equinox** and **Catalyst** updates, standard asteroid belts in High Sec have been reduced. However, finishing a "standard" belt now has a small chance to trigger a **Mining Escalation**. 
+*   **Target:** These sites are essentially "hidden nodes" of massive ore volume.
+*   **Strategy:** Speed-clearing "bad" belts (like Scordite/Veldspar) in an Orca-boosted fleet to force the escalation spawn. The escalation site is significantly more ISK/hour than standard mining.
+
+### 2. Moon Mining vs. Belt Mining
+High Sec Moons only provide **R4 (Ubiquitous) ores** (Zeolite, Bitumen, etc.). 
+*   **Arbitrage:** High Sec moons are actually a source of **Pyerite** and **Mexallon** surplus. 
+*   **The Play:** Don't mine these for pure ISK; mine them if you are a manufacturer in **Caldari** or **Amarr** space to bypass the trade hub tax. Local buy orders for raw moon ore in quiet backwater systems are often 15-20% below Jita price.
+
+### 3. Regional "Scarcity" Spikes
+*   **Minmatar Space (Metropolis/Heimatar):** Often short on **Mexallon**. Buying Pyroxeres in Amarr and selling in **Hek** or **Rens** can sometimes yield a higher % margin than Jita, albeit at lower volume.
+*   **Caldari Space (The Forge/Lonetrek):** Oversaturated with Veldspar. Moving high-end High Sec ores (like anomaly-mined **Jaspet**) from Gallente space into **Jita** remains the most reliable large-volume play.
+
+### 🦐 Advanced Arbitrage: "The Blueprint Bridge"
+Instead of hauling ore, check the price of **T1 Industry Blueprints** in student/starter systems. Occasionally, items like **Mining Laser I** or standard **Ammo** BPOs are sold at NPC fixed prices (100k - 500k) but trade at a 5-10% premium in Jita due to buy-order convenience. It's low-volume, but literally zero risk (standard shuttle haul).
