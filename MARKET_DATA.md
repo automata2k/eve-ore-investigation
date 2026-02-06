@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-06 10:42:30 UTC
+Last updated: 2026-02-06 10:55:13 UTC
 
 This report is automatically generated and tracks compressed ore spreads between regional hubs and Jita.
 
@@ -19,12 +19,28 @@ Target items for T1 manufacturing based on high turnover and liquidity.
 
 | Item | Jita Sell | Jita Buy | Spread |
 | :--- | :--- | :--- | :--- |
+| 10MN Afterburner I | 1,796,000.00 | 1,795,000.00 | 0.1% |
+| 5MN Microwarpdrive I | 87,000.00 | 61,990.00 | 40.3% |
+| Acolyte I | 3,990.00 | 2,811.00 | 41.9% |
+| Antimatter Charge L | 93.00 | 74.02 | 25.6% |
+| Antimatter Charge M | 10.48 | 5.52 | 89.9% |
 | Badger | 2,736,000.00 | 2,276,000.00 | 20.2% |
-| Caldari Fuel Block | 18,590.00 | 18,030.00 | 3.1% |
+| Caldari Fuel Block | 18,590.00 | 18,040.00 | 3.0% |
+| Damage Control I | 82,780.00 | 46,100.00 | 79.6% |
+| Drone Damage Amplifier I | 297,900.00 | 165,100.00 | 80.4% |
+| EMP S | 14.80 | 10.51 | 40.8% |
 | Hobgoblin I | 3,890.00 | 3,691.00 | 5.4% |
 | Iteron Mark V | 2,547,000.00 | 1,624,000.00 | 56.8% |
+| Medium Cap Battery I | 229,000.00 | 173,000.00 | 32.4% |
+| Multispectrum Shield Hardener I | 2,078,000.00 | 1,934,000.00 | 7.4% |
 | Scourge Heavy Missile | 15.07 | 15.06 | 0.1% |
+| Scourge Light Missile | 138.90 | 90.00 | 54.3% |
+| Stasis Webifier I | 7,040.00 | 5,859.00 | 20.2% |
+| Tayra | 604,400.00 | 536,500.00 | 12.7% |
 | Venture | 332,100.00 | 301,900.00 | 10.0% |
+| Warp Disruptor I | 2,868,000.00 | 2,704,000.00 | 6.1% |
+| Warp Scrambler I | 97,720.00 | 94,720.00 | 3.2% |
+| Warrior I | 6,454.00 | 4,611.00 | 40.0% |
 
 
 --- 
