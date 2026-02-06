@@ -27,13 +27,37 @@ TARGET_TYPES = {
 
 # Manufacturing targets (High turnover T1 items)
 MFG_TYPES = {
+    # Ships
     "Venture": "32880",
-    "Hobgoblin I": "2454",
-    "Caldari Fuel Block": "4051",
-    "Antimatter Charge S": "230",
-    "Scourge Heavy Missile": "195",
     "Iteron Mark V": "657",
-    "Badger": "649"
+    "Badger": "649",
+    "Tayra": "28576",
+    # Drones
+    "Hobgoblin I": "2454",
+    "Warrior I": "2464",
+    "Acolyte I": "2203",
+    "Hornet I": "2470",
+    # Ammo
+    "Antimatter Charge S": "230",
+    "Antimatter Charge M": "218",
+    "Antimatter Charge L": "206",
+    "Scourge Heavy Missile": "195",
+    "Scourge Light Missile": "191",
+    "EMP S": "183",
+    "EMP M": "177",
+    "EMP L: ": "165",
+    "Caldari Fuel Block": "4051",
+    # Modules
+    "Damage Control I": "520",
+    "Multispectrum Shield Hardener I": "2281",
+    "Warp Scrambler I": "447",
+    "Warp Disruptor I": "440",
+    "Stasis Webifier I": "444",
+    "5MN Microwarpdrive I": "434",
+    "10MN Afterburner I": "438",
+    "Medium Cap Battery I": "10838",
+    "Ballistic Control System I": "1222",
+    "Drone Damage Amplifier I": "23559"
 }
 
 def fetch_prices(station_id, type_ids):
