@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-03 22:05:52 UTC
+Last updated: 2026-02-06 10:42:30 UTC
 
 This report is automatically generated and tracks compressed ore spreads between regional hubs and Jita.
 
@@ -9,11 +9,22 @@ This report is automatically generated and tracks compressed ore spreads between
 | Compressed Gneiss | Amarr | 14,200.00 | **63.9%** |
 | Compressed Hedbergite | Amarr | 67,840.00 | -57.4% |
 | Compressed Plagioclase | Amarr | 149,900.00 | -94.3% |
-| Compressed Pyroxeres | Dodixie | 3,399.00 | 3.3% |
 | Compressed Scordite | Amarr | 2,860.00 | 7.7% |
 | Compressed Scordite | Dodixie | 124,700.00 | -97.5% |
-| Compressed Veldspar | Amarr | 1,339.00 | **11.8%** |
-| Compressed Veldspar | Dodixie | 1,501.00 | -0.3% |
+| Compressed Veldspar | Amarr | 1,339.00 | **19.9%** |
+| Compressed Veldspar | Dodixie | 1,501.00 | 7.0% |
+
+## 🛠️ Manufacturing Spotlight (Jita Demand)
+Target items for T1 manufacturing based on high turnover and liquidity.
+
+| Item | Jita Sell | Jita Buy | Spread |
+| :--- | :--- | :--- | :--- |
+| Badger | 2,736,000.00 | 2,276,000.00 | 20.2% |
+| Caldari Fuel Block | 18,590.00 | 18,030.00 | 3.1% |
+| Hobgoblin I | 3,890.00 | 3,691.00 | 5.4% |
+| Iteron Mark V | 2,547,000.00 | 1,624,000.00 | 56.8% |
+| Scourge Heavy Missile | 15.07 | 15.06 | 0.1% |
+| Venture | 332,100.00 | 301,900.00 | 10.0% |
 
 
 --- 
