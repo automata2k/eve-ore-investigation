@@ -92,24 +92,34 @@ def calculate_spreads():
                     best_ore_spread = spread
                     best_ore_name = name
 
-    best_mfg_spread = 0
-    best_mfg_name = ""
+    # NEW: Top 5 Manufacturing Items Logic (Liquidity Filtered)
+    mfg_candidates = []
     for d in [MFG_SHIPS, MFG_MODULES, MFG_AMMO, MFG_ESSENTIALS]:
         for name, tid in d.items():
             info = jita.get(tid, {})
             s = float(info.get("sell", {}).get("min", 0))
             b = float(info.get("buy", {}).get("max", 0))
+            v = float(info.get("sell", {}).get("volume", 0))
             if s > 0 and b > 0:
                 spread = ((s - b) / b) * 100
-                if spread > best_mfg_spread:
-                    best_mfg_spread = spread
-                    best_mfg_name = name
+                # Filter out low liquidity items (trap detection)
+                min_vol = 5 if tid in MFG_SHIPS.values() else 1000
+                if v >= min_vol:
+                    mfg_candidates.append({"name": name, "spread": spread, "vol": v})
+
+    # Sort by spread descending
+    mfg_candidates.sort(key=lambda x: x['spread'], reverse=True)
+    top_5 = mfg_candidates[:5]
 
     summary += "## 🍤 Shrimp's Weekly Verdict\n"
-    if best_mfg_spread > best_ore_spread + 10:
-        summary += f"**Verdict: MANUFACTURE.** The market spread on items like **{best_mfg_name}** ({best_mfg_spread:.1f}%) significantly outperforms raw ore hauling. Focus your perfect reprocessing skills on feeding your own BPOs this week.\n\n"
+    if top_5 and top_5[0]['spread'] > best_ore_spread + 5:
+        summary += f"**Verdict: MANUFACTURE.** The highest liquidity-adjusted manufacturing spreads currently outperform raw ore hauling. Focus your perfect reprocessing skills on feeding your own BPOs.\n\n"
+        summary += "### 💎 Jita Top 5 Manufacturing Items (High Liquidity):\n"
+        for i, item in enumerate(top_5, 1):
+            summary += f"{i}. **{item['name']}** ({item['spread']:.1f}% spread, {format_vol(item['vol'])} daily vol)\n"
+        summary += "\n"
     else:
-        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less market risk than manufacturing. Stick to the 'Isogen Blueprint' hauls.\n\n"
+        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less market complexity than manufacturing right now.\n\n"
 
     summary += "## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
     summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
