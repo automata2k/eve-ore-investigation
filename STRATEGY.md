@@ -48,6 +48,25 @@ In 2026, you **must** use player-owned refineries for any serious operation.
 
 ---
 
+## 🏭 Manufacturing Efficiency: Raitaru vs. NPC Station
+Just like with refining, manufacturing in an NPC station (like the *Iskuhone Corporation Factory*) is a waste of ISK.
+
+### 1. The Numbers (High-Sec)
+| Benefit | NPC Station | Raitaru (EC) | Rigged Raitaru |
+| :--- | :--- | :--- | :--- |
+| **Material Efficiency (ME)** | 0% | **1.0%** | **~3.2%** |
+| **Time Efficiency (TE)** | 0% | **15.0%** | **~35.0%** |
+| **Cost Reduction** | 0% | **3.0%** | **3.0%** |
+
+### 2. Why it matters
+*   **ME (Materials):** Saving 1-3% on materials sounds small, but in industry, your profit margin *is* the small numbers. If you are building 50 million rounds of Antimatter M, a 3% saving in Tritanium is millions of ISK in pure profit.
+*   **TE (Time):** Being 15-35% faster means you can cycle your production slots more often. More batches = more ISK/hour.
+*   **Cost:** Engineering Complexes have a lower base cost for "installing" the job, making it cheaper to start production.
+
+**Action Item:** In Korama, find a private **Raitaru** or **Azbel**. Check the structure info to ensure it has **"Manufacturing"** enabled. Look for structures with **0% or 1% tax**. Using a player structure is essentially like getting a free level in every industry skill.
+
+---
+
 ## 🚀 Recommended Route Summary
 
 | Activity | Start System | End System | Item to Haul | Risk |
