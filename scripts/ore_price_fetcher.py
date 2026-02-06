@@ -9,165 +9,146 @@ JITA_IV_4 = "60003760"
 AMARR_VIII = "60008494"
 DODIXIE_IX = "60011866"
 
-# Expanded list of High Sec ores (Belt + Anomaly/Escalation spawn)
+# CATEGORIES
 TARGET_TYPES = {
-    "Compressed Veldspar": "28432",
-    "Compressed Scordite": "28429",
-    "Compressed Pyroxeres": "28422",
-    "Compressed Plagioclase": "28421",
-    "Compressed Omber": "28399",
-    "Compressed Kernite": "28394",
-    "Compressed Jaspet": "28404",
-    "Compressed Hemorphite": "28407",
-    "Compressed Hedbergite": "28410",
-    "Compressed Gneiss": "28416",
-    "Compressed Dark Ochre": "28415",
-    "Compressed Crokite": "28418"
+    "Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422",
+    "Compressed Plagioclase": "28421", "Compressed Omber": "28399", "Compressed Kernite": "28394",
+    "Compressed Jaspet": "28404", "Compressed Hemorphite": "28407", "Compressed Hedbergite": "28410",
+    "Compressed Gneiss": "28416", "Compressed Dark Ochre": "28415", "Compressed Crokite": "28418"
 }
 
-# Manufacturing targets (High turnover T1 items)
-MFG_TYPES = {
-    # Ships
-    "Venture": "32880",
-    "Iteron Mark V": "657",
-    "Badger": "649",
-    "Tayra": "28576",
-    # Drones
-    "Hobgoblin I": "2454",
-    "Warrior I": "2464",
-    "Acolyte I": "2203",
-    "Hornet I": "2470",
-    # Ammo
-    "Antimatter Charge S": "230",
-    "Antimatter Charge M": "218",
-    "Antimatter Charge L": "206",
-    "Scourge Heavy Missile": "195",
-    "Scourge Light Missile": "191",
-    "EMP S": "183",
-    "EMP M": "177",
-    "EMP L: ": "165",
-    "Caldari Fuel Block": "4051",
-    # Modules
-    "Damage Control I": "520",
-    "Multispectrum Shield Hardener I": "2281",
-    "Warp Scrambler I": "447",
-    "Warp Disruptor I": "440",
-    "Stasis Webifier I": "444",
-    "5MN Microwarpdrive I": "434",
-    "10MN Afterburner I": "438",
-    "Medium Cap Battery I": "10838",
-    "Ballistic Control System I": "1222",
-    "Drone Damage Amplifier I": "23559",
-    "1MN Afterburner I": "436",
-    "Medium Shield Extender I": "380",
-    "Large Shield Extender I": "382",
-    "1600mm Steel Plates I": "11299",
-    "Small Armor Repairer I": "526",
-    "Medium Armor Repairer I": "529",
-    "Large Armor Repairer I": "532",
-    "Cap Recharger I": "1192"
-}
-
-# Mineral inputs (High demand basics)
 MINERAL_TYPES = {
-    "Tritanium": "34",
-    "Pyerite": "35",
-    "Mexallon": "36",
-    "Isogen": "37",
-    "Nocxium": "38",
-    "Zydrine": "39",
-    "Megacyber": "40",
-    "Morphite": "11399"
+    "Tritanium": "34", "Pyerite": "35", "Mexallon": "36", "Isogen": "37",
+    "Nocxium": "38", "Zydrine": "39", "Megacyber": "40", "Morphite": "11399"
+}
+
+MFG_SHIPS = {
+    "Venture": "32880", "Iteron Mark V": "657", "Badger": "649", "Tayra": "28576"
+}
+
+MFG_MODULES = {
+    "1MN Afterburner I": "436", "10MN Afterburner I": "438", "5MN Microwarpdrive I": "434",
+    "Stasis Webifier I": "444", "Warp Scrambler I": "447", "Warp Disruptor I": "440",
+    "Damage Control I": "520", "Multispectrum Shield Hardener I": "2281", "Cap Recharger I": "1192",
+    "Drone Damage Amplifier I": "23559", "Medium Shield Extender I": "380", "1600mm Steel Plates I": "11299"
+}
+
+MFG_AMMO = {
+    "Antimatter Charge S": "230", "Antimatter Charge M": "218", "Antimatter Charge L": "206",
+    "Scourge Heavy Missile": "195", "Scourge Light Missile": "191", "EMP S": "183", "EMP M": "177",
+    "Hobgoblin I": "2454", "Warrior I": "2464", "Acolyte I": "2203"
+}
+
+MFG_ESSENTIALS = {
+    "Nanite Repair Paste": "28668", "Cap Booster 400": "1121", "Cap Booster 800": "1122",
+    "Mining Laser I": "483", "Mining Laser Upgrade I": "11578", "Warp Core Stabilizer I": "524",
+    "Mobile Tractor Unit": "33477", "Mobile Depot": "33474", "Oxygen Fuel Block": "4247",
+    "Nitrogen Fuel Block": "4051", "Hydrogen Fuel Block": "4246", "Helium Fuel Block": "4312"
 }
 
 def fetch_prices(station_id, type_ids):
-    ids_str = ",".join(type_ids)
+    ids_str = ",".join(set(type_ids))
     url = f"https://market.fuzzwork.co.uk/aggregates/?station={station_id}&types={ids_str}"
+    req = urllib.request.Request(url, headers={'User-Agent': 'OpenClaw-Shrimp-Bot/1.0'})
     ctx = ssl.create_default_context()
     ctx.check_hostname = False
     ctx.verify_mode = ssl.CERT_NONE
     try:
-        with urllib.request.urlopen(url, context=ctx) as response:
+        with urllib.request.urlopen(req, context=ctx) as response:
             return json.loads(response.read().decode())
     except Exception as e:
         print(f"Error fetching data for station {station_id}: {e}")
         return {}
 
+def format_vol(vol):
+    if vol >= 1e9: return f"{vol/1e9:.1f}B"
+    if vol >= 1e6: return f"{vol/1e6:.1f}M"
+    if vol >= 1e3: return f"{vol/1e3:.1f}k"
+    return str(int(vol))
+
 def calculate_spreads():
-    types = list(TARGET_TYPES.values())
-    jita = fetch_prices(JITA_IV_4, types)
-    amarr = fetch_prices(AMARR_VIII, types)
-    dodi = fetch_prices(DODIXIE_IX, types)
+    all_mfg_ids = []
+    for d in [MINERAL_TYPES, MFG_SHIPS, MFG_MODULES, MFG_AMMO, MFG_ESSENTIALS]:
+        all_mfg_ids.extend(d.values())
+    
+    jita = fetch_prices(JITA_IV_4, list(TARGET_TYPES.values()) + all_mfg_ids)
+    amarr = fetch_prices(AMARR_VIII, list(TARGET_TYPES.values()))
+    dodi = fetch_prices(DODIXIE_IX, list(TARGET_TYPES.values()))
     
     summary = "# 🚀 EVE Arbitrage Weekly Briefing\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "This report is automatically generated and tracks compressed ore spreads between regional hubs and Jita.\n\n"
-    summary += "## 📈 High Sec Market Spreads\n"
-    summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n"
-    summary += "| :--- | :--- | :--- | :--- |\n"
-    
-    found_any = False
-    # Sort alphabetically for better reading
-    sorted_names = sorted(TARGET_TYPES.items())
-    
-    for name, tid in sorted_names:
-        jita_info = jita.get(tid, {}).get("sell", {})
-        jita_price = float(jita_info.get("min", 0))
-        
-        hub_data = [("Amarr", amarr), ("Dodixie", dodi)]
-        
-        for hub_name, hub_json in hub_data:
-            price_info = hub_json.get(tid, {}).get("sell", {})
-            price = float(price_info.get("min", 0))
-            if jita_price > 0 and price > 0:
-                spread = ((jita_price - price) / price) * 100
-                # Highlight spreads over 10%
-                spread_text = f"**{spread:.1f}%**" if spread >= 10.0 else f"{spread:.1f}%"
-                summary += f"| {name} | {hub_name} | {price:,.2f} | {spread_text} |\n"
-                found_any = True
+    summary += "Tracks compressed ore spreads between hubs and Jita Internal Demand metrics.\n\n"
 
-    if not found_any:
-        summary += "| No significant spreads found for high sec ores today. | | | |\n"
+    # Verdict Logic
+    best_ore_spread = 0
+    best_ore_name = ""
+    for tid, name in {v: k for k, v in TARGET_TYPES.items()}.items():
+        jita_p = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
+        for h_json in [amarr, dodi]:
+            p = float(h_json.get(tid, {}).get("sell", {}).get("min", 0))
+            if jita_p > 0 and p > 0:
+                spread = ((jita_p - p) / p) * 100
+                if spread > best_ore_spread:
+                    best_ore_spread = spread
+                    best_ore_name = name
 
-    # Add Manufacturing Spotlight
-    summary += "\n## 🛠️ Manufacturing Spotlight (Jita Demand)\n"
-    summary += "Target items for T1 manufacturing based on high turnover and liquidity.\n\n"
-    summary += "| Item | Jita Sell | Jita Buy | Spread | 24h Vol |\n"
-    summary += "| :--- | :--- | :--- | :--- | :--- |\n"
-    
-    mfg_ids = list(MFG_TYPES.values())
-    jita_mfg = fetch_prices(JITA_IV_4, mfg_ids)
-    
-    for name, tid in sorted(MFG_TYPES.items()):
-        item_info = jita_mfg.get(tid, {})
-        sell = float(item_info.get("sell", {}).get("min", 0))
-        buy = float(item_info.get("buy", {}).get("max", 0))
-        volume = float(item_info.get("sell", {}).get("volume", 0))
-        
-        if sell > 0 and buy > 0:
-            spread = ((sell - buy) / buy) * 100
-            # Include volume to show "Demand"
-            vol_str = f"{volume/1e6:.1f}M" if volume >= 1e6 else f"{volume/1e3:.1f}k"
-            summary += f"| {name} | {sell:,.2f} | {buy:,.2f} | {spread:.1f}% | {vol_str} |\n"
+    best_mfg_spread = 0
+    best_mfg_name = ""
+    for d in [MFG_SHIPS, MFG_MODULES, MFG_AMMO, MFG_ESSENTIALS]:
+        for name, tid in d.items():
+            info = jita.get(tid, {})
+            s = float(info.get("sell", {}).get("min", 0))
+            b = float(info.get("buy", {}).get("max", 0))
+            if s > 0 and b > 0:
+                spread = ((s - b) / b) * 100
+                if spread > best_mfg_spread:
+                    best_mfg_spread = spread
+                    best_mfg_name = name
 
-    # Add Minerals section as requested (High demand in Jita)
+    summary += "## 🍤 Shrimp's Weekly Verdict\n"
+    if best_mfg_spread > best_ore_spread + 10:
+        summary += f"**Verdict: MANUFACTURE.** The market spread on items like **{best_mfg_name}** ({best_mfg_spread:.1f}%) significantly outperforms raw ore hauling. Focus your perfect reprocessing skills on feeding your own BPOs this week.\n\n"
+    else:
+        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less market risk than manufacturing. Stick to the 'Isogen Blueprint' hauls.\n\n"
+
+    summary += "## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
+    summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
+    for name, tid in sorted(TARGET_TYPES.items()):
+        jita_p = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
+        for h_name, h_json in [("Amarr", amarr), ("Dodixie", dodi)]:
+            p = float(h_json.get(tid, {}).get("sell", {}).get("min", 0))
+            if jita_p > 0 and p > 0:
+                spread = ((jita_p - p) / p) * 100
+                s_txt = f"**{spread:.1f}%**" if spread >= 10.0 else f"{spread:.1f}%"
+                summary += f"| {name} | {h_name} | {p:,.2f} | {s_txt} |\n"
+
     summary += "\n## 💎 Jita Mineral Index (Raw Demand)\n"
-    summary += "Current prices for the materials you'll be producing from ore.\n\n"
-    summary += "| Mineral | Jita Sell | Jita Buy | 24h Volume |\n"
-    summary += "| :--- | :--- | :--- | :--- |\n"
-    
-    mineral_ids = list(MINERAL_TYPES.values())
-    jita_minerals = fetch_prices(JITA_IV_4, mineral_ids)
-    
+    summary += "| Mineral | Jita Sell | Jita Buy | 24h Vol |\n| :--- | :--- | :--- | :--- |\n"
     for name, tid in sorted(MINERAL_TYPES.items()):
-        item_info = jita_minerals.get(tid, {})
-        sell = float(item_info.get("sell", {}).get("min", 0))
-        buy = float(item_info.get("buy", {}).get("max", 0))
-        volume = float(item_info.get("sell", {}).get("volume", 0))
-        
-        if sell > 0:
-            vol_str = f"{volume/1e9:.1f}B" if volume >= 1e9 else (f"{volume/1e6:.1f}M" if volume >= 1e6 else f"{volume:,.0f}")
-            summary += f"| {name} | {sell:,.2f} | {buy:,.2f} | {vol_str} |\n"
+        info = jita.get(tid, {})
+        s = float(info.get("sell", {}).get("min", 0))
+        b = float(info.get("buy", {}).get("max", 0))
+        v = float(info.get("sell", {}).get("volume", 0))
+        summary += f"| {name} | {s:,.2f} | {b:,.2f} | {format_vol(v)} |\n"
+
+    cat_map = [
+        ("🚢 Jita Demand: Ships & Hulls", MFG_SHIPS),
+        ("🛰️ Jita Demand: Modules & Fittings", MFG_MODULES),
+        ("🔫 Jita Demand: Ammo & Drones", MFG_AMMO),
+        ("🔥 Jita High-Demand Essentials", MFG_ESSENTIALS)
+    ]
+    
+    for header, d in cat_map:
+        summary += f"\n## {header}\n"
+        summary += "| Item | Jita Sell | Jita Buy | Spread | 24h Vol |\n| :--- | :--- | :--- | :--- | :--- |\n"
+        for name, tid in sorted(d.items()):
+            info = jita.get(tid, {})
+            s = float(info.get("sell", {}).get("min", 0))
+            b = float(info.get("buy", {}).get("max", 0))
+            v = float(info.get("sell", {}).get("volume", 0))
+            if s > 0 and b > 0:
+                spread = ((s - b) / b) * 100
+                summary += f"| {name} | {s:,.2f} | {b:,.2f} | {spread:.1f}% | {format_vol(v)} |\n"
 
     summary += "\n\n--- \n*Generated by the Shrimp Market Bot. Includes belt ores and anomaly/escalation types.* 🍤"
     return summary
@@ -176,9 +157,6 @@ if __name__ == "__main__":
     report = calculate_spreads()
     repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     report_path = os.path.join(repo_root, "MARKET_DATA.md")
-    
-    with open(report_path, "w") as f:
-        f.write(report)
-    
+    with open(report_path, "w") as f: f.write(report)
     print(f"Analysis complete. Full report synced to {report_path}")
     print(report)
