@@ -26,6 +26,28 @@ Once you have some ISK, stop hauling to Jita and become the **Local Boss**.
 
 ---
 
+## 💎 The Refining Problem: Why is my yield so low?
+If you have **Perfect Reprocessing Skills** (Reprocessing V, Efficiency V, Specific Ore V) but are seeing yields around **41%**, you are being robbed by NPC bureaucracy.
+
+### 1. The NPC Station Trap
+*   **Base Yield:** NPC Stations (like the *Iskuhone Corporation Factory* in Korama) have an inherently low base yield, typically **50%**.
+*   **Unrecoverable Tax:** NPC stations take a "cut" of your minerals that cannot be avoided by skills (only by corporate standings, and only partially).
+*   **Calculated Yield:** 50% base * Skills (1.15 * 1.10 * 1.10) = ~72%. If you see 41%, there is either a Massive Corp Tax or you are refining Ore that you don't have the "Advanced" skill for.
+
+### 2. The Solution: Upwell Structures (Athanors / Tataras)
+In 2026, you **must** use player-owned refineries for any serious operation.
+*   **Athanor Base:** 54% (Before skills/rigs).
+*   **Rigs:** Player structures can be fitted with **Reprocessing Rigs** (T1 or T2).
+*   **Location Bonus:** Rigs in High Sec are good; in Low/Null, they are insane.
+*   **Comparison:**
+    *   *NPC Station:* ~50-70% max.
+    *   *Athanor (T1 Rigged):* ~71-75%.
+    *   *Athanor (T2 Rigged):* ~76-80%+.
+
+**Action Item:** Search the Neocom (Structure Browser) in Korama or nearby systems like **Hakonen** or **Perimeter** for a public Athanor with "Reprocessing" listed. Look for **0% or 1% Tax**. Your yield will jump from 41% to ~75%+ instantly.
+
+---
+
 ## 🚀 Recommended Route Summary
 
 | Activity | Start System | End System | Item to Haul | Risk |
