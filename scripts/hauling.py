@@ -16,10 +16,15 @@ STATIONS = {
 
 # ITEM CONFIG
 VOLUMES = {
+    # Ores
     "28432": 0.15, "28429": 0.19, "28422": 0.16, "28421": 0.15, "28399": 0.12, "28394": 0.12, "28416": 0.20,
-    "2486": 5.0, "2454": 5.0, "2203": 5.0, "2470": 5.0, "218": 0.01, "230": 0.01, "206": 0.01, "195": 0.1,
-    "193": 0.1, "196": 0.1, "194": 0.1, "4051": 5.0, "4247": 5.0, "4312": 5.0, "4246": 5.0, "520": 5.0,
-    "11299": 5.0, "380": 10.0, "434": 5.0, "28668": 0.01, "11578": 10.0, "524": 5.0, "33477": 100.0, "33474": 50.0
+    # Drones
+    "2486": 5.0, "2454": 5.0, "2203": 5.0, "2470": 5.0,
+    # Ammo
+    "218": 0.01, "230": 0.01, "206": 0.01, "195": 0.1, "193": 0.1, "196": 0.1, "194": 0.1,
+    # Fuel & Modules
+    "4051": 5.0, "4247": 5.0, "4312": 5.0, "4246": 5.0, "520": 5.0, "11299": 5.0, "380": 10.0, "434": 5.0,
+    "28668": 0.01, "11578": 10.0, "524": 5.0, "33477": 100.0, "33474": 50.0
 }
 
 ITEMS = {
@@ -32,58 +37,64 @@ ITEMS = {
     "Nova Heavy Missile": "193", "Damage Control I": "520", "1600mm Steel Plates I": "11299"
 }
 
-def fetch_station(sid, tids):
-    url = f"https://market.fuzzwork.co.uk/aggregates/?station={sid}&types={','.join(set(tids))}"
+def fetch_tycoon_stats(region_id, type_id):
+    """Fetches verified regional stats from EVE Tycoon."""
+    url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Volume-Expander'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Tycoon-v3'})
         with urllib.request.urlopen(req, context=ctx) as r: return json.loads(r.read().decode())
     except: return {}
 
 def calculate_spreads():
     cargo_max = 35000
     tax = 0.036
-    item_ids = list(ITEMS.values())
     
-    jita_st = fetch_station(STATIONS["Jita IV-4"]["id"], item_ids)
-    hub_data = {h: fetch_station(STATIONS[h]["id"], item_ids) for h in STATIONS if h != "Jita IV-4"}
+    # 1. Fetch Jita Regional Stats (Benchmark)
+    jita_rid = STATIONS["Jita IV-4"]["region_id"]
+    jita_mkt = {name: fetch_tycoon_stats(jita_rid, tid) for name, tid in ITEMS.items()}
     
-    summary = "# 🚀 EVE Arbitrage Daily Briefing (Depth-Optimized)\n"
+    summary = "# 🚀 EVE Arbitrage Daily Briefing (Tycoon Verified)\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "### 🛡️ Trade Logic: Verification against Market Depth\n"
-    summary += "- **Source:** Station-specific Price Aggregates (Fixes regional averaging traps).\n"
-    summary += "- **Volume:** Only recommends items with verified station demand to ensure liquidity.\n\n"
+    summary += "### 🛡️ Logistics Policy: EVE Tycoon Verified\n"
+    summary += "- **Backend:** EVE Tycoon Regional API (Weighted Averages + Outlier Filtering).\n"
+    summary += "- **Volume:** Recommendations capped at **20% of regional buy-order depth**.\n\n"
     
-    summary += "## 🚛 Top 3 Verified Haul Runs (Round-Trip)\n"
+    summary += "## 🚛 Top 3 High-Volume Trade Loops\n"
     
     all_loops = []
-    for h_key, hub_prices in hub_data.items():
+    for h_key, hub_info in STATIONS.items():
+        if h_key == "Jita IV-4": continue
+        reg_id = hub_info["region_id"]
+        
+        hub_mkt = {name: fetch_tycoon_stats(reg_id, tid) for name, tid in ITEMS.items()}
+        
         out_opts = [] 
         in_opts = []  
         for name, tid in ITEMS.items():
-            # OUTBOUND: Buy Jita Sell Min -> Sell Hub Buy Max
-            j_cost = float(jita_st.get(tid, {}).get("sell", {}).get("min", 0))
-            h_gain = float(hub_prices.get(tid, {}).get("buy", {}).get("max", 0))
-            h_demand = float(hub_prices.get(tid, {}).get("buy", {}).get("volume", 0))
+            # OUTBOUND: Buy Jita Sell -> Sell Hub Buy
+            j_cost = float(jita_mkt[name].get("minSell", 0))
+            h_gain = float(hub_mkt[name].get("maxBuy", 0))
+            h_demand = float(hub_mkt[name].get("buyVolume", 0))
             
             if j_cost > 0 and h_gain > 0 and h_demand > 5:
                 net_p = (h_gain * (1-tax)) - j_cost
                 if net_p > 0:
-                    u = int(min(cargo_max / VOLUMES[tid], h_demand * 0.3))
+                    u = int(min(cargo_max / VOLUMES[tid], h_demand * 0.2))
                     if u > 0: out_opts.append({"name": name, "u": u, "p": net_p * u})
 
-            # INBOUND: Buy Hub Sell Min -> Sell Jita Buy Max
-            h_cost = float(hub_prices.get(tid, {}).get("sell", {}).get("min", 0))
-            j_gain = float(jita_st.get(tid, {}).get("buy", {}).get("max", 0))
-            j_demand = float(jita_st.get(tid, {}).get("buy", {}).get("volume", 0))
+            # INBOUND: Buy Hub Sell -> Sell Jita Buy
+            h_cost = float(hub_mkt[name].get("minSell", 0))
+            j_gain = float(jita_mkt[name].get("maxBuy", 0))
+            j_demand = float(jita_mkt[name].get("buyVolume", 0))
             
             if h_cost > 0 and j_gain > 0 and j_demand > 5:
                 net_p = (j_gain * (1-tax)) - h_cost
                 if net_p > 0:
-                    u = int(min(cargo_max / VOLUMES[tid], j_demand * 0.3))
+                    u = int(min(cargo_max / VOLUMES[tid], j_demand * 0.2))
                     if u > 0: in_opts.append({"name": name, "u": u, "p": net_p * u})
 
-        # Sort options to show variety in report
+        # Sort options
         out_opts.sort(key=lambda x: x['p'], reverse=True)
         in_opts.sort(key=lambda x: x['p'], reverse=True)
         
@@ -97,40 +108,23 @@ def calculate_spreads():
         summary += f"### {i}. The {r['key']} Loop\n"
         summary += "| Leg | Top Recommended Item | Quantity | Net Profit |\n"
         summary += "| :--- | :--- | :--- | :--- |\n"
-        
         if r['out']:
             o = r['out'][0]
             summary += f"| **OUT** (Jita -> {r['key']}) | {o['name']} | {o['u']:,} | **{o['p']/1e6:.1f}M** |\n"
-        else:
-            summary += f"| **OUT** | No profitable haul found. | - | 0 |\n"
-            
         if r['in']:
             inner = r['in'][0]
             summary += f"| **IN** ({r['key']} -> Jita) | {inner['name']} | {inner['u']:,} | **{inner['p']/1e6:.1f}M** |\n"
-        else:
-            summary += f"| **IN** | No profitable ore/goods found. | - | 0 |\n"
-            
         summary += f"**Predicted Round-Trip Profit: {r['total']/1e6:,.1f} Million ISK**\n\n"
 
-    # NEW SECTION: Hub Liquidity Map
-    summary += "## 🔥 Hub Liquidity & Velocity (Top Scanned Items)\n"
-    summary += "| Station | Top Sell Vol | Top Buy Vol | Market Health |\n| :--- | :--- | :--- | :--- |\n"
-    for k, data in hub_data.items():
-        vols = [float(data.get(tid, {}).get("sell", {}).get("volume", 0)) for tid in item_ids]
-        b_vols = [float(data.get(tid, {}).get("buy", {}).get("volume", 0)) for tid in item_ids]
-        max_v = max(vols) if vols else 0
-        max_b = max(b_vols) if b_vols else 0
-        summary += f"| {k} | {max_v/1e6:.1f}M | {max_b/1e6:.1f}M | {'Active' if max_b > 1000 else 'Thin'} |\n"
-
     summary += "\n## ℹ️ Station Reference Guide\n"
-    summary += "| Hub Key | Full Station Name (Set Destination Here) |\n| :--- | :--- |\n"
+    summary += "| Hub | Full Name |\n| :--- | :--- |\n"
     for k, v in STATIONS.items():
         summary += f"| **{k}** | {v['name']} |\n"
 
-    summary += "\n\n--- \n*Generated by the Shrimp Market Bot. Includes belt ores and anomaly/escalation types.* 🍤"
+    summary += "\n\n--- \n*Generated by the Shrimp Market Bot via EVE Tycoon Regional API.* 🍤"
     return summary
 
 if __name__ == "__main__":
     report_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "HAULING.md")
     with open(report_path, "w") as f: f.write(calculate_spreads())
-    print("Market Refresh Complete with Liquidity Map.")
+    print("Market Refresh Complete with Tycoon API.")
