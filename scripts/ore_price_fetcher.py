@@ -33,8 +33,8 @@ def fetch(sid, tids):
     except: return {}
 
 def calculate_spreads():
-    cargo = 50000
-    tax = 0.036 # Assume competitive 3.6% total fees for expert pilot
+    cargo_max = 50000
+    tax = 0.036
     all_ids = list(Ores.values()) + list(Goods.values())
     
     jita = fetch(STATIONS["Jita IV-4"]["id"], all_ids)
@@ -43,63 +43,67 @@ def calculate_spreads():
     summary = "# 🚀 EVE Arbitrage Daily Report\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
     summary += "### 🚛 Daily Trade Run (Optimized 50,000 m³)\n"
-    summary += "*Logic: Buy from Jita Sell orders, Haul, List as Hub Sell orders. Profits include 3.6% fee deduction.*\n\n"
+    summary += "*Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*\n\n"
 
     runs = []
     for h_key, h_mkt in hub_data.items():
-        # Jita -> Hub
+        # OUT (Jita -> Hub)
         best_out = None
         best_out_p = 0
         for name, tid in Goods.items():
             j_cost = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
-            h_price = float(h_mkt.get(tid, {}).get("sell", {}).get("min", 0)) # Listing price
-            if j_cost > 0 and h_price > j_cost:
+            h_price = float(h_mkt.get(tid, {}).get("sell", {}).get("min", 0))
+            h_vol = float(h_mkt.get(tid, {}).get("sell", {}).get("volume", 0))
+            
+            if j_cost > 0 and h_price > j_cost and h_vol > 50:
                 net_p = (h_price * (1-tax)) - j_cost
                 if net_p > 0:
-                    u = int(cargo / VOLUMES[tid])
+                    u = int(min(cargo_max / VOLUMES[tid], h_vol * 0.2)) # Cap at 20% of hub stock
+                    if u < 1: continue
                     p = net_p * u
                     if p > best_out_p:
                         best_out_p = p
-                        best_out = {"name": name, "u": u, "profit": p}
+                        best_out = {"name": name, "u": u, "profit": p, "cost": j_cost * u}
 
-        # Hub -> Jita
+        # IN (Hub -> Jita)
         best_in = None
         best_in_p = 0
         for name, tid in Ores.items():
             h_cost = float(h_mkt.get(tid, {}).get("sell", {}).get("min", 0))
-            j_price = float(jita.get(tid, {}).get("sell", {}).get("min", 0)) # Listing price in Jita
-            if h_cost > 0 and j_price > h_cost:
+            j_price = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
+            j_vol = float(jita.get(tid, {}).get("sell", {}).get("volume", 0))
+            
+            if h_cost > 0 and j_price > h_cost and j_vol > 100:
                 net_p = (j_price * (1-tax)) - h_cost
                 if net_p > 0:
-                    u = int(cargo / VOLUMES[tid])
+                    u = int(min(cargo_max / VOLUMES[tid], j_vol * 0.2))
+                    if u < 1: continue
                     p = net_p * u
                     if p > best_in_p:
                         best_in_p = p
-                        best_in = {"name": name, "u": u, "profit": p}
+                        best_in = {"name": name, "u": u, "profit": p, "cost": h_cost * u}
         
-        if best_out_p > 0 or best_in_p > 0:
-            runs.append({"hub": h_key, "out": best_out, "in": best_in, "total": best_out_p + best_in_p})
+        total = best_out_p + best_in_p
+        if total > 0:
+            runs.append({"hub": h_key, "out": best_out, "in": best_in, "total": total})
 
     runs.sort(key=lambda x: x['total'], reverse=True)
+    if not runs: summary += "No profitable loop found with current market depth. Check back tomorrow.\n\n"
     for r in runs[:3]:
         summary += f"#### The {STATIONS[r['hub']]['region']} Loop ({r['hub']})\n"
-        if r['out']: summary += f"- **OUT:** Buy **{r['out']['u']:,} x {r['out']['name']}** (Jita) -> Profit **{r['out']['profit']/1e6:.1f}M**\n"
-        if r['in']: summary += f"- **IN:** Buy **{r['in']['u']:,} x {r['in']['name']}** ({r['hub']}) -> Profit **{r['in']['profit']/1e6:.1f}M**\n"
-        summary += f"**Predicted Profit: {r['total']/1e6:,.1f} Million ISK**\n\n"
+        if r['out']: summary += f"- **OUT:** Buy **{r['out']['u']:,} x {r['out']['name']}** (Jita) -> Est. Profit: **{r['out']['profit']/1e6:.1f}M** (Invest: {r['out']['cost']/1e6:.1f}M)\n"
+        if r['in']: summary += f"- **IN:** Buy **{r['in']['u']:,} x {r['in']['name']}** ({r['hub']}) -> Est. Profit: **{r['in']['profit']/1e6:.1f}M** (Invest: {r['in']['cost']/1e6:.1f}M)\n"
+        summary += f"**Predicted Round-Trip Profit: {r['total']/1e6:,.1f} Million ISK**\n\n"
 
-    summary += "\n## 📊 Real-Time Market Check\n"
-    summary += "| Item | Region | Hub Price | Jita Price | Spread % |\n| :--- | :--- | :--- | :--- | :--- |\n"
+    summary += "\n## 📊 Real-Time Market Check (Self-Correction)\n"
+    summary += "| Item | Region | Hub Price (Min Sell) | Jita Price (Min Sell) | Spread % |\n| :--- | :--- | :--- | :--- | :--- |\n"
     for h_key, h_mkt in hub_data.items():
         reg = STATIONS[h_key]["region"]
-        # Warrior Check
-        w_id = Goods["Warrior I"]
-        w_j = float(jita.get(w_id, {}).get("sell", {}).get("min", 0))
-        w_h = float(h_mkt.get(w_id, {}).get("sell", {}).get("min", 0))
+        w_j = float(jita.get("2486", {}).get("sell", {}).get("min", 0))
+        w_h = float(h_mkt.get("2486", {}).get("sell", {}).get("min", 0))
         if w_j > 0 and w_h > 0: summary += f"| Warrior I | {reg} | {w_h:,.0f} | {w_j:,.0f} | {((w_h-w_j)/w_j)*100:.1f}% |\n"
-        # Omber Check
-        o_id = Ores["Compressed Omber"]
-        o_j = float(jita.get(o_id, {}).get("sell", {}).get("min", 0))
-        o_h = float(h_mkt.get(o_id, {}).get("sell", {}).get("min", 0))
+        o_j = float(jita.get("28399", {}).get("sell", {}).get("min", 0))
+        o_h = float(h_mkt.get("28399", {}).get("sell", {}).get("min", 0))
         if o_j > 0 and o_h > 0: summary += f"| Comp. Omber | {reg} | {o_h:,.0f} | {o_j:,.0f} | {((o_j-o_h)/o_h)*100:.1f}% |\n"
 
     summary += "\n## ℹ️ Reference\n"
@@ -109,4 +113,4 @@ def calculate_spreads():
 if __name__ == "__main__":
     report_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "MARKET_DATA.md")
     with open(report_path, "w") as f: f.write(calculate_spreads())
-    print("Corrections applied. Verified IDs.")
+    print("Market logic corrected. Depth limits re-applied.")
