@@ -25,14 +25,13 @@ STATIONS = {
 
 VOLUMES = {
     "28432": 0.15, "28429": 0.19, "28422": 0.16, "28421": 0.15, "28399": 0.12, "28394": 0.12, 
-    "28416": 0.20, "195": 0.1, "193": 0.1, "28668": 0.01, "2454": 5.0, "2486": 5.0, "2203": 5.0
+    "28416": 0.20, "28668": 0.01, "2454": 5.0, "2486": 5.0, "2203": 5.0, "195": 0.1
 }
 
 Ores = {"Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422", "Compressed Omber": "28399", "Compressed Gneiss": "28416"}
 Goods = {"Nanite Repair Paste": "28668", "Warrior I": "2486", "Hobgoblin I": "2454", "Scourge Heavy Missile": "195", "Acolyte I": "2203"}
 
 def fetch_tycoon_stats(region_id, type_id):
-    """Fetches real-time price info from EVE Tycoon API."""
     url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
@@ -45,34 +44,30 @@ def calculate_spreads():
     cargo_max = 35000
     tax = 0.036
     
-    # 1. Fetch Jita (The Forge) prices
-    jita_market = {}
-    for name, tid in {**Ores, **Goods}.items():
-        jita_market[tid] = fetch_tycoon_stats(REGIONS["The Forge"], tid)
+    jita_market = {name: fetch_tycoon_stats(REGIONS["The Forge"], tid) for name, tid in {**Ores, **Goods}.items()}
     
-    summary = "# 🚀 EVE Arbitrage Daily Report (Tycoon Verified)\n"
+    summary = "# 🚀 EVE Arbitrage Daily Report (Verified)\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "### 💎 Market Data Source: EVE Tycoon API\n"
-    summary += "Utilizing outlier-filtered average prices for realistic calculations.\n\n"
+    summary += "### 💎 Market Data: EVE Tycoon API (Regional)\n"
+    summary += "Prices are fetched per region to avoid station-only traps.\n\n"
     
     summary += "### 🚛 Daily Trade Run (Optimized 35,000 m³)\n"
-    summary += "*Logic: Buy from Jita Sells, Sell at Hub buys (Immediate Liquidity). Fees: 3.6%.*\n\n"
+    summary += "*Logic: Buy at Region Sell Average, Sell at Region Buy Average (Immediate Liquidity).*\n\n"
 
     runs = []
     for h_key, hub in STATIONS.items():
         if h_key == "Jita IV-4": continue
         reg_id = REGIONS[hub["region"]]
+        hub_market = {name: fetch_tycoon_stats(reg_id, tid) for name, tid in {**Ores, **Goods}.items()}
         
-        # Jita -> Hub (Immediate Dump into Buy Orders)
+        # Jita -> Hub
         best_out = None
         best_out_p = 0
         for name, tid in Goods.items():
-            jita_sell = float(jita_market[tid].get("minSell", 0)) if jita_market[tid].get("minSell") else 0
-            hub_stats = fetch_tycoon_stats(reg_id, tid)
-            hub_buy = float(hub_stats.get("maxBuy", 0)) if hub_stats.get("maxBuy") else 0
-            
-            if jita_sell > 0 and hub_buy > jita_sell:
-                net_p = (hub_buy * (1-tax)) - jita_sell
+            j_cost = float(jita_market[name].get("minSell", 0))
+            h_gain = float(hub_market[name].get("maxBuy", 0))
+            if j_cost > 0 and h_gain > 0:
+                net_p = (h_gain * (1-tax)) - j_cost
                 if net_p > 0:
                     u = int(cargo_max / VOLUMES[tid])
                     p = net_p * u
@@ -80,16 +75,14 @@ def calculate_spreads():
                         best_out_p = p
                         best_out = {"name": name, "u": u, "profit": p}
 
-        # Hub -> Jita (Immediate Dump into Jita Buy Orders)
+        # Hub -> Jita
         best_in = None
         best_in_p = 0
         for name, tid in Ores.items():
-            hub_stats = fetch_tycoon_stats(reg_id, tid)
-            hub_sell = float(hub_stats.get("minSell", 0)) if hub_stats.get("minSell") else 0
-            jita_buy = float(jita_market[tid].get("maxBuy", 0)) if jita_market[tid].get("maxBuy") else 0
-            
-            if hub_sell > 0 and jita_buy > hub_sell:
-                net_p = (jita_buy * (1-tax)) - hub_sell
+            h_cost = float(hub_market[name].get("minSell", 0))
+            j_gain = float(jita_market[name].get("maxBuy", 0))
+            if h_cost > 0 and j_gain > 0:
+                net_p = (j_gain * (1-tax)) - h_cost
                 if net_p > 0:
                     u = int(cargo_max / VOLUMES[tid])
                     p = net_p * u
@@ -98,19 +91,28 @@ def calculate_spreads():
                         best_in = {"name": name, "u": u, "profit": p}
         
         if best_out_p > 0 or best_in_p > 0:
-            runs.append({"hub": h_key, "out": best_out, "in": best_in, "total": best_out_p + best_in_p})
+            runs.append({"hub": hub["region"], "key": h_key, "out": best_out, "in": best_in, "total": best_out_p + best_in_p})
 
     runs.sort(key=lambda x: x['total'], reverse=True)
-    if not runs: summary += "No immediate profit loops found. Spreads are currently tight or negative.\n\n"
+    if not runs: summary += "No immediate arbitrage loops found today. Markets are tightly held.\n\n"
     for r in runs[:3]:
-        summary += f"#### The {STATIONS[r['hub']]['region']} Loop ({r['hub']})\n"
+        summary += f"#### The {r['hub']} Loop ({r['key']})\n"
         if r['out']: summary += f"1. **OUT:** Buy **{r['out']['u']:,} x {r['out']['name']}** (Jita) -> Profit: **{r['out']['profit']/1e6:.1f}M**\n"
         else: summary += "1. **OUT:** No profitable outbound goods.\n"
-        if r['in']: summary += f"2. **IN:** Buy **{r['in']['u']:,} x {r['in']['name']}** ({r['hub']}) -> Profit: **{r['in']['profit']/1e6:.1f}M**\n"
+        if r['in']: summary += f"2. **IN:** Buy **{r['in']['u']:,} x {r['in']['name']}** (Hub) -> Profit: **{r['in']['profit']/1e6:.1f}M**\n"
         else: summary += "2. **IN:** No profitable return ores.\n"
         summary += f"**Predicted Round-Trip Profit: {r['total']/1e6:.1f} Million ISK**\n\n"
 
-    summary += "\n## ℹ️ Station Reference\n"
+    summary += "\n## 📊 Real-Time Reality Check (API Verified)\n"
+    summary += "| Item | Region | Hub Sell | Hub Buy | Jita Sell | Jita Buy |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
+    for h_name in ["Domain", "Sinq Laison", "The Forge"]:
+        rid = REGIONS[h_name]
+        for name, tid in [("Warrior I", "2486"), ("Nanite Repair Paste", "28668")]:
+            m = fetch_tycoon_stats(rid, tid)
+            j = fetch_tycoon_stats(REGIONS["The Forge"], tid)
+            summary += f"| {name} | {h_name} | {float(m.get('minSell',0)):,.0f} | {float(m.get('maxBuy',0)):,.0f} | {float(j.get('minSell',0)):,.0f} | {float(j.get('maxBuy',0)):,.0f} |\n"
+
+    summary += "\n## ℹ️ Reference\n"
     for k, v in STATIONS.items(): summary += f"**{k}**: {v['name']} ({v['region']})\n\n"
     return summary
 
@@ -118,4 +120,4 @@ if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     report_path = os.path.join(base_dir, "MARKET_DATA.md")
     with open(report_path, "w") as f: f.write(calculate_spreads())
-    print("Report updated using EVE Tycoon API.")
+    print("Report verified with Tycoon API.")

@@ -1,11 +1,11 @@
-# 🚀 EVE Arbitrage Daily Report (Tycoon Verified)
-Last updated: 2026-02-08 15:04:50 UTC
+# 🚀 EVE Arbitrage Daily Report (Verified)
+Last updated: 2026-02-08 15:05:33 UTC
 
-### 💎 Market Data Source: EVE Tycoon API
-Utilizing outlier-filtered average prices for realistic calculations.
+### 💎 Market Data: EVE Tycoon API (Regional)
+Prices are fetched per region to avoid station-only traps.
 
 ### 🚛 Daily Trade Run (Optimized 35,000 m³)
-*Logic: Buy from Jita Sells, Sell at Hub buys (Immediate Liquidity). Fees: 3.6%.*
+*Logic: Buy at Region Sell Average, Sell at Region Buy Average (Immediate Liquidity).*
 
 #### The Domain Loop (Amarr VIII)
 1. **OUT:** Buy **7,000 x Hobgoblin I** (Jita) -> Profit: **0.2M**
@@ -13,7 +13,17 @@ Utilizing outlier-filtered average prices for realistic calculations.
 **Predicted Round-Trip Profit: 0.2 Million ISK**
 
 
-## ℹ️ Station Reference
+## 📊 Real-Time Reality Check (API Verified)
+| Item | Region | Hub Sell | Hub Buy | Jita Sell | Jita Buy |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Warrior I | Domain | 7,100 | 4,060 | 10,350 | 8,953 |
+| Nanite Repair Paste | Domain | 27,280 | 23,420 | 24,970 | 23,370 |
+| Warrior I | Sinq Laison | 8,000 | 3,045 | 10,350 | 8,953 |
+| Nanite Repair Paste | Sinq Laison | 23,000 | 21,890 | 24,970 | 23,370 |
+| Warrior I | The Forge | 10,350 | 8,953 | 10,350 | 8,953 |
+| Nanite Repair Paste | The Forge | 24,970 | 23,370 | 24,970 | 23,370 |
+
+## ℹ️ Reference
 **Jita IV-4**: Jita IV - Moon 4 - Caldari Navy Assembly Plant (The Forge)
 
 **Amarr VIII**: Amarr VIII (Orbis) - Emperor Family Academy (Domain)
