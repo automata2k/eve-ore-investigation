@@ -2,6 +2,7 @@ import urllib.request
 import json
 import ssl
 import os
+import time
 from datetime import datetime
 
 # REGION CONFIG
@@ -24,15 +25,16 @@ STATION_NAMES = {
     "Genesis (Apanake)": "Apanake IV - Moon 4 - Sisters of EVE Bureau",
 }
 
-# Physical volumes (m3)
+# Physical volumes (m3) - Updated for Modern 1:1 Compression
 VOLUMES = {
     "2486": 5.0, "2454": 5.0, "2203": 5.0, "2470": 5.0, "218": 0.01, "230": 0.01, "195": 0.1,
     "193": 0.1, "194": 0.1, "4051": 5.0, "4247": 5.0, "4312": 5.0, "4246": 5.0, "520": 5.0,
     "11299": 5.0, "380": 10.0, "28668": 0.01, "33477": 100.0, "33474": 50.0,
-    "28432": 0.15, "28429": 0.19, "28422": 0.16, "28421": 0.15, "28399": 0.12, "28394": 0.12, "28416": 0.20
+    "62534": 0.001, "62530": 0.0015, "62524": 0.003, "62522": 0.0035, "62518": 0.006, "62536": 0.012,
+    "62552": 0.05
 }
 
-# The High-Volume Scan Pool
+# The High-Volume Scan Pool - Updated with Modern TypeIDs
 SCAN_POOL = {
     "Warrior I": "2486", "Hobgoblin I": "2454", "Acolyte I": "2203", "Hornet I": "2470",
     "Antimatter Charge M": "218", "Antimatter Charge S": "230", "Scourge Heavy Missile": "195",
@@ -40,12 +42,13 @@ SCAN_POOL = {
     "Oxygen Fuel Block": "4247", "Helium Fuel Block": "4312", "Hydrogen Fuel Block": "4246",
     "Nanite Repair Paste": "28668", "Damage Control I": "520", "1600mm Steel Plates I": "11299",
     "Medium Shield Extender I": "380", "Mobile Tractor Unit": "33477", "Mobile Depot": "33474",
-    "Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422",
-    "Compressed Plagioclase": "28421", "Compressed Omber": "28399", "Compressed Kernite": "28394",
-    "Compressed Gneiss": "28416"
+    "Compressed Veldspar": "62534", "Compressed Scordite": "62530", "Compressed Pyroxeres": "62524",
+    "Compressed Plagioclase": "62522", "Compressed Omber": "62518", "Compressed Kernite": "62536",
+    "Compressed Gneiss": "62552"
 }
 
 def fetch_tycoon_stats(region_id, type_id):
+    time.sleep(0.2) # Avoid rate limiting
     url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
@@ -56,10 +59,11 @@ def fetch_tycoon_stats(region_id, type_id):
 
 def calculate_spreads():
     cargo_max = 35000
-    tax = 0.036
+    tax = 0.08 # Conservative 8% tax/fee estimate
     
     # 1. Fetch Jita Region Averages (5% filtered)
     jita_rid = REGIONS["The Forge (Jita)"]
+    print("Fetching Jita market data...")
     jita_market = {name: fetch_tycoon_stats(jita_rid, tid) for name, tid in SCAN_POOL.items()}
     
     summary = "# 🚀 EVE Arbitrage Daily Report (Final Corrected Logic)\n"
@@ -73,14 +77,21 @@ def calculate_spreads():
     all_loops = []
     for hub_name, reg_id in REGIONS.items():
         if hub_name == "The Forge (Jita)": continue
+        print(f"Analyzing {hub_name}...")
         
+        # Cache hub stats to avoid double-fetching
+        hub_market = {}
+        for name, tid in SCAN_POOL.items():
+            hub_market[name] = fetch_tycoon_stats(reg_id, tid)
+
         # outbound Leg (Jita -> Hub)
         o_opts = []
         for name, tid in SCAN_POOL.items():
             if tid not in VOLUMES: continue
+            h_stats = hub_market[name]
             j_cost = float(jita_market[name].get("sellAvgFivePercent", 0))
-            h_gain = float(fetch_tycoon_stats(reg_id, tid).get("buyAvgFivePercent", 0))
-            h_vol = float(fetch_tycoon_stats(reg_id, tid).get("buyVolume", 0))
+            h_gain = float(h_stats.get("buyAvgFivePercent", 0))
+            h_vol = float(h_stats.get("buyVolume", 0))
             
             if j_cost > 0 and h_gain > 0 and h_vol > 500:
                 net_p = (h_gain * (1 - tax)) - j_cost
@@ -92,7 +103,7 @@ def calculate_spreads():
         i_opts = []
         for name, tid in SCAN_POOL.items():
             if tid not in VOLUMES: continue
-            h_stats = fetch_tycoon_stats(reg_id, tid)
+            h_stats = hub_market[name]
             h_cost = float(h_stats.get("sellAvgFivePercent", 0))
             j_gain = float(jita_market[name].get("buyAvgFivePercent", 0))
             j_vol = float(jita_market[name].get("buyVolume", 0))
