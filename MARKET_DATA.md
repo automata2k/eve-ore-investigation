@@ -1,7 +1,7 @@
 # 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:43:53 UTC
+Last updated: 2026-02-08 14:44:07 UTC
 
-### 🚛 Daily Trade Run (Optimized 50,000 m³)
+### 🚛 Daily Trade Run (Optimized 35,000 m³)
 *Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*
 
 #### The Domain Loop (Amarr VIII)

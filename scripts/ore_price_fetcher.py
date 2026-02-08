@@ -42,7 +42,7 @@ def calculate_spreads():
 
     summary = "# 🚀 EVE Arbitrage Daily Report\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "### 🚛 Daily Trade Run (Optimized 50,000 m³)\n"
+    summary += f"### 🚛 Daily Trade Run (Optimized {cargo_max:,} m³)\n"
     summary += "*Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*\n\n"
 
     runs = []
