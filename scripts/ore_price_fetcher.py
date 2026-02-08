@@ -33,7 +33,7 @@ def fetch(sid, tids):
     except: return {}
 
 def calculate_spreads():
-    cargo_max = 50000
+    cargo_max = 35000
     tax = 0.036
     all_ids = list(Ores.values()) + list(Goods.values())
     

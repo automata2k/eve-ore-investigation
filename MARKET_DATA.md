@@ -1,30 +1,30 @@
 # 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:41:23 UTC
+Last updated: 2026-02-08 14:43:53 UTC
 
 ### 🚛 Daily Trade Run (Optimized 50,000 m³)
 *Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*
 
 #### The Domain Loop (Amarr VIII)
-- **OUT:** Buy **60,576 x Nanite Repair Paste** (Jita) -> Est. Profit: **88.1M** (Invest: 1512.0M)
-- **IN:** Buy **333,333 x Compressed Veldspar** (Amarr VIII) -> Est. Profit: **78.5M** (Invest: 433.7M)
-**Predicted Round-Trip Profit: 166.6 Million ISK**
+- **OUT:** Buy **61,683 x Nanite Repair Paste** (Jita) -> Est. Profit: **86.1M** (Invest: 1540.2M)
+- **IN:** Buy **233,333 x Compressed Veldspar** (Amarr VIII) -> Est. Profit: **55.0M** (Invest: 303.6M)
+**Predicted Round-Trip Profit: 141.0 Million ISK**
 
 #### The Sinq Laison Loop (Dodixie IX)
 - **OUT:** Buy **2,037 x Acolyte I** (Jita) -> Est. Profit: **9.7M** (Invest: 7.9M)
-- **IN:** Buy **333,333 x Compressed Veldspar** (Dodixie IX) -> Est. Profit: **11.9M** (Invest: 500.3M)
-**Predicted Round-Trip Profit: 21.6 Million ISK**
+- **IN:** Buy **233,333 x Compressed Veldspar** (Dodixie IX) -> Est. Profit: **8.3M** (Invest: 350.2M)
+**Predicted Round-Trip Profit: 18.1 Million ISK**
 
 #### The The Forge Loop (Osmon II)
-- **OUT:** Buy **1,412 x Nanite Repair Paste** (Jita) -> Est. Profit: **12.4M** (Invest: 35.2M)
+- **OUT:** Buy **1,412 x Nanite Repair Paste** (Jita) -> Est. Profit: **12.4M** (Invest: 35.3M)
 **Predicted Round-Trip Profit: 12.4 Million ISK**
 
 
 ## 📊 Real-Time Market Check (Self-Correction)
 | Item | Region | Hub Price (Min Sell) | Jita Price (Min Sell) | Spread % |
 | :--- | :--- | :--- | :--- | :--- |
-| Warrior I | Domain | 7,400 | 10,000 | -26.0% |
-| Warrior I | Sinq Laison | 9,000 | 10,000 | -10.0% |
-| Warrior I | The Forge | 29,900 | 10,000 | 199.0% |
+| Warrior I | Domain | 7,400 | 10,350 | -28.5% |
+| Warrior I | Sinq Laison | 9,100 | 10,350 | -12.1% |
+| Warrior I | The Forge | 29,900 | 10,350 | 188.9% |
 
 ## ℹ️ Reference
 **Jita IV-4**: Jita IV - Moon 4 - Caldari Navy Assembly Plant (The Forge)
