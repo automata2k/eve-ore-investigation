@@ -1,25 +1,26 @@
 # 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:41:01 UTC
+Last updated: 2026-02-08 14:41:23 UTC
 
 ### 🚛 Daily Trade Run (Optimized 50,000 m³)
-*Logic: Buy from Jita Sell orders, Haul, List as Hub Sell orders. Profits include 3.6% fee deduction.*
-
-#### The The Forge Loop (Osmon II)
-- **OUT:** Buy **5,000,000 x Nanite Repair Paste** (Jita) -> Profit **43851.8M**
-**Predicted Profit: 43,851.8 Million ISK**
+*Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*
 
 #### The Domain Loop (Amarr VIII)
-- **OUT:** Buy **5,000,000 x Nanite Repair Paste** (Jita) -> Profit **7268.0M**
-- **IN:** Buy **250,000 x Compressed Gneiss** (Amarr VIII) -> Profit **2058.1M**
-**Predicted Profit: 9,326.1 Million ISK**
+- **OUT:** Buy **60,576 x Nanite Repair Paste** (Jita) -> Est. Profit: **88.1M** (Invest: 1512.0M)
+- **IN:** Buy **333,333 x Compressed Veldspar** (Amarr VIII) -> Est. Profit: **78.5M** (Invest: 433.7M)
+**Predicted Round-Trip Profit: 166.6 Million ISK**
 
-#### The Genesis Loop (Apanake IV)
-- **OUT:** Buy **10,000 x Acolyte I** (Jita) -> Profit **2756.7M**
-**Predicted Profit: 2,756.7 Million ISK**
+#### The Sinq Laison Loop (Dodixie IX)
+- **OUT:** Buy **2,037 x Acolyte I** (Jita) -> Est. Profit: **9.7M** (Invest: 7.9M)
+- **IN:** Buy **333,333 x Compressed Veldspar** (Dodixie IX) -> Est. Profit: **11.9M** (Invest: 500.3M)
+**Predicted Round-Trip Profit: 21.6 Million ISK**
+
+#### The The Forge Loop (Osmon II)
+- **OUT:** Buy **1,412 x Nanite Repair Paste** (Jita) -> Est. Profit: **12.4M** (Invest: 35.2M)
+**Predicted Round-Trip Profit: 12.4 Million ISK**
 
 
-## 📊 Real-Time Market Check
-| Item | Region | Hub Price | Jita Price | Spread % |
+## 📊 Real-Time Market Check (Self-Correction)
+| Item | Region | Hub Price (Min Sell) | Jita Price (Min Sell) | Spread % |
 | :--- | :--- | :--- | :--- | :--- |
 | Warrior I | Domain | 7,400 | 10,000 | -26.0% |
 | Warrior I | Sinq Laison | 9,000 | 10,000 | -10.0% |
