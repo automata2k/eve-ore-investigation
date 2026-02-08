@@ -25,16 +25,16 @@ STATION_NAMES = {
     "Genesis (Apanake)": "Apanake IV - Moon 4 - Sisters of EVE Bureau",
 }
 
-# Physical volumes (m3) - Updated for Modern 1:1 Compression
+# Physical volumes (m3) - Updated for Equinox 1:1 Compression
 VOLUMES = {
     "2486": 5.0, "2454": 5.0, "2203": 5.0, "2470": 5.0, "218": 0.01, "230": 0.01, "195": 0.1,
     "193": 0.1, "194": 0.1, "4051": 5.0, "4247": 5.0, "4312": 5.0, "4246": 5.0, "520": 5.0,
     "11299": 5.0, "380": 10.0, "28668": 0.01, "33477": 100.0, "33474": 50.0,
-    "62534": 0.001, "62530": 0.0015, "62524": 0.003, "62522": 0.0035, "62518": 0.006, "62536": 0.012,
-    "62552": 0.05
+    "62516": 0.001, "62520": 0.0015, "62524": 0.003, "62528": 0.0035, "62532": 0.006, "62536": 0.012,
+    "62540": 0.02, "62544": 0.03, "62548": 0.03, "62552": 0.05
 }
 
-# The High-Volume Scan Pool - Updated with Modern TypeIDs
+# The High-Volume Scan Pool - Updated with Modern Equinox IDs
 SCAN_POOL = {
     "Warrior I": "2486", "Hobgoblin I": "2454", "Acolyte I": "2203", "Hornet I": "2470",
     "Antimatter Charge M": "218", "Antimatter Charge S": "230", "Scourge Heavy Missile": "195",
@@ -42,8 +42,9 @@ SCAN_POOL = {
     "Oxygen Fuel Block": "4247", "Helium Fuel Block": "4312", "Hydrogen Fuel Block": "4246",
     "Nanite Repair Paste": "28668", "Damage Control I": "520", "1600mm Steel Plates I": "11299",
     "Medium Shield Extender I": "380", "Mobile Tractor Unit": "33477", "Mobile Depot": "33474",
-    "Compressed Veldspar": "62534", "Compressed Scordite": "62530", "Compressed Pyroxeres": "62524",
-    "Compressed Plagioclase": "62522", "Compressed Omber": "62518", "Compressed Kernite": "62536",
+    "Compressed Veldspar": "62516", "Compressed Scordite": "62520", "Compressed Pyroxeres": "62524",
+    "Compressed Plagioclase": "62528", "Compressed Omber": "62532", "Compressed Kernite": "62536",
+    "Compressed Jaspet": "62540", "Compressed Hemorphite": "62544", "Compressed Hedbergite": "62548",
     "Compressed Gneiss": "62552"
 }
 
