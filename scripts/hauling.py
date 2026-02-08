@@ -14,6 +14,16 @@ REGIONS = {
     "Genesis (Apanake)": "10000067"
 }
 
+# STATION REFERENCE (For "Set Destination" search)
+STATION_NAMES = {
+    "The Forge (Jita)": "Jita IV - Moon 4 - Caldari Navy Assembly Plant",
+    "Domain (Amarr)": "Amarr VIII (Oris) - Emperor Family Academy",
+    "Sinq Laison (Dodixie)": "Dodixie IX - Moon 20 - Federation Navy Assembly Plant",
+    "Heimatar (Rens)": "Rens VI - Moon 8 - Brutor Tribe Treasury",
+    "Metropolis (Hek)": "Hek VIII - Moon 12 - Boundless Creation Factory",
+    "Genesis (Apanake)": "Apanake IV - Moon 4 - Sisters of EVE Bureau",
+}
+
 # Physical volumes (m3)
 VOLUMES = {
     "2486": 5.0, "2454": 5.0, "2203": 5.0, "2470": 5.0, "218": 0.01, "230": 0.01, "195": 0.1,
@@ -39,7 +49,7 @@ def fetch_tycoon_stats(region_id, type_id):
     url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Final-Correction'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Final-StationRef'})
         with urllib.request.urlopen(req, context=ctx) as r:
             return json.loads(r.read().decode())
     except: return {}
@@ -55,9 +65,8 @@ def calculate_spreads():
     summary = "# 🚀 EVE Arbitrage Daily Report (Final Corrected Logic)\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
     summary += "### 🛡️ VERIFIED PAYLOAD LOGIC (EVE Tycoon API):\n"
-    summary += "- **Scam Protection:** Ignoring 'Max Buy' and 'Min Sell'. Only using **Top 5% Weighted Averages**.\n"
-    summary += "- **Logistics:** Buy at Target Region Sell Avg -> Sell at Destination Region Buy Avg.\n"
-    summary += "- **Liquidity:** Requires minimum 1000 settlement units in the target region.\n\n"
+    summary += "- **Scam Protection:** Only uses **Top 5% Weighted Averages** from EVE Tycoon.\n"
+    summary += "- **Immediate Profit:** Buy Regional Sell -> Sell Regional Buy (Immediate liquidity).\n\n"
 
     summary += "## 🚛 Top 3 High-Volume Verified Runs (Round-Trip)\n"
 
@@ -69,8 +78,8 @@ def calculate_spreads():
         o_opts = []
         for name, tid in SCAN_POOL.items():
             if tid not in VOLUMES: continue
-            j_cost = float(jita_market[name].get("sellAvgFivePercent", 0)) # Real cost to buy at scale in Jita
-            h_gain = float(fetch_tycoon_stats(reg_id, tid).get("buyAvgFivePercent", 0)) # Real price to sell at scale in Hub
+            j_cost = float(jita_market[name].get("sellAvgFivePercent", 0))
+            h_gain = float(fetch_tycoon_stats(reg_id, tid).get("buyAvgFivePercent", 0))
             h_vol = float(fetch_tycoon_stats(reg_id, tid).get("buyVolume", 0))
             
             if j_cost > 0 and h_gain > 0 and h_vol > 500:
@@ -84,8 +93,8 @@ def calculate_spreads():
         for name, tid in SCAN_POOL.items():
             if tid not in VOLUMES: continue
             h_stats = fetch_tycoon_stats(reg_id, tid)
-            h_cost = float(h_stats.get("sellAvgFivePercent", 0)) # Real cost to buy in Hub
-            j_gain = float(jita_market[name].get("buyAvgFivePercent", 0)) # Real price to sell in Jita
+            h_cost = float(h_stats.get("sellAvgFivePercent", 0))
+            j_gain = float(jita_market[name].get("buyAvgFivePercent", 0))
             j_vol = float(jita_market[name].get("buyVolume", 0))
             
             if h_cost > 0 and j_gain > 0 and j_vol > 1000:
@@ -103,9 +112,6 @@ def calculate_spreads():
 
     all_loops.sort(key=lambda x: x['total'], reverse=True)
     
-    if not all_loops:
-        summary += "No immediate arbitrage found using weighted averages. The market is currently neutral.\n\n"
-    
     for i, r in enumerate(all_loops[:3], 1):
         summary += f"### {i}. The {r['hub']} Connection\n"
         if r['out']: summary += f"- **OUT:** {r['out']['u']:,} x {r['out']['name']} -> Net Profit: **{r['out']['p']/1e6:.1f}M**\n"
@@ -114,10 +120,18 @@ def calculate_spreads():
         else: summary += "- **IN:** No profitable return ores.\n"
         summary += f"**Predicted Total Trip Profit: {r['total']/1e6:.1f} Million ISK**\n\n"
 
-    summary += "\n*Generated via EVE Tycoon Regional Weighted Averages. This logic is immune to single-station scam orders.* 🍤"
+    # RESTORE STATION REFERENCE TABLE
+    summary += "\n## 📍 Station Reference Guide\n"
+    summary += "Set your in-game destination to these specific hub stations:\n\n"
+    summary += "| Hub Key | Full Hub Station Name |\n"
+    summary += "| :--- | :--- |\n"
+    for key, full_name in STATION_NAMES.items():
+        summary += f"| **{key}** | {full_name} |\n"
+
+    summary += "\n\n*Generated via EVE Tycoon Regional Weighted Averages.* 🍤"
     return summary
 
 if __name__ == "__main__":
     report_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "HAULING.md")
     with open(report_path, "w") as f: f.write(calculate_spreads())
-    print("Market logic fixed. Tycoon Weighted Averages implemented.")
+    print("Market logic fixed and Station Reference restored.")
