@@ -4,19 +4,27 @@ import ssl
 import os
 from datetime import datetime
 
-# EVE Hub Station/Structure IDs
-JITA_IV_4 = "60003760"
-AMARR_VIII = "60008494"
-DODIXIE_IX = "60011866"
-
-# MISSION HUBS (Sisters of EVE Level 4 Hubs)
-HUBS = {
-    "Osmon": "60012667",      # Osmon II - Moon 1 - SoE Bureau
-    "Apanake": "60005236",    # Apanake IV - Moon 4 - SoE Bureau
-    "Lanngisi": "60009514"    # Lanngisi VII - Moon 11 - SoE Bureau
+# EXACT STATION NAMES & IDs
+STATIONS = {
+    "Jita IV-4": {"id": "60003760", "name": "Jita IV - Moon 4 - Caldari Navy Assembly Plant"},
+    "Amarr VIII": {"id": "60008494", "name": "Amarr VIII (Orbis) - Emperor Family Academy"},
+    "Dodixie IX": {"id": "60011866", "name": "Dodixie IX - Moon 20 - Federation Navy Assembly Plant"},
+    "Osmon II": {"id": "60012667", "name": "Osmon II - Moon 1 - Sisters of EVE Bureau"},
+    "Apanake IV": {"id": "60005236", "name": "Apanake IV - Moon 4 - Sisters of EVE Bureau"},
+    "Lanngisi VII": {"id": "60009514", "name": "Lanngisi VII - Moon 11 - Sisters of EVE Bureau"}
 }
 
-# CATEGORIES
+# ANTI-TRAP THRESHOLDS
+# Items with volume below these levels are considered "Market Traps" and ignored.
+VOLUME_THRESHOLDS = {
+    "SHIPS": 3,      # Need at least 3 ships in stock
+    "MODULES": 10,   # Need at least 10 modules
+    "AMMO": 5000,    # Need at least 5k rounds
+    "DRONES": 50,    # Need at least 50 drones
+    "ESSENTIALS": 100 # Nanite paste, etc.
+}
+
+# CATEGORIES mapped to Thresholds
 TARGET_TYPES = {
     "Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422",
     "Compressed Plagioclase": "28421", "Compressed Omber": "28399", "Compressed Kernite": "28394",
@@ -59,6 +67,13 @@ MFG_ESSENTIALS = {
     "Nitrogen Fuel Block": "4051", "Hydrogen Fuel Block": "4246", "Helium Fuel Block": "4312"
 }
 
+def get_threshold(name, tid):
+    if tid in MFG_SHIPS.values(): return VOLUME_THRESHOLDS["SHIPS"]
+    if tid in MFG_MODULES.values(): return VOLUME_THRESHOLDS["MODULES"]
+    if "Missile" in name or "Charge" in name or "EMP" in name: return VOLUME_THRESHOLDS["AMMO"]
+    if "I" in name and (tid in MFG_AMMO.values() or tid in MISSION_ESSENTIALS.values()): return VOLUME_THRESHOLDS["DRONES"]
+    return VOLUME_THRESHOLDS["ESSENTIALS"]
+
 def fetch_prices(station_id, type_ids):
     ids_str = ",".join(set(type_ids))
     url = f"https://market.fuzzwork.co.uk/aggregates/?station={station_id}&types={ids_str}"
@@ -70,7 +85,7 @@ def fetch_prices(station_id, type_ids):
         with urllib.request.urlopen(req, context=ctx) as response:
             return json.loads(response.read().decode())
     except Exception as e:
-        print(f"Error fetching data for station {station_id}: {e}")
+        print(f"Error fetching data: {e}")
         return {}
 
 def format_vol(vol):
@@ -85,18 +100,18 @@ def calculate_spreads():
                      list(MFG_AMMO.values()) + list(MFG_ESSENTIALS.values()) + \
                      list(MISSION_ESSENTIALS.values())
     
-    jita = fetch_prices(JITA_IV_4, all_needed_ids)
-    amarr = fetch_prices(AMARR_VIII, list(TARGET_TYPES.values()))
-    dodi = fetch_prices(DODIXIE_IX, list(TARGET_TYPES.values()))
+    jita = fetch_prices(STATIONS["Jita IV-4"]["id"], all_needed_ids)
+    amarr = fetch_prices(STATIONS["Amarr VIII"]["id"], list(TARGET_TYPES.values()))
+    dodi = fetch_prices(STATIONS["Dodixie IX"]["id"], list(TARGET_TYPES.values()))
     
-    hub_data = {}
-    for hub_name, hub_id in HUBS.items():
-        hub_data[hub_name] = fetch_prices(hub_id, list(MISSION_ESSENTIALS.values()))
+    mission_hubs = ["Osmon II", "Apanake IV", "Lanngisi VII"]
+    hub_prices = {h: fetch_prices(STATIONS[h]["id"], list(MISSION_ESSENTIALS.values())) for h in mission_hubs}
     
     summary = "# 🚀 EVE Arbitrage Weekly Briefing\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "- **Verify Volume:** Avoid items with low 24h volume (trap detection enabled).\n"
-    summary += "- **Hub Markups:** Filtered to show clear discrepancies between Jita and Hub stations.\n\n"
+    summary += "### 🛡️ Anti-Trap Logic Active\n"
+    summary += "- Listings with insufficient volume to support a haul are **discarded**.\n"
+    summary += "- Price markups > 500% are flagged as **potential scams** and ignored.\n\n"
 
     # Verdict Logic
     best_ore_spread = 0
@@ -120,8 +135,8 @@ def calculate_spreads():
             v = float(info.get("sell", {}).get("volume", 0))
             if s > 0 and b > 0:
                 spread = ((s - b) / b) * 100
-                min_vol = 5 if tid in MFG_SHIPS.values() else 1000
-                if v >= min_vol:
+                thresh = get_threshold(name, tid)
+                if v >= thresh:
                     mfg_candidates.append({"name": name, "spread": spread, "vol": v})
 
     mfg_candidates.sort(key=lambda x: x['spread'], reverse=True)
@@ -129,20 +144,22 @@ def calculate_spreads():
 
     summary += "## 🍤 Shrimp's Weekly Verdict\n"
     if top_5 and top_5[0]['spread'] > best_ore_spread + 5:
-        summary += f"**Verdict: MANUFACTURE.** Current manufacturing margins on high-liquidity items outperform raw hauling.\n\n"
+        summary += f"**Verdict: MANUFACTURE.** Verified liquidity-adjusted spreads outperform ore hauling.\n\n"
         summary += "### 💎 Jita Top 5 Manufacturing Items:\n"
         for i, item in enumerate(top_5, 1):
-            summary += f"{i}. **{item['name']}** ({item['spread']:.1f}% spread, {format_vol(item['vol'])} daily vol)\n"
+            summary += f"{i}. **{item['name']}** ({item['spread']:.1f}% spread, {format_vol(item['vol'])} volume)\n"
         summary += "\n"
     else:
-        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong.\n\n"
+        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are the safest play.\n\n"
 
-    summary += "## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)\n"
-    summary += "Items marked with ⚠️ have low local station volume (potential pricing trap or scam listing).\n\n"
-    summary += "| Hub | Item | Jita Buy | Hub Sell | Markup % | Hub Vol |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
+    summary += "## 🎯 Mission Hub Arbitrage (Buy Jita -> Scale Hub)\n"
+    summary += "| Destination Hub | Item | Hub Price | Jita Buy | Markup | Hub Stock |\n"
+    summary += "| :--- | :--- | :--- | :--- | :--- | :--- |\n"
     
     found_hub_op = False
-    for hub_name, data in hub_data.items():
+    for h_key in mission_hubs:
+        h_name = STATIONS[h_key]["name"]
+        data = hub_prices[h_key]
         for name, tid in MISSION_ESSENTIALS.items():
             j_buy = float(jita.get(tid, {}).get("buy", {}).get("max", 0))
             h_sell = float(data.get(tid, {}).get("sell", {}).get("min", 0))
@@ -150,27 +167,28 @@ def calculate_spreads():
             
             if j_buy > 0 and h_sell > 0:
                 markup = ((h_sell - j_buy) / j_buy) * 100
-                # Filter out obvious scam orders (markup > 500%) or items that don't cover shipping
-                if 5.0 <= markup <= 500.0:
-                    alert = "⚠️" if h_vol < 10 else ""
-                    summary += f"| {hub_name} | {name} | {j_buy:,.2f} | {h_sell:,.2f} | **{markup:.1f}%** {alert} | {int(h_vol)} |\n"
+                thresh = get_threshold(name, tid)
+                # Filter scams and low-liquidity traps
+                if 5.0 <= markup <= 500.0 and h_vol >= (thresh / 10): 
+                    summary += f"| {h_key} | {name} | {h_sell:,.2f} | {j_buy:,.2f} | **{markup:.1f}%** | {int(h_vol)} |\n"
                     found_hub_op = True
     
     if not found_hub_op:
-        summary += "| No realistic hub markups found today. | | | | | |\n"
+        summary += "| No safe hub markups found today. | | | | | |\n"
 
-    summary += "\n## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
-    summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
+    summary += "\n## 📈 High Sec Ore Spreads\n"
+    summary += "| Ore Type | Origin Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
     for name, tid in sorted(TARGET_TYPES.items()):
         jita_p = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
-        for h_name, h_json in [("Amarr", amarr), ("Dodixie", dodi)]:
+        for h_key in ["Amarr VIII", "Dodixie IX"]:
+            h_json = amarr if h_key == "Amarr VIII" else dodi
             p = float(h_json.get(tid, {}).get("sell", {}).get("min", 0))
             if jita_p > 0 and p > 0:
                 spread = ((jita_p - p) / p) * 100
                 s_txt = f"**{spread:.1f}%**" if spread >= 10.0 else f"{spread:.1f}%"
-                summary += f"| {name} | {h_name} | {p:,.2f} | {s_txt} |\n"
+                summary += f"| {name} | {h_key} | {p:,.2f} | {s_txt} |\n"
 
-    summary += "\n## 💎 Jita Mineral Index (Raw Demand)\n"
+    summary += "\n## 💎 Jita Mineral Index\n"
     summary += "| Mineral | Jita Sell | Jita Buy | 24h Vol |\n| :--- | :--- | :--- | :--- |\n"
     for name, tid in sorted(MINERAL_TYPES.items()):
         info = jita.get(tid, {})
@@ -179,23 +197,10 @@ def calculate_spreads():
         v = float(info.get("sell", {}).get("volume", 0))
         summary += f"| {name} | {s:,.2f} | {b:,.2f} | {format_vol(v)} |\n"
 
-    cat_map = [
-        ("🚢 Jita Demand: Ships & Hulls", MFG_SHIPS),
-        ("🛰️ Jita Demand: Modules & Fittings", MFG_MODULES),
-        ("🔫 Jita Demand: Ammo & Drones", MFG_AMMO),
-        ("🔥 Jita High-Demand Essentials", MFG_ESSENTIALS)
-    ]
-    for header, d in cat_map:
-        summary += f"\n## {header}\n"
-        summary += "| Item | Jita Sell | Jita Buy | Spread | 24h Vol |\n| :--- | :--- | :--- | :--- | :--- |\n"
-        for name, tid in sorted(d.items()):
-            info = jita.get(tid, {})
-            s = float(info.get("sell", {}).get("min", 0))
-            b = float(info.get("buy", {}).get("max", 0))
-            v = float(info.get("sell", {}).get("volume", 0))
-            if s > 0 and b > 0:
-                spread = ((s - b) / b) * 100
-                summary += f"| {name} | {s:,.2f} | {b:,.2f} | {spread:.1f}% | {format_vol(v)} |\n"
+    summary += "\n## ℹ️ Station Reference Guide\n"
+    summary += "| Hub Key | Full Station Name (Set Destination Here) |\n| :--- | :--- |\n"
+    for k, v in STATIONS.items():
+        summary += f"| **{k}** | {v['name']} |\n"
 
     summary += "\n\n--- \n*Generated by the Shrimp Market Bot. Includes belt ores and anomaly/escalation types.* 🍤"
     return summary
@@ -206,4 +211,3 @@ if __name__ == "__main__":
     report_path = os.path.join(repo_root, "MARKET_DATA.md")
     with open(report_path, "w") as f: f.write(report)
     print(f"Analysis complete. Full report synced to {report_path}")
-    print(report)
