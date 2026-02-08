@@ -1,9 +1,19 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-08 13:18:09 UTC
+Last updated: 2026-02-08 14:05:25 UTC
 
-### 🛡️ Anti-Trap Logic Active
-- Listings with insufficient volume to support a haul are **discarded**.
-- Price markups > 500% are flagged as **potential scams** and ignored.
+## 🚛 Daily Trade Run (50,000 m³ Recommendation)
+### Run 1: The The Forge Loop
+1. **OUTBOUND:** Buy **5,000,000 x Nanite Repair Paste** in Jita. 
+   - Sell at **Osmon II** for ~57950.0M ISK profit.
+2. **INBOUND:** No profitable ore spread found for return trip. Haul empty or check local missions.
+**ESTIMATED TOTAL PROFIT:** **57,950.0 Million ISK**
+
+### Run 2: The Domain Loop
+1. **OUTBOUND:** Buy **5,000,000 x Nanite Repair Paste** in Jita. 
+   - Sell at **Amarr VIII** for ~20000.0M ISK profit.
+2. **INBOUND:** Buy **250,000 x Compressed Gneiss** at Amarr VIII. 
+   - Sell in **Jita** for ~2267.5M ISK profit.
+**ESTIMATED TOTAL PROFIT:** **22,267.5 Million ISK**
 
 ## 🍤 Shrimp's Weekly Verdict
 **Verdict: MANUFACTURE.** Verified liquidity-adjusted spreads outperform ore hauling.
@@ -37,14 +47,14 @@ Last updated: 2026-02-08 13:18:09 UTC
 ## 💎 Jita Mineral Index
 | Mineral | Jita Sell | Jita Buy | 24h Vol |
 | :--- | :--- | :--- | :--- |
-| Isogen | 195.40 | 183.50 | 819.0M |
-| Megacyber | 2,873.00 | 2,832.00 | 24.3M |
-| Mexallon | 69.84 | 63.57 | 1.2B |
+| Isogen | 194.00 | 183.40 | 823.0M |
+| Megacyber | 2,873.00 | 2,832.00 | 24.0M |
+| Mexallon | 69.80 | 63.58 | 1.2B |
 | Morphite | 21,270.00 | 19,840.00 | 3.5M |
-| Nocxium | 699.90 | 666.20 | 210.6M |
-| Pyerite | 20.53 | 20.17 | 4.1B |
+| Nocxium | 700.00 | 666.20 | 209.9M |
+| Pyerite | 20.30 | 20.18 | 4.1B |
 | Tritanium | 4.22 | 4.11 | 9.7B |
-| Zydrine | 1,127.00 | 1,100.00 | 137.1M |
+| Zydrine | 1,126.00 | 1,074.00 | 137.1M |
 
 ## ℹ️ Station Reference Guide
 | Hub Key | Region | Full Station Name (Set Destination Here) |
