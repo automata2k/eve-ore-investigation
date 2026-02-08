@@ -1,32 +1,28 @@
-# 🛠️ Jita Manufacturing vs. Hauling Analysis
-Last updated: 2026-02-08 14:57:54 UTC
+# 🛠️ Jita Manufacturing vs. Hauling Analysis (Tycoon Verified)
+Last updated: 2026-02-08 15:09:35 UTC
 
-This report compares the ROI of **Building in High Sec** vs. **Hauling Raw Ore** to Jita.
+Comparing Regional Hauling profit vs. Jita Local Manufacturing using EVE Tycoon API data.
 
 ## 📈 Strategy A: Haul & Sell Raw Ore
-Focus on moving Isogen-rich ores from regional hubs to Jita.
+- Buy at Regional Hub min sell, Sell at Jita (The Forge) max buy.
 
-| Ore Type | Origin Hub | Jita Margin % |
-| :--- | :--- | :--- |
-| Compressed Veldspar | Amarr | **22.5%** |
-| Compressed Veldspar | Dodixie | **6.2%** |
+| Ore Type | Origin Hub | Regional Cost | Jita Buy Order | Margin % |
+| :--- | :--- | :--- | :--- | :--- |
 
 ## 🏗️ Strategy B: Manufacture for Jita
-ROI based on Jita Buy (Minerals) -> Jita Sell (Finished Product), minus 3.6% fees.
+- Profit based on 'Sell Average' vs 'Buy Average' in The Forge region (3.6% fees included).
 
-| Item | 24h Vol | Jita Market Spread % |
-| :--- | :--- | :--- |
-| Antimatter Charge M | 55,778,166 | **83.7%** |
-| Scourge Heavy Missile | 1,754,940 | **90.5%** |
-| Hobgoblin I | 105,707 | **8.3%** |
-| Warrior I | 153,140 | **15.6%** |
-| Damage Control I | 15,330 | **75.8%** |
-| Drone Damage Amplifier I | 12,912 | **72.9%** |
-| 1600mm Steel Plates I | 1,211 | **90.2%** |
-| Medium Shield Extender I | 5,652 | **53.4%** |
-| Venture | 1,626 | **48.8%** |
+| Item | Jita Sell | Jita Buy | Net Spread % |
+| :--- | :--- | :--- | :--- |
+| Antimatter Charge M | 5.64 | 9.40 | **-42.2%** |
+| Scourge Heavy Missile | 28.71 | 15.07 | **83.7%** |
+| Hobgoblin I | 3,900.00 | 3,679.00 | **2.2%** |
+| Warrior I | 10,350.00 | 8,953.00 | **11.4%** |
+| Damage Control I | 81,000.00 | 46,070.00 | **69.5%** |
+| Drone Damage Amplifier I | 292,900.00 | 169,400.00 | **66.7%** |
+| 1600mm Steel Plates I | 799,700.00 | 420,400.00 | **83.4%** |
+| Medium Shield Extender I | 245,300.00 | 160,300.00 | **47.5%** |
+| Venture | 301,900.00 | 302,600.00 | **-3.8%** |
 
-## 🍤 Shrimp's Weekly Strategy Recommendation
-**VERDICT: MANUFACTURE.** The highest Jita spread (**Scourge Heavy Missile (90.5%)**) significantly beats the best hauling route (**Compressed Veldspar from Amarr (22.5%)**). Set up your Raitaru slots and build high-volume T1 items.
-
-*Note: Manufacturing ROI assumes you have BPOs and basic skill levels. Hauling ROI assumes a standard hauler.*
+## 🍤 Shrimp's Weekly Verdict
+**VERDICT: MANUFACTURE.** Jita manufacturing (**Scourge Heavy Missile (83.7%)**) is significantly more profitable than regional hauling right now.
