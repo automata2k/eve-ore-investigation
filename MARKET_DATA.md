@@ -1,22 +1,28 @@
 # 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:52:40 UTC
+Last updated: 2026-02-08 14:55:44 UTC
 
 ### 🚛 Daily Trade Run (Optimized 35,000 m³)
-*Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*
+*Verified via Live API. Profit includes 3.6% fees. Inbound legs are now explicitly tracked everywhere.*
 
 #### The Domain Loop (Amarr VIII)
-- **OUT:** Buy **61,683 x Nanite Repair Paste** (Jita) -> Est. Profit: **86.1M** (Invest: 1540.2M)
-- **IN:** Buy **233,333 x Compressed Veldspar** (Amarr VIII) -> Est. Profit: **55.0M** (Invest: 303.6M)
-**Predicted Round-Trip Profit: 141.0 Million ISK**
+1. **OUTBOUND:** Buy **92,525 x Nanite Repair Paste** (Jita) -> Profit: **129.11M**
+2. **INBOUND:** Buy **233,333 x Compressed Veldspar** (Amarr VIII) -> Profit: **54.98M**
+**Predicted Total Trip Profit: 184.09 Million ISK**
 
 #### The Sinq Laison Loop (Dodixie IX)
-- **OUT:** Buy **2,037 x Acolyte I** (Jita) -> Est. Profit: **9.7M** (Invest: 7.9M)
-- **IN:** Buy **233,333 x Compressed Veldspar** (Dodixie IX) -> Est. Profit: **8.3M** (Invest: 350.2M)
-**Predicted Round-Trip Profit: 18.1 Million ISK**
+1. **OUTBOUND:** Buy **3,056 x Acolyte I** (Jita) -> Profit: **14.61M**
+2. **INBOUND:** Buy **233,333 x Compressed Veldspar** (Dodixie IX) -> Profit: **8.31M**
+**Predicted Total Trip Profit: 22.92 Million ISK**
 
 #### The The Forge Loop (Osmon II)
-- **OUT:** Buy **1,412 x Nanite Repair Paste** (Jita) -> Est. Profit: **12.4M** (Invest: 35.3M)
-**Predicted Round-Trip Profit: 12.4 Million ISK**
+1. **OUTBOUND:** Buy **2,118 x Nanite Repair Paste** (Jita) -> Profit: **18.55M**
+2. **INBOUND:** No profitable ore spreads found for the return leg.
+**Predicted Total Trip Profit: 18.55 Million ISK**
+
+#### The Genesis Loop (Apanake IV)
+1. **OUTBOUND:** No profitable manufactured goods found for this leg today.
+2. **INBOUND:** No profitable ore spreads found for the return leg.
+**Predicted Total Trip Profit: 0.00 Million ISK**
 
 
 ## ℹ️ Reference
