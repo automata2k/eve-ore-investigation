@@ -1,24 +1,28 @@
-# 🚀 EVE Arbitrage Daily Briefing (High-Volume Targets)
-Last updated: 2026-02-08 15:11:12 UTC
+# 🚀 EVE Arbitrage Daily Briefing (Tayra Optimized)
+Last updated: 2026-02-08 15:15:37 UTC
 
-### 🛡️ Logistics Audit: 5.0m3 Cargo Optimized
-Scanned top 35 high-velocity items. Selection based on **Volume > Profit Margin** to ensure liquidity.
+### 🛡️ Logistics Policy
+- Buy from **Sell Orders** (Immediate Cost) -> Dump into **Buy Orders** (Immediate ISK).
+- Profits shown are **Net** (3.6% fees deducted).
+- Recommendations capped at **20% of destination buy-order depth**.
 
-## 🚛 Top 3 Recommended Trade Loops
-*Calculated for 35,000 m³ using immediate Buy/Sell averages (Net of 3.6% fees).*
+## 🚛 Top 3 High-Volume Trade Loops
+### 1. The Genesis Round-Trip (Apanake IV)
+- **OUT:** No profitable Jita -> Hub arbitrage found.
+- **IN:** 299,257 x Nanite Repair Paste (Apanake IV -> Jita) -> Profit: **3267.49M**
+**Predicted Round-Trip Profit: 3,267.5 Million ISK**
 
-### 1. The The Forge Connection (Osmon II)
-- **OUT:** Buy **3,500,000 x Antimatter Charge M** (Jita) -> Profit: **12.0M**
-- **IN:** No profitable return ore found for this volume.
-**Predicted Round-Trip Profit: 12.0 Million ISK**
+### 2. The Metropolis Round-Trip (Lanngisi VII)
+- **OUT:** No profitable Jita -> Hub arbitrage found.
+- **IN:** 452 x Mobile Depot (Lanngisi VII -> Jita) -> Profit: **41.39M**
+**Predicted Round-Trip Profit: 41.4 Million ISK**
 
-### 2. The Domain Connection (Amarr VIII)
-- **OUT:** Buy **7,000 x Nitrogen Fuel Block** (Jita) -> Profit: **9.5M**
-- **IN:** No profitable return ore found for this volume.
-**Predicted Round-Trip Profit: 9.5 Million ISK**
+### 3. The The Forge Round-Trip (Osmon II)
+- **OUT:** 3,500,000 x Antimatter Charge M (Jita -> Osmon II) -> Profit: **11.98M**
+- **IN:** 3,500,000 x Antimatter Charge M (Osmon II -> Jita) -> Profit: **11.98M**
+**Predicted Round-Trip Profit: 24.0 Million ISK**
 
-
-## ℹ️ Reference & Destination Search
+## ℹ️ Station Reference
 **Jita IV-4** (The Forge): Jita IV - Moon 4 - Caldari Navy Assembly Plant
 
 **Amarr VIII** (Domain): Amarr VIII (Orbis) - Emperor Family Academy
