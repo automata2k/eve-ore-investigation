@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-08 13:15:13 UTC
+Last updated: 2026-02-08 13:18:09 UTC
 
 ### 🛡️ Anti-Trap Logic Active
 - Listings with insufficient volume to support a haul are **discarded**.
@@ -47,14 +47,14 @@ Last updated: 2026-02-08 13:15:13 UTC
 | Zydrine | 1,127.00 | 1,100.00 | 137.1M |
 
 ## ℹ️ Station Reference Guide
-| Hub Key | Full Station Name (Set Destination Here) |
-| :--- | :--- |
-| **Jita IV-4** | Jita IV - Moon 4 - Caldari Navy Assembly Plant |
-| **Amarr VIII** | Amarr VIII (Orbis) - Emperor Family Academy |
-| **Dodixie IX** | Dodixie IX - Moon 20 - Federation Navy Assembly Plant |
-| **Osmon II** | Osmon II - Moon 1 - Sisters of EVE Bureau |
-| **Apanake IV** | Apanake IV - Moon 4 - Sisters of EVE Bureau |
-| **Lanngisi VII** | Lanngisi VII - Moon 11 - Sisters of EVE Bureau |
+| Hub Key | Region | Full Station Name (Set Destination Here) |
+| :--- | :--- | :--- |
+| **Jita IV-4** | The Forge | Jita IV - Moon 4 - Caldari Navy Assembly Plant |
+| **Amarr VIII** | Domain | Amarr VIII (Orbis) - Emperor Family Academy |
+| **Dodixie IX** | Sinq Laison | Dodixie IX - Moon 20 - Federation Navy Assembly Plant |
+| **Osmon II** | The Forge | Osmon II - Moon 1 - Sisters of EVE Bureau |
+| **Apanake IV** | Genesis | Apanake IV - Moon 4 - Sisters of EVE Bureau |
+| **Lanngisi VII** | Metropolis | Lanngisi VII - Moon 11 - Sisters of EVE Bureau |
 
 
 --- 
