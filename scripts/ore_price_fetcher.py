@@ -9,11 +9,11 @@ JITA_IV_4 = "60003760"
 AMARR_VIII = "60008494"
 DODIXIE_IX = "60011866"
 
-# MISSION HUBS
+# MISSION HUBS (Sisters of EVE Level 4 Hubs)
 HUBS = {
-    "Osmon": "60004516",      # SoE Bureau (Guristas)
-    "Apanake": "60005236",    # SoE Bureau (Sansha/Blood)
-    "Lanngisi": "60009514"    # SoE Bureau (Angels)
+    "Osmon": "60012667",      # Osmon II - Moon 1 - SoE Bureau
+    "Apanake": "60005236",    # Apanake IV - Moon 4 - SoE Bureau
+    "Lanngisi": "60009514"    # Lanngisi VII - Moon 11 - SoE Bureau
 }
 
 # CATEGORIES
@@ -29,7 +29,6 @@ MINERAL_TYPES = {
     "Nocxium": "38", "Zydrine": "39", "Megacyber": "40", "Morphite": "11399"
 }
 
-# General Demand Items
 MFG_SHIPS = {
     "Venture": "32880", "Iteron Mark V": "657", "Badger": "649", "Tayra": "28576"
 }
@@ -48,16 +47,9 @@ MFG_AMMO = {
 }
 
 MISSION_ESSENTIALS = {
-    "Scourge Heavy Missile": "195",
-    "Mjolnir Heavy Missile": "196",
-    "Inferno Heavy Missile": "194",
-    "Nova Heavy Missile": "193",
-    "Nanite Repair Paste": "28668",
-    "Cap Booster 400": "1121",
-    "Hobgoblin I": "2454",
-    "Warrior I": "2464",
-    "Acolyte I": "2203",
-    "Hornet I": "2470"
+    "Scourge Heavy Missile": "195", "Mjolnir Heavy Missile": "196", "Nova Heavy Missile": "193",
+    "Nanite Repair Paste": "28668", "Cap Booster 400": "1121", "Hobgoblin I": "2454",
+    "Warrior I": "2464", "Acolyte I": "2203"
 }
 
 MFG_ESSENTIALS = {
@@ -103,7 +95,8 @@ def calculate_spreads():
     
     summary = "# 🚀 EVE Arbitrage Weekly Briefing\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "Tracks compressed ore spreads, hub demand, and missioner essentials.\n\n"
+    summary += "- **Verify Volume:** Avoid items with low 24h volume (trap detection enabled).\n"
+    summary += "- **Hub Markups:** Filtered to show clear discrepancies between Jita and Hub stations.\n\n"
 
     # Verdict Logic
     best_ore_spread = 0
@@ -142,9 +135,31 @@ def calculate_spreads():
             summary += f"{i}. **{item['name']}** ({item['spread']:.1f}% spread, {format_vol(item['vol'])} daily vol)\n"
         summary += "\n"
     else:
-        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less complexity.\n\n"
+        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong.\n\n"
 
-    summary += "## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
+    summary += "## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)\n"
+    summary += "Items marked with ⚠️ have low local station volume (potential pricing trap or scam listing).\n\n"
+    summary += "| Hub | Item | Jita Buy | Hub Sell | Markup % | Hub Vol |\n| :--- | :--- | :--- | :--- | :--- | :--- |\n"
+    
+    found_hub_op = False
+    for hub_name, data in hub_data.items():
+        for name, tid in MISSION_ESSENTIALS.items():
+            j_buy = float(jita.get(tid, {}).get("buy", {}).get("max", 0))
+            h_sell = float(data.get(tid, {}).get("sell", {}).get("min", 0))
+            h_vol = float(data.get(tid, {}).get("sell", {}).get("volume", 0))
+            
+            if j_buy > 0 and h_sell > 0:
+                markup = ((h_sell - j_buy) / j_buy) * 100
+                # Filter out obvious scam orders (markup > 500%) or items that don't cover shipping
+                if 5.0 <= markup <= 500.0:
+                    alert = "⚠️" if h_vol < 10 else ""
+                    summary += f"| {hub_name} | {name} | {j_buy:,.2f} | {h_sell:,.2f} | **{markup:.1f}%** {alert} | {int(h_vol)} |\n"
+                    found_hub_op = True
+    
+    if not found_hub_op:
+        summary += "| No realistic hub markups found today. | | | | | |\n"
+
+    summary += "\n## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
     summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
     for name, tid in sorted(TARGET_TYPES.items()):
         jita_p = float(jita.get(tid, {}).get("sell", {}).get("min", 0))
@@ -163,18 +178,6 @@ def calculate_spreads():
         b = float(info.get("buy", {}).get("max", 0))
         v = float(info.get("sell", {}).get("volume", 0))
         summary += f"| {name} | {s:,.2f} | {b:,.2f} | {format_vol(v)} |\n"
-
-    summary += "\n## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)\n"
-    summary += "Profit by shipping from Jita or manufacturing locally near the hub.\n\n"
-    summary += "| Hub | Item | Jita Buy | Hub Sell | Markup % |\n| :--- | :--- | :--- | :--- | :--- |\n"
-    for hub_name, data in hub_data.items():
-        for name, tid in MISSION_ESSENTIALS.items():
-            j_buy = float(jita.get(tid, {}).get("buy", {}).get("max", 0))
-            h_sell = float(data.get(tid, {}).get("sell", {}).get("min", 0))
-            if j_buy > 0 and h_sell > 0:
-                markup = ((h_sell - j_buy) / j_buy) * 100
-                if markup >= 5.0: # Only show significant markups
-                    summary += f"| {hub_name} | {name} | {j_buy:,.2f} | {h_sell:,.2f} | **{markup:.1f}%** |\n"
 
     cat_map = [
         ("🚢 Jita Demand: Ships & Hulls", MFG_SHIPS),

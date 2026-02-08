@@ -1,7 +1,8 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-08 13:00:04 UTC
+Last updated: 2026-02-08 13:11:47 UTC
 
-Tracks compressed ore spreads, hub demand, and missioner essentials.
+- **Verify Volume:** Avoid items with low 24h volume (trap detection enabled).
+- **Hub Markups:** Filtered to show clear discrepancies between Jita and Hub stations.
 
 ## 🍤 Shrimp's Weekly Verdict
 **Verdict: MANUFACTURE.** Current manufacturing margins on high-liquidity items outperform raw hauling.
@@ -12,6 +13,16 @@ Tracks compressed ore spreads, hub demand, and missioner essentials.
 3. **Damage Control I** (75.8% spread, 15.3k daily vol)
 4. **Drone Damage Amplifier I** (72.9% spread, 12.9k daily vol)
 5. **Venture** (65.3% spread, 1.6k daily vol)
+
+## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)
+Items marked with ⚠️ have low local station volume (potential pricing trap or scam listing).
+
+| Hub | Item | Jita Buy | Hub Sell | Markup % | Hub Vol |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Osmon | Nova Heavy Missile | 98.90 | 390.00 | **294.3%**  | 24850 |
+| Osmon | Nanite Repair Paste | 23,370.00 | 34,990.00 | **49.7%**  | 7061 |
+| Osmon | Hobgoblin I | 3,679.00 | 4,300.00 | **16.9%**  | 673 |
+| Osmon | Warrior I | 5,000.00 | 18,950.00 | **279.0%**  | 3273 |
 
 ## 📈 High Sec Market Spreads (Regional Hubs -> Jita)
 | Ore Type | Hub | Local Price | Jita Spread % |
@@ -35,13 +46,6 @@ Tracks compressed ore spreads, hub demand, and missioner essentials.
 | Pyerite | 20.53 | 20.16 | 4.1B |
 | Tritanium | 4.23 | 4.11 | 9.7B |
 | Zydrine | 1,128.00 | 1,100.00 | 137.5M |
-
-## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)
-Profit by shipping from Jita or manufacturing locally near the hub.
-
-| Hub | Item | Jita Buy | Hub Sell | Markup % |
-| :--- | :--- | :--- | :--- | :--- |
-| Apanake | Acolyte I | 3,003.00 | 290,000.00 | **9557.0%** |
 
 ## 🚢 Jita Demand: Ships & Hulls
 | Item | Jita Sell | Jita Buy | Spread | 24h Vol |
