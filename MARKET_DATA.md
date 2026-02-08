@@ -1,31 +1,19 @@
-# 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:55:44 UTC
+# 🚀 EVE Arbitrage Daily Report (Tycoon Verified)
+Last updated: 2026-02-08 15:04:50 UTC
+
+### 💎 Market Data Source: EVE Tycoon API
+Utilizing outlier-filtered average prices for realistic calculations.
 
 ### 🚛 Daily Trade Run (Optimized 35,000 m³)
-*Verified via Live API. Profit includes 3.6% fees. Inbound legs are now explicitly tracked everywhere.*
+*Logic: Buy from Jita Sells, Sell at Hub buys (Immediate Liquidity). Fees: 3.6%.*
 
 #### The Domain Loop (Amarr VIII)
-1. **OUTBOUND:** Buy **92,525 x Nanite Repair Paste** (Jita) -> Profit: **129.11M**
-2. **INBOUND:** Buy **233,333 x Compressed Veldspar** (Amarr VIII) -> Profit: **54.98M**
-**Predicted Total Trip Profit: 184.09 Million ISK**
-
-#### The Sinq Laison Loop (Dodixie IX)
-1. **OUTBOUND:** Buy **3,056 x Acolyte I** (Jita) -> Profit: **14.61M**
-2. **INBOUND:** Buy **233,333 x Compressed Veldspar** (Dodixie IX) -> Profit: **8.31M**
-**Predicted Total Trip Profit: 22.92 Million ISK**
-
-#### The The Forge Loop (Osmon II)
-1. **OUTBOUND:** Buy **2,118 x Nanite Repair Paste** (Jita) -> Profit: **18.55M**
-2. **INBOUND:** No profitable ore spreads found for the return leg.
-**Predicted Total Trip Profit: 18.55 Million ISK**
-
-#### The Genesis Loop (Apanake IV)
-1. **OUTBOUND:** No profitable manufactured goods found for this leg today.
-2. **INBOUND:** No profitable ore spreads found for the return leg.
-**Predicted Total Trip Profit: 0.00 Million ISK**
+1. **OUT:** Buy **7,000 x Hobgoblin I** (Jita) -> Profit: **0.2M**
+2. **IN:** No profitable return ores.
+**Predicted Round-Trip Profit: 0.2 Million ISK**
 
 
-## ℹ️ Reference
+## ℹ️ Station Reference
 **Jita IV-4**: Jita IV - Moon 4 - Caldari Navy Assembly Plant (The Forge)
 
 **Amarr VIII**: Amarr VIII (Orbis) - Emperor Family Academy (Domain)
