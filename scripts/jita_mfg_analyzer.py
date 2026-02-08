@@ -4,97 +4,102 @@ import ssl
 import os
 from datetime import datetime
 
-# REGION IDs
-REGIONS = {
-    "The Forge": "10000002",
-    "Domain": "10000043",
-    "Sinq Laison": "10000032"
+# REGION ID
+THE_FORGE = "10000002"
+
+# COMPREHENSIVE ITEM LIST FOR JITA DEMAND SCAN (T1 Focus)
+SCANNED_ITEMS = {
+    # Minerals
+    "Tritanium": "34", "Pyerite": "35", "Mexallon": "36", "Isogen": "37", 
+    "Nocxium": "38", "Zydrine": "39", "Megacyber": "40",
+    # Fuel
+    "Nitrogen Fuel Block": "4051", "Oxygen Fuel Block": "4247", 
+    "Helium Fuel Block": "4312", "Hydrogen Fuel Block": "4246",
+    # Ammo
+    "Antimatter Charge M": "218", "Antimatter Charge S": "230", "Antimatter Charge L": "206",
+    "Scourge Heavy Missile": "195", "Scourge Light Missile": "191", "Nova Heavy Missile": "193",
+    "EMP S": "183", "EMP M": "177",
+    # Drones
+    "Warrior I": "2486", "Hobgoblin I": "2454", "Acolyte I": "2203", "Hornet I": "2470",
+    # Modules
+    "Damage Control I": "520", "1600mm Steel Plates I": "11299", 
+    "Medium Shield Extender I": "380", "5MN Microwarpdrive I": "434",
+    # Essentials
+    "Nanite Repair Paste": "28668", "Cap Booster 400": "1121", "Cap Booster 800": "1122"
 }
 
-# ITEM DEFINITIONS
-Ores = {
-    "Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422",
-    "Compressed Plagioclase": "28421", "Compressed Omber": "28399", "Compressed Kernite": "28394"
-}
-
-Goods = {
-    "Antimatter Charge M": "218", "Scourge Heavy Missile": "195", "Hobgoblin I": "2454",
-    "Warrior I": "2486", "Damage Control I": "520", "Drone Damage Amplifier I": "23559",
-    "1600mm Steel Plates I": "11299", "Medium Shield Extender I": "380", "Venture": "32880"
-}
-
-def fetch_tycoon_stats(region_id, type_id):
-    url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
+def fetch_tycoon_stats(type_id):
+    url = f"https://evetycoon.com/api/v1/market/stats/{THE_FORGE}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Mfg-Analyzer-Tycoon'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Volume-Stalker'})
         with urllib.request.urlopen(req, context=ctx) as r:
             return json.loads(r.read().decode())
     except: return {}
 
+def format_vol(vol):
+    if vol >= 1e9: return f"{vol/1e9:.1f}B"
+    if vol >= 1e6: return f"{vol/1e6:.1f}M"
+    if vol >= 1e3: return f"{vol/1e3:.1f}k"
+    return str(int(vol))
+
 def generate_report():
-    # 1. PRE-FETCH JITA (The Forge)
-    jita_mkt = {name: fetch_tycoon_stats(REGIONS["The Forge"], tid) for name, tid in {**Ores, **Goods}.items()}
-    
-    summary = "# 🛠️ Jita Manufacturing vs. Hauling Analysis (Tycoon Verified)\n"
-    summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "Comparing Regional Hauling profit vs. Jita Local Manufacturing using EVE Tycoon API data.\n\n"
-
-    # 1. HAULING ROI
-    summary += "## 📈 Strategy A: Haul & Sell Raw Ore\n"
-    summary += "- Buy at Regional Hub min sell, Sell at Jita (The Forge) max buy.\n\n"
-    summary += "| Ore Type | Origin Hub | Regional Cost | Jita Buy Order | Margin % |\n| :--- | :--- | :--- | :--- | :--- |\n"
-    
-    best_ore_val = -100
-    best_ore_text = "None"
-    
-    for h_name in ["Domain", "Sinq Laison"]:
-        rid = REGIONS[h_name]
-        for name, tid in Ores.items():
-            h_cost = float(fetch_tycoon_stats(rid, tid).get("minSell", 0))
-            j_gain = float(jita_mkt[name].get("maxBuy", 0))
-            
-            if h_cost > 0 and j_gain > 0:
-                spread = ((j_gain - h_cost) / h_cost) * 100
-                if spread > 2:
-                    summary += f"| {name} | {h_name} | {h_cost:,.2f} | {j_gain:,.2f} | **{spread:.1f}%** |\n"
-                    if spread > best_ore_val:
-                        best_ore_val = spread
-                        best_ore_text = f"{name} from {h_name} ({spread:.1f}%)"
-
-    # 2. MANUFACTURING ROI
-    summary += "\n## 🏗️ Strategy B: Manufacture for Jita\n"
-    summary += "- Profit based on 'Sell Average' vs 'Buy Average' in The Forge region (3.6% fees included).\n\n"
-    summary += "| Item | Jita Sell | Jita Buy | Net Spread % |\n| :--- | :--- | :--- | :--- |\n"
-    
-    best_mfg_val = -100
-    best_mfg_text = "None"
+    print("Beginning Jita High-Demand Scan...")
+    results = []
     tax = 0.036
     
-    for name, tid in Goods.items():
-        data = jita_mkt[name]
-        s = float(data.get("minSell", 0))
-        b = float(data.get("maxBuy", 0))
-        if s > 0 and b > 0:
-            # ROI: (Sell * 0.964) / Buy - 1
-            spread = (((s * (1 - tax)) / b) - 1) * 100
-            if data.get("sellVolume", 0) > 100:
-                summary += f"| {name} | {s:,.2f} | {b:,.2f} | **{spread:.1f}%** |\n"
-                if spread > best_mfg_val:
-                    best_mfg_val = spread
-                    best_mfg_text = f"{name} ({spread:.1f}%)"
+    for name, tid in SCANNED_ITEMS.items():
+        data = fetch_tycoon_stats(tid)
+        s_price = float(data.get("minSell", 0))
+        b_price = float(data.get("maxBuy", 0))
+        s_vol = float(data.get("sellVolume", 0))
+        
+        if s_price > 0 and b_price > 0:
+            # ROI: (Sell * (1-tax) / Buy) - 1
+            spread = (((s_price * (1 - tax)) / b_price) - 1) * 100
+            results.append({
+                "name": name,
+                "price": s_price,
+                "vol": s_vol,
+                "spread": spread
+            })
 
-    # 3. VERDICT
-    summary += "\n## 🍤 Shrimp's Weekly Verdict\n"
-    if best_mfg_val > (best_ore_val + 5):
-        summary += f"**VERDICT: MANUFACTURE.** Jita manufacturing (**{best_mfg_text}**) is significantly more profitable than regional hauling right now.\n"
-    else:
-        summary += f"**VERDICT: HAUL ORE.** Hauling **{best_ore_text}** is safer and offers comparable or better ROI for your capital.\n"
+    # Sort by Volume (Absolute units sold in 24h)
+    results.sort(key=lambda x: x['vol'], reverse=True)
+    top_vols = results[:10]
 
+    # Sort by Profit (Spread) but requiring > 10,000 units volume to ignore "niche" items
+    profit_candidates = [r for r in results if r['vol'] > 1000]
+    profit_candidates.sort(key=lambda x: x['spread'], reverse=True)
+    top_spreads = profit_candidates[:10]
+
+    summary = "# 🛠️ Jita Manufacturing Analysis (High Demand)\n"
+    summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
+    summary += "### 🛡️ Analysis Parameters\n"
+    summary += "- **Region:** The Forge (Region-wide Jita stats).\n"
+    summary += "- **Liquidity Check:** Volume based on 24h actual sell settlements.\n"
+    summary += "- **Profit:** Realized net income assuming 3.6% fees.\n\n"
+
+    summary += "## 🔥 Top 10 Jita High-Demand Items (Unit Volume)\n"
+    summary += "These are the most liquid T1 items in Jita. Building these ensures instant sales.\n\n"
+    summary += "| Item | Price (Sell) | Daily Volume | Net Spread |\n"
+    summary += "| :--- | :--- | :--- | :--- |\n"
+    for r in top_vols:
+        summary += f"| **{r['name']}** | {r['price']:,.2f} | {format_vol(r['vol'])} | {r['spread']:.1f}% |\n"
+
+    summary += "\n## 💎 Top 10 Liquid Profit Targets\n"
+    summary += "Items with high volume (>1k/day) and the best manufacturing spreads.\n\n"
+    summary += "| Item | Daily Volume | Net Spread | Recommendation |\n"
+    summary += "| :--- | :--- | :--- | :--- |\n"
+    for r in top_spreads:
+        rec = "Strong Buy" if r['spread'] > 20 else "Stable"
+        summary += f"| **{r['name']}** | {format_vol(r['vol'])} | **{r['spread']:.1f}%** | {rec} |\n"
+
+    summary += "\n\n--- \n*Generated by the Shrimp Market Bot via EVE Tycoon API.* 🍤"
     return summary
 
 if __name__ == "__main__":
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
     target_path = os.path.join(base_dir, "JITA_MFG_ANALYSIS.md")
     with open(target_path, "w") as f: f.write(generate_report())
-    print("Tycoon Manufacturing Analysis Generated.")
+    print("Jita Manufacturing Analysis Overhauled.")
