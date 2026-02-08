@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Daily Report (Final Corrected Logic)
-Last updated: 2026-02-08 16:21:27 UTC
+Last updated: 2026-02-08 17:00:55 UTC
 
 ### 🛡️ VERIFIED PAYLOAD LOGIC (EVE Tycoon API):
 - **Scam Protection:** Only uses **Top 5% Weighted Averages** from EVE Tycoon.
@@ -8,18 +8,18 @@ Last updated: 2026-02-08 16:21:27 UTC
 ## 🚛 Top 3 High-Volume Verified Runs (Round-Trip)
 ### 1. The Heimatar (Rens) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 23,333,333 x Compressed Scordite -> Net Profit: **97.1M**
-**Predicted Total Trip Profit: 97.1 Million ISK**
+- **IN:** 5,833,333 x Compressed Omber -> Net Profit: **68.7M**
+**Predicted Total Trip Profit: 68.7 Million ISK**
 
 ### 2. The Metropolis (Hek) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 10,000,000 x Compressed Plagioclase -> Net Profit: **17.2M**
-**Predicted Total Trip Profit: 17.2 Million ISK**
+- **IN:** 10,000,000 x Compressed Plagioclase -> Net Profit: **65.0M**
+**Predicted Total Trip Profit: 65.0 Million ISK**
 
 ### 3. The Domain (Amarr) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 7,000 x Warrior I -> Net Profit: **8.0M**
-**Predicted Total Trip Profit: 8.0 Million ISK**
+- **IN:** 5,833,333 x Compressed Omber -> Net Profit: **31.5M**
+**Predicted Total Trip Profit: 31.5 Million ISK**
 
 
 ## 📍 Station Reference Guide
