@@ -1,5 +1,5 @@
 # 🛠️ Jita Manufacturing Analysis (High Demand)
-Last updated: 2026-02-08 15:32:26 UTC
+Last updated: 2026-02-08 15:49:38 UTC
 
 ### 🛡️ Analysis Parameters
 - **Region:** The Forge (Region-wide Jita stats).
@@ -11,15 +11,15 @@ These are the most liquid T1 items in Jita. Building these ensures instant sales
 
 | Item | Price (Sell) | Daily Volume | Net Spread |
 | :--- | :--- | :--- | :--- |
-| **Tritanium** | 4.00 | 12.5B | -6.2% |
+| **Tritanium** | 4.00 | 12.5B | -6.6% |
 | **Pyerite** | 20.00 | 4.3B | -7.2% |
-| **Mexallon** | 69.79 | 1.2B | -2.5% |
-| **Isogen** | 196.60 | 824.4M | -3.2% |
-| **Nocxium** | 699.00 | 210.0M | -1.6% |
+| **Mexallon** | 69.79 | 1.1B | -2.5% |
+| **Isogen** | 196.70 | 821.5M | -3.2% |
+| **Nocxium** | 700.00 | 209.8M | -1.5% |
 | **Zydrine** | 1,125.00 | 134.8M | -2.6% |
 | **Antimatter Charge M** | 5.64 | 56.1M | -42.2% |
 | **EMP S** | 15.00 | 51.2M | 30.5% |
-| **Megacyber** | 2,874.00 | 22.3M | -2.2% |
+| **Megacyber** | 2,874.00 | 22.2M | -2.3% |
 | **Nova Heavy Missile** | 110.00 | 18.2M | 7.2% |
 
 ## 💎 Top 10 Liquid Profit Targets
@@ -35,7 +35,7 @@ Items with high volume (>1k/day) and the best manufacturing spreads.
 | **EMP S** | 51.2M | **30.5%** | Strong Buy |
 | **5MN Microwarpdrive I** | 6.6k | **24.4%** | Strong Buy |
 | **Antimatter Charge L** | 1.3M | **14.2%** | Stable |
-| **Acolyte I** | 39.0k | **12.4%** | Stable |
+| **Acolyte I** | 38.9k | **12.4%** | Stable |
 | **Warrior I** | 163.4k | **11.3%** | Stable |
 
 
