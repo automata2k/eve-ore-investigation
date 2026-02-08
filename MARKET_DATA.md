@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-08 12:58:05 UTC
+Last updated: 2026-02-08 13:00:04 UTC
 
 Tracks compressed ore spreads, hub demand, and missioner essentials.
 
