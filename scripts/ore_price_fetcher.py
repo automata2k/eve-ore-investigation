@@ -9,6 +9,13 @@ JITA_IV_4 = "60003760"
 AMARR_VIII = "60008494"
 DODIXIE_IX = "60011866"
 
+# MISSION HUBS
+HUBS = {
+    "Osmon": "60004516",      # SoE Bureau (Guristas)
+    "Apanake": "60005236",    # SoE Bureau (Sansha/Blood)
+    "Lanngisi": "60009514"    # SoE Bureau (Angels)
+}
+
 # CATEGORIES
 TARGET_TYPES = {
     "Compressed Veldspar": "28432", "Compressed Scordite": "28429", "Compressed Pyroxeres": "28422",
@@ -22,6 +29,7 @@ MINERAL_TYPES = {
     "Nocxium": "38", "Zydrine": "39", "Megacyber": "40", "Morphite": "11399"
 }
 
+# General Demand Items
 MFG_SHIPS = {
     "Venture": "32880", "Iteron Mark V": "657", "Badger": "649", "Tayra": "28576"
 }
@@ -37,6 +45,19 @@ MFG_AMMO = {
     "Antimatter Charge S": "230", "Antimatter Charge M": "218", "Antimatter Charge L": "206",
     "Scourge Heavy Missile": "195", "Scourge Light Missile": "191", "EMP S": "183", "EMP M": "177",
     "Hobgoblin I": "2454", "Warrior I": "2464", "Acolyte I": "2203"
+}
+
+MISSION_ESSENTIALS = {
+    "Scourge Heavy Missile": "195",
+    "Mjolnir Heavy Missile": "196",
+    "Inferno Heavy Missile": "194",
+    "Nova Heavy Missile": "193",
+    "Nanite Repair Paste": "28668",
+    "Cap Booster 400": "1121",
+    "Hobgoblin I": "2454",
+    "Warrior I": "2464",
+    "Acolyte I": "2203",
+    "Hornet I": "2470"
 }
 
 MFG_ESSENTIALS = {
@@ -67,17 +88,22 @@ def format_vol(vol):
     return str(int(vol))
 
 def calculate_spreads():
-    all_mfg_ids = []
-    for d in [MINERAL_TYPES, MFG_SHIPS, MFG_MODULES, MFG_AMMO, MFG_ESSENTIALS]:
-        all_mfg_ids.extend(d.values())
+    all_needed_ids = list(TARGET_TYPES.values()) + list(MINERAL_TYPES.values()) + \
+                     list(MFG_SHIPS.values()) + list(MFG_MODULES.values()) + \
+                     list(MFG_AMMO.values()) + list(MFG_ESSENTIALS.values()) + \
+                     list(MISSION_ESSENTIALS.values())
     
-    jita = fetch_prices(JITA_IV_4, list(TARGET_TYPES.values()) + all_mfg_ids)
+    jita = fetch_prices(JITA_IV_4, all_needed_ids)
     amarr = fetch_prices(AMARR_VIII, list(TARGET_TYPES.values()))
     dodi = fetch_prices(DODIXIE_IX, list(TARGET_TYPES.values()))
     
+    hub_data = {}
+    for hub_name, hub_id in HUBS.items():
+        hub_data[hub_name] = fetch_prices(hub_id, list(MISSION_ESSENTIALS.values()))
+    
     summary = "# 🚀 EVE Arbitrage Weekly Briefing\n"
     summary += f"Last updated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S UTC')}\n\n"
-    summary += "Tracks compressed ore spreads between hubs and Jita Internal Demand metrics.\n\n"
+    summary += "Tracks compressed ore spreads, hub demand, and missioner essentials.\n\n"
 
     # Verdict Logic
     best_ore_spread = 0
@@ -92,7 +118,6 @@ def calculate_spreads():
                     best_ore_spread = spread
                     best_ore_name = name
 
-    # NEW: Top 5 Manufacturing Items Logic (Liquidity Filtered)
     mfg_candidates = []
     for d in [MFG_SHIPS, MFG_MODULES, MFG_AMMO, MFG_ESSENTIALS]:
         for name, tid in d.items():
@@ -102,24 +127,22 @@ def calculate_spreads():
             v = float(info.get("sell", {}).get("volume", 0))
             if s > 0 and b > 0:
                 spread = ((s - b) / b) * 100
-                # Filter out low liquidity items (trap detection)
                 min_vol = 5 if tid in MFG_SHIPS.values() else 1000
                 if v >= min_vol:
                     mfg_candidates.append({"name": name, "spread": spread, "vol": v})
 
-    # Sort by spread descending
     mfg_candidates.sort(key=lambda x: x['spread'], reverse=True)
     top_5 = mfg_candidates[:5]
 
     summary += "## 🍤 Shrimp's Weekly Verdict\n"
     if top_5 and top_5[0]['spread'] > best_ore_spread + 5:
-        summary += f"**Verdict: MANUFACTURE.** The highest liquidity-adjusted manufacturing spreads currently outperform raw ore hauling. Focus your perfect reprocessing skills on feeding your own BPOs.\n\n"
-        summary += "### 💎 Jita Top 5 Manufacturing Items (High Liquidity):\n"
+        summary += f"**Verdict: MANUFACTURE.** Current manufacturing margins on high-liquidity items outperform raw hauling.\n\n"
+        summary += "### 💎 Jita Top 5 Manufacturing Items:\n"
         for i, item in enumerate(top_5, 1):
             summary += f"{i}. **{item['name']}** ({item['spread']:.1f}% spread, {format_vol(item['vol'])} daily vol)\n"
         summary += "\n"
     else:
-        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less market complexity than manufacturing right now.\n\n"
+        summary += f"**Verdict: HAUL ORE.** Raw ore spreads (like **{best_ore_name}** at {best_ore_spread:.1f}%) are strong and carry less complexity.\n\n"
 
     summary += "## 📈 High Sec Market Spreads (Regional Hubs -> Jita)\n"
     summary += "| Ore Type | Hub | Local Price | Jita Spread % |\n| :--- | :--- | :--- | :--- |\n"
@@ -141,13 +164,24 @@ def calculate_spreads():
         v = float(info.get("sell", {}).get("volume", 0))
         summary += f"| {name} | {s:,.2f} | {b:,.2f} | {format_vol(v)} |\n"
 
+    summary += "\n## 🎯 Mission Hub Opportunities (Jita Buy -> Hub Sell)\n"
+    summary += "Profit by shipping from Jita or manufacturing locally near the hub.\n\n"
+    summary += "| Hub | Item | Jita Buy | Hub Sell | Markup % |\n| :--- | :--- | :--- | :--- | :--- |\n"
+    for hub_name, data in hub_data.items():
+        for name, tid in MISSION_ESSENTIALS.items():
+            j_buy = float(jita.get(tid, {}).get("buy", {}).get("max", 0))
+            h_sell = float(data.get(tid, {}).get("sell", {}).get("min", 0))
+            if j_buy > 0 and h_sell > 0:
+                markup = ((h_sell - j_buy) / j_buy) * 100
+                if markup >= 5.0: # Only show significant markups
+                    summary += f"| {hub_name} | {name} | {j_buy:,.2f} | {h_sell:,.2f} | **{markup:.1f}%** |\n"
+
     cat_map = [
         ("🚢 Jita Demand: Ships & Hulls", MFG_SHIPS),
         ("🛰️ Jita Demand: Modules & Fittings", MFG_MODULES),
         ("🔫 Jita Demand: Ammo & Drones", MFG_AMMO),
         ("🔥 Jita High-Demand Essentials", MFG_ESSENTIALS)
     ]
-    
     for header, d in cat_map:
         summary += f"\n## {header}\n"
         summary += "| Item | Jita Sell | Jita Buy | Spread | 24h Vol |\n| :--- | :--- | :--- | :--- | :--- |\n"
