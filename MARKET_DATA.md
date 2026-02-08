@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Daily Report (Verified)
-Last updated: 2026-02-08 15:05:33 UTC
+Last updated: 2026-02-08 15:09:25 UTC
 
 ### 💎 Market Data: EVE Tycoon API (Regional)
 Prices are fetched per region to avoid station-only traps.
@@ -17,11 +17,11 @@ Prices are fetched per region to avoid station-only traps.
 | Item | Region | Hub Sell | Hub Buy | Jita Sell | Jita Buy |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | Warrior I | Domain | 7,100 | 4,060 | 10,350 | 8,953 |
-| Nanite Repair Paste | Domain | 27,280 | 23,420 | 24,970 | 23,370 |
+| Nanite Repair Paste | Domain | 27,280 | 23,420 | 24,980 | 23,370 |
 | Warrior I | Sinq Laison | 8,000 | 3,045 | 10,350 | 8,953 |
-| Nanite Repair Paste | Sinq Laison | 23,000 | 21,890 | 24,970 | 23,370 |
+| Nanite Repair Paste | Sinq Laison | 23,000 | 21,890 | 24,980 | 23,370 |
 | Warrior I | The Forge | 10,350 | 8,953 | 10,350 | 8,953 |
-| Nanite Repair Paste | The Forge | 24,970 | 23,370 | 24,970 | 23,370 |
+| Nanite Repair Paste | The Forge | 24,980 | 23,370 | 24,980 | 23,370 |
 
 ## ℹ️ Reference
 **Jita IV-4**: Jita IV - Moon 4 - Caldari Navy Assembly Plant (The Forge)
