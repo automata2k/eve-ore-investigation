@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Weekly Briefing
-Last updated: 2026-02-07 12:30:07 UTC
+Last updated: 2026-02-08 12:30:41 UTC
 
 Tracks compressed ore spreads between hubs and Jita Internal Demand metrics.
 
@@ -7,86 +7,86 @@ Tracks compressed ore spreads between hubs and Jita Internal Demand metrics.
 **Verdict: MANUFACTURE.** The highest liquidity-adjusted manufacturing spreads currently outperform raw ore hauling. Focus your perfect reprocessing skills on feeding your own BPOs.
 
 ### 💎 Jita Top 5 Manufacturing Items (High Liquidity):
-1. **Scourge Heavy Missile** (90.5% spread, 1.8M daily vol)
-2. **1600mm Steel Plates I** (90.4% spread, 1.2k daily vol)
-3. **Damage Control I** (79.4% spread, 12.7k daily vol)
-4. **Drone Damage Amplifier I** (78.2% spread, 12.7k daily vol)
-5. **Antimatter Charge M** (76.2% spread, 55.8M daily vol)
+1. **1600mm Steel Plates I** (90.3% spread, 1.2k daily vol)
+2. **Antimatter Charge M** (83.9% spread, 55.7M daily vol)
+3. **Damage Control I** (75.8% spread, 15.3k daily vol)
+4. **Drone Damage Amplifier I** (73.1% spread, 12.9k daily vol)
+5. **Venture** (65.2% spread, 1.3k daily vol)
 
 ## 📈 High Sec Market Spreads (Regional Hubs -> Jita)
 | Ore Type | Hub | Local Price | Jita Spread % |
 | :--- | :--- | :--- | :--- |
 | Compressed Gneiss | Amarr | 14,200.00 | **63.9%** |
 | Compressed Hedbergite | Amarr | 67,840.00 | -57.4% |
-| Compressed Plagioclase | Amarr | 149,900.00 | -94.3% |
-| Compressed Scordite | Amarr | 2,860.00 | -5.7% |
+| Compressed Plagioclase | Amarr | 149,900.00 | -96.0% |
+| Compressed Scordite | Amarr | 2,860.00 | -5.8% |
 | Compressed Scordite | Dodixie | 124,700.00 | -97.8% |
-| Compressed Veldspar | Amarr | 1,301.00 | **23.1%** |
-| Compressed Veldspar | Dodixie | 1,501.00 | 6.7% |
+| Compressed Veldspar | Amarr | 1,301.00 | **22.8%** |
+| Compressed Veldspar | Dodixie | 1,501.00 | 6.4% |
 
 ## 💎 Jita Mineral Index (Raw Demand)
 | Mineral | Jita Sell | Jita Buy | 24h Vol |
 | :--- | :--- | :--- | :--- |
-| Isogen | 190.30 | 180.20 | 878.8M |
-| Megacyber | 2,870.00 | 2,784.00 | 33.0M |
-| Mexallon | 70.20 | 68.04 | 1.0B |
-| Morphite | 20,970.00 | 20,190.00 | 3.7M |
-| Nocxium | 697.50 | 660.20 | 210.1M |
-| Pyerite | 20.58 | 20.17 | 4.4B |
-| Tritanium | 4.22 | 4.05 | 8.3B |
-| Zydrine | 1,148.00 | 1,039.00 | 149.4M |
+| Isogen | 196.60 | 183.00 | 816.6M |
+| Megacyber | 2,872.00 | 2,806.00 | 24.6M |
+| Mexallon | 69.87 | 63.53 | 1.1B |
+| Morphite | 21,280.00 | 19,830.00 | 3.4M |
+| Nocxium | 699.90 | 665.80 | 208.2M |
+| Pyerite | 20.58 | 20.15 | 4.1B |
+| Tritanium | 4.27 | 4.10 | 9.4B |
+| Zydrine | 1,129.00 | 1,066.00 | 138.1M |
 
 ## 🚢 Jita Demand: Ships & Hulls
 | Item | Jita Sell | Jita Buy | Spread | 24h Vol |
 | :--- | :--- | :--- | :--- | :--- |
-| Badger | 2,280,000.00 | 2,279,000.00 | 0.0% | 5.0k |
-| Iteron Mark V | 2,454,000.00 | 1,661,000.00 | 47.7% | 494 |
-| Tayra | 602,200.00 | 537,600.00 | 12.0% | 14.0k |
-| Venture | 332,200.00 | 301,700.00 | 10.1% | 9.7k |
+| Badger | 2,728,000.00 | 2,283,000.00 | 19.5% | 5.0k |
+| Iteron Mark V | 2,334,000.00 | 1,700,000.00 | 37.3% | 589 |
+| Tayra | 598,000.00 | 515,900.00 | 15.9% | 13.7k |
+| Venture | 499,000.00 | 302,000.00 | 65.2% | 1.3k |
 
 ## 🛰️ Jita Demand: Modules & Fittings
 | Item | Jita Sell | Jita Buy | Spread | 24h Vol |
 | :--- | :--- | :--- | :--- | :--- |
-| 10MN Afterburner I | 1,886,000.00 | 1,793,000.00 | 5.2% | 2.2k |
-| 1600mm Steel Plates I | 800,000.00 | 420,200.00 | 90.4% | 1.2k |
-| 5MN Microwarpdrive I | 87,690.00 | 62,040.00 | 41.3% | 3.8k |
-| Cap Recharger I | 1,400,000.00 | 501,200.00 | 179.3% | 89 |
-| Damage Control I | 82,750.00 | 46,120.00 | 79.4% | 12.7k |
-| Drone Damage Amplifier I | 297,700.00 | 167,100.00 | 78.2% | 12.7k |
-| Medium Shield Extender I | 246,500.00 | 146,900.00 | 67.8% | 6.4k |
-| Multispectrum Shield Hardener I | 2,070,000.00 | 1,961,000.00 | 5.6% | 27.2k |
-| Stasis Webifier I | 7,158.00 | 5,859.00 | 22.2% | 11.6k |
-| Warp Disruptor I | 2,865,000.00 | 2,704,000.00 | 6.0% | 4.3k |
-| Warp Scrambler I | 99,480.00 | 94,750.00 | 5.0% | 11.4k |
+| 10MN Afterburner I | 1,864,000.00 | 1,729,000.00 | 7.8% | 2.4k |
+| 1600mm Steel Plates I | 799,800.00 | 420,200.00 | 90.3% | 1.2k |
+| 5MN Microwarpdrive I | 80,000.00 | 61,920.00 | 29.2% | 4.4k |
+| Cap Recharger I | 1,400,000.00 | 501,200.00 | 179.3% | 87 |
+| Damage Control I | 81,000.00 | 46,070.00 | 75.8% | 15.3k |
+| Drone Damage Amplifier I | 293,000.00 | 169,300.00 | 73.1% | 12.9k |
+| Medium Shield Extender I | 245,700.00 | 151,900.00 | 61.8% | 5.6k |
+| Multispectrum Shield Hardener I | 2,065,000.00 | 1,875,000.00 | 10.1% | 26.8k |
+| Stasis Webifier I | 7,153.00 | 5,857.00 | 22.1% | 11.7k |
+| Warp Disruptor I | 2,877,000.00 | 2,700,000.00 | 6.6% | 4.0k |
+| Warp Scrambler I | 99,470.00 | 94,750.00 | 5.0% | 11.4k |
 
 ## 🔫 Jita Demand: Ammo & Drones
 | Item | Jita Sell | Jita Buy | Spread | 24h Vol |
 | :--- | :--- | :--- | :--- | :--- |
-| Acolyte I | 3,895.00 | 3,001.00 | 29.8% | 27.8k |
-| Antimatter Charge L | 90.00 | 75.02 | 20.0% | 2.1M |
-| Antimatter Charge M | 9.90 | 5.62 | 76.2% | 55.8M |
-| Antimatter Charge S | 108.00 | 95.02 | 13.7% | 5.4M |
-| EMP S | 14.98 | 11.00 | 36.2% | 49.6M |
-| Hobgoblin I | 3,986.00 | 3,680.00 | 8.3% | 103.7k |
-| Scourge Heavy Missile | 28.71 | 15.07 | 90.5% | 1.8M |
-| Scourge Light Missile | 138.80 | 90.01 | 54.2% | 6.9M |
-| Warrior I | 6,400.00 | 4,619.00 | 38.6% | 85.6k |
+| Acolyte I | 3,893.00 | 3,003.00 | 29.6% | 36.5k |
+| Antimatter Charge L | 84.89 | 76.01 | 11.7% | 244.1k |
+| Antimatter Charge M | 10.39 | 5.65 | 83.9% | 55.7M |
+| Antimatter Charge S | 101.70 | 65.01 | 56.4% | 5.4M |
+| EMP S | 11.08 | 11.07 | 0.1% | 49.4M |
+| Hobgoblin I | 3,680.00 | 3,679.00 | 0.0% | 109.2k |
+| Scourge Heavy Missile | 15.08 | 15.07 | 0.1% | 1.8M |
+| Scourge Light Missile | 138.00 | 95.01 | 45.2% | 6.9M |
+| Warrior I | 5,900.00 | 5,000.00 | 18.0% | 86.2k |
 
 ## 🔥 Jita High-Demand Essentials
 | Item | Jita Sell | Jita Buy | Spread | 24h Vol |
 | :--- | :--- | :--- | :--- | :--- |
 | Cap Booster 400 | 1,500,000.00 | 1,000.00 | 149900.0% | 1 |
 | Cap Booster 800 | 6,000,000.00 | 1,000.00 | 599900.0% | 1 |
-| Helium Fuel Block | 19,980.00 | 19,530.00 | 2.3% | 1.0M |
-| Hydrogen Fuel Block | 18,790.00 | 17,900.00 | 5.0% | 3.4M |
-| Mining Laser I | 13,000.00 | 10,010.00 | 29.9% | 13.9k |
-| Mining Laser Upgrade I | 5,815,000.00 | 5,381,000.00 | 8.1% | 6.8k |
-| Mobile Depot | 1,799,000.00 | 1,645,000.00 | 9.4% | 5.6k |
-| Mobile Tractor Unit | 34,500,000.00 | 12,100,000.00 | 185.1% | 53 |
-| Nanite Repair Paste | 24,930.00 | 23,380.00 | 6.6% | 1.5M |
-| Nitrogen Fuel Block | 18,990.00 | 18,180.00 | 4.5% | 4.7M |
-| Oxygen Fuel Block | 20,510.00 | 18,800.00 | 9.1% | 3.0M |
-| Warp Core Stabilizer I | 107,000.00 | 83,300.00 | 28.5% | 8.6k |
+| Helium Fuel Block | 20,490.00 | 18,940.00 | 8.2% | 1.1M |
+| Hydrogen Fuel Block | 19,040.00 | 17,860.00 | 6.6% | 3.2M |
+| Mining Laser I | 14,000.00 | 10,050.00 | 39.3% | 13.4k |
+| Mining Laser Upgrade I | 5,836,000.00 | 5,402,000.00 | 8.0% | 5.8k |
+| Mobile Depot | 1,798,000.00 | 1,651,000.00 | 8.9% | 4.3k |
+| Mobile Tractor Unit | 34,500,000.00 | 12,240,000.00 | 181.9% | 53 |
+| Nanite Repair Paste | 24,990.00 | 23,370.00 | 6.9% | 1.4M |
+| Nitrogen Fuel Block | 18,920.00 | 18,420.00 | 2.7% | 4.7M |
+| Oxygen Fuel Block | 20,860.00 | 18,960.00 | 10.0% | 3.0M |
+| Warp Core Stabilizer I | 107,000.00 | 83,310.00 | 28.4% | 8.7k |
 
 
 --- 
