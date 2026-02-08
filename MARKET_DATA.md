@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Daily Report
-Last updated: 2026-02-08 14:44:07 UTC
+Last updated: 2026-02-08 14:52:40 UTC
 
 ### 🚛 Daily Trade Run (Optimized 35,000 m³)
 *Calculated based on **Realistic Stock depth** (ignores items with < 50 units). Profits include 3.6% fees.*
@@ -18,13 +18,6 @@ Last updated: 2026-02-08 14:44:07 UTC
 - **OUT:** Buy **1,412 x Nanite Repair Paste** (Jita) -> Est. Profit: **12.4M** (Invest: 35.3M)
 **Predicted Round-Trip Profit: 12.4 Million ISK**
 
-
-## 📊 Real-Time Market Check (Self-Correction)
-| Item | Region | Hub Price (Min Sell) | Jita Price (Min Sell) | Spread % |
-| :--- | :--- | :--- | :--- | :--- |
-| Warrior I | Domain | 7,400 | 10,350 | -28.5% |
-| Warrior I | Sinq Laison | 9,100 | 10,350 | -12.1% |
-| Warrior I | The Forge | 29,900 | 10,350 | 188.9% |
 
 ## ℹ️ Reference
 **Jita IV-4**: Jita IV - Moon 4 - Caldari Navy Assembly Plant (The Forge)

@@ -95,17 +95,6 @@ def calculate_spreads():
         if r['in']: summary += f"- **IN:** Buy **{r['in']['u']:,} x {r['in']['name']}** ({r['hub']}) -> Est. Profit: **{r['in']['profit']/1e6:.1f}M** (Invest: {r['in']['cost']/1e6:.1f}M)\n"
         summary += f"**Predicted Round-Trip Profit: {r['total']/1e6:,.1f} Million ISK**\n\n"
 
-    summary += "\n## 📊 Real-Time Market Check (Self-Correction)\n"
-    summary += "| Item | Region | Hub Price (Min Sell) | Jita Price (Min Sell) | Spread % |\n| :--- | :--- | :--- | :--- | :--- |\n"
-    for h_key, h_mkt in hub_data.items():
-        reg = STATIONS[h_key]["region"]
-        w_j = float(jita.get("2486", {}).get("sell", {}).get("min", 0))
-        w_h = float(h_mkt.get("2486", {}).get("sell", {}).get("min", 0))
-        if w_j > 0 and w_h > 0: summary += f"| Warrior I | {reg} | {w_h:,.0f} | {w_j:,.0f} | {((w_h-w_j)/w_j)*100:.1f}% |\n"
-        o_j = float(jita.get("28399", {}).get("sell", {}).get("min", 0))
-        o_h = float(h_mkt.get("28399", {}).get("sell", {}).get("min", 0))
-        if o_j > 0 and o_h > 0: summary += f"| Comp. Omber | {reg} | {o_h:,.0f} | {o_j:,.0f} | {((o_j-o_h)/o_h)*100:.1f}% |\n"
-
     summary += "\n## ℹ️ Reference\n"
     for k, v in STATIONS.items(): summary += f"**{k}**: {v['name']} ({v['region']})\n\n"
     return summary
