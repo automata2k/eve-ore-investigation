@@ -80,4 +80,30 @@ Just like with refining, manufacturing in an NPC station (like the *Iskuhone Cor
 *   **Jita IV - Moon 4:** The Center of the Universe. Sell everything here.
 *   **Perimeter:** Check player structures for 0% tax refining/manufacturing.
 *   **Osmon / Apanake:** High-volume mission systems for selling finished goods.
-*   **Ashab:** A great "bridge" system between Amarr and Caldari space for mid-way storage.
+---
+
+## 🎯 Combat Strategy: Tracking and Transversal 101
+If you find your guns are missing even when the enemy is in range, you are losing the "Math War" against Transversal Velocity.
+
+### 1. The Definitions (The "Why am I missing?" part)
+*   **Tracking Speed:** How fast your gun can swivel. Small guns swivel fast; big guns (like your 150mm/200mm Rails) swivel like a rusty gate.
+*   **Signature Resolution:** The size of the "bullet" your gun fires. Medium guns fire a "resolution" of 125mm. Frigates have a "signature" of ~35mm. It's like trying to hit a fly with a bowling ball.
+*   **Transversal Velocity:** How fast the target is moving *across* your screen (sideways). High transversal = your guns can't swivel fast enough to keep up.
+
+### 2. The Solution: Managing Transversal
+You cannot change your gun's tracking much, but you CAN change the enemy's transversal by changing how you fly.
+
+#### **The "Tail-Chase" Maneuver**
+If a pack of Guristas frigates is orbiting you at 5km, they have **Maximum Transversal**. Your tracking will fail.
+1.  **Stop Orbiting them.**
+2.  **Pick a point in space (a celestial or a bookmark) and "Align To" it.**
+3.  **Turn on your Afterburner.**
+4.  As you move away, the frigates will stop circling and start flying in a straight line directly behind you to catch up.
+5.  **Result:** Their Transversal Velocity drops to **ZERO**. Even a massive Battleship gun can hit a frigate if it's flying directly towards or away from the barrel.
+
+### 3. Vexor-Specific Efficiency
+*   **The Target Painter:** Use this! It "bloats" the enemy's Signature Radius. If you paint a 35mm frigate up to 50mm, your medium railguns "see" it as a much larger target, and your hit chance skyrockets.
+*   **The Drone "Anvil":** Think of your Vexor as the Anvil and your Drones as the Hammer. Use your Rails to "snack" on targets that are flying straight at you, but let your **Hobgoblins** kill anything that is orbiting you too fast to track.
+*   **Dual 150mm vs 200mm:** The 150mms track better, but they still have the 125mm Signature Resolution. They are "better," but they aren't a magic fix for poor piloting.
+
+**Shrimp's Golden Rule:** If you miss more than two shots in a row, you are flying wrong. Change your alignment, drop your transversal, and watch the wreck indicators pop.
