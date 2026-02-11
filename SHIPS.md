@@ -46,8 +46,26 @@ The Proteus is a player-controlled Strategic Cruiser. It uses Covert Ops cloaks 
 *   **Lows:** 2x Ballistic Control System II, 2x Shield Power Relay II.
 *   **Rigs:** 3x Medium Core Defense Field Purger I.
 
-### C3 Solo Praxis
-*   **Highs:** 6x Rapid Heavy Missile Launcher II, 1x Core Probe Launcher I.
-*   **Mids:** 4x Large Shield Extender II, 2x Multispectrum Shield Hardener II, 1x 100MN Afterburner.
-*   **Lows:** 2x Ballistic Control System II, 2x Drone Damage Amplifier II, 3x Shield Power Relay II.
-*   **Rigs:** 3x Large Core Defense Field Purger I.
+---
+
+## 🛡️ Case Study: The "apider Drake E4" Refinement
+A breakdown of the Guristas DED 4/10 Drake fit.
+
+### 1. The Current "E4" Fit Critique
+The E4 is a "Hybrid Active" build. While it works, it has an **Identity Crisis**:
+*   **The Tank:** Combining a *Medium Shield Booster* with a *Large Shield Extender* is inefficient. Because passive shield recharge is based on a percentage of your total shield pool, adding more HP (Extenders) directly boosts your "natural" healing. 
+*   **The Weapon:** Heavy Assault Missiles (HAMs) have amazing DPS, but a Drake moves like a planet. You will spend 70% of the site just slow-boating toward targets at 20km.
+
+### 2. Suggested Improvement: The "Passive Sniper" Drake
+This version swaps the active booster for more "passive" regen and swaps HAMs for Heavies (HML) to clear the field from the warp-in point.
+
+**The Refined Fit:**
+*   **Highs:** 6x Heavy Missile Launcher II (Scourge Fury/Faction).
+*   **Mids:** 3x Large Shield Extender II, 1x 10MN Afterburner II, 1x Multispectrum Shield Hardener II, 1x Kinetic Shield Hardener II.
+*   **Lows:** 3x Ballistic Control System II, 1x Damage Control II.
+*   **Rigs:** 3x **Medium Core Defense Field Purger I/II**.
+
+### 3. Why this is better for Guristas 4/10:
+1.  **Zero-Cap Tank:** You can stay on the field even if your capacitor is empty.
+2.  **Range:** You can hit targets at 50-70km. Total time to clear the site drops because you don't have to fly to every target.
+3.  **The "Passive" Math:** With 3x Purger rigs and 3x Extenders, your shield will naturally regenerate ~150-200 HP per second. This is more than enough to tank a Guristas 4/10 without ever clicking a button.
