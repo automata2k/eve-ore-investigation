@@ -106,4 +106,40 @@ If a pack of Guristas frigates is orbiting you at 5km, they have **Maximum Trans
 *   **The Drone "Anvil":** Think of your Vexor as the Anvil and your Drones as the Hammer. Use your Rails to "snack" on targets that are flying straight at you, but let your **Hobgoblins** kill anything that is orbiting you too fast to track.
 *   **Dual 150mm vs 200mm:** The 150mms track better, but they still have the 125mm Signature Resolution. They are "better," but they aren't a magic fix for poor piloting.
 
-**Shrimp's Golden Rule:** If you miss more than two shots in a row, you are flying wrong. Change your alignment, drop your transversal, and watch the wreck indicators pop.
+---
+
+## 🚀 Missile Mastery: Application over Paper DPS
+Since you have perfect missile skills, your "paper DPS" is impressive, but in EVE, missiles are only as good as their **Application** (Explosion Velocity vs. Explosion Radius).
+
+### 1. Launcher Comparison
+| Launcher Type | Best Usage | Why? |
+| :--- | :--- | :--- |
+| **Light Missile (LML)** | Frigates / Destroyers | Fast, long range, low damage. Perfect application on small targets. |
+| **Rapid Light (RLML)** | Frigate-Culling on Cruisers | Uses Small missiles on a Cruiser-sized interface. Deletes frigates but long reload time (35s). |
+| **Heavy Missile (HML)** | Cruisers / Long-Range PvE | The "Sniper." Great range, but mediocre application on nimble frigates. |
+| **Heavy Assault (HAM)** | Close-Range Brawling | Massive DPS "shotgun." Very short range. Needs constant closing of distance. |
+| **Rapid Heavy (RHML)** | Battleship-level Frigate defense | Uses Heavy missiles on a Battleship. The ultimate "Delete" button for NPC Cruisers/Frigates. |
+
+### 2. T2 Ammo: The "Fury vs. Precision" Dilemma
+Choosing the wrong ammo can result in you dealing **less** damage despite the higher "paper" number.
+
+*   **Fury Missiles (The Hammer):**
+    *   *Usage:* Use ONLY on targets **one class larger** than your launcher (e.g., Heavy Fury on a Battleship).
+    *   *Trade-off:* Massive damage, but massive Explosion Radius. On a frigate, 70% of the explosion "misses" the target.
+*   **Precision Missiles (The Surgeon):**
+    *   *Usage:* Use for targets **one class smaller** (e.g., Heavy Precision on a Frigate/Destroyer).
+    *   *Trade-off:* Lower base damage, but tiny Explosion Radius. It ensures 100% of the damage actually lands on that tiny frigate.
+*   **Javelin Missiles (The Spear - HAM only):**
+    *   *Usage:* Specialized T2 Heavy Assault ammo.
+    *   *Purpose:* Increases Missile Velocity (Range) at the cost of damage. Use this if your HAMs can't reach the target at 20km.
+*   **Faction Ammo (The Golden Middle):**
+    *   *Usage:* Best all-around for same-class targets.
+    *   *Benefit:* More damage than T1, better application than Fury. It’s expensive, but reliable.
+
+### 3. The Formula for Success
+Since you are primarily a missile pilot:
+1.  **Loaded with Fury?** Aim for Battlecruisers and Battleships.
+2.  **Frigates tackling you?** Switch to **Precision** or **Faction** immediately.
+3.  **Site boss out of range?** Load **Javelin** (if using HAMs) or **Faction** (for HMLs).
+
+**Shrimp's Tip:** Just because you *can* fit Furies doesn't mean you *should* use them. If your volley doesn't take out at least 15% of a frigate's health, you're wasting expensive ammo on a target that's "too small" for your explosion. Change the ammo, not the launcher.
