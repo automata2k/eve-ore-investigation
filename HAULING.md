@@ -1,5 +1,5 @@
 # 🚀 EVE Arbitrage Daily Report (Final Corrected Logic)
-Last updated: 2026-02-12 13:00:19 UTC
+Last updated: 2026-02-13 13:00:19 UTC
 
 ### 🛡️ VERIFIED PAYLOAD LOGIC (EVE Tycoon API):
 - **Scam Protection:** Only uses **Top 5% Weighted Averages** from EVE Tycoon.
@@ -8,18 +8,18 @@ Last updated: 2026-02-12 13:00:19 UTC
 ## 🚛 Top 3 High-Volume Verified Runs (Round-Trip)
 ### 1. The Heimatar (Rens) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 2,916,666 x Compressed Kernite -> Net Profit: **144.1M**
-**Predicted Total Trip Profit: 144.1 Million ISK**
+- **IN:** 10,000,000 x Compressed Plagioclase -> Net Profit: **112.0M**
+**Predicted Total Trip Profit: 112.0 Million ISK**
 
-### 2. The Metropolis (Hek) Connection
+### 2. The Sinq Laison (Dodixie) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 7,000 x Warrior I -> Net Profit: **9.4M**
-**Predicted Total Trip Profit: 9.4 Million ISK**
+- **IN:** 10,000,000 x Compressed Plagioclase -> Net Profit: **55.7M**
+**Predicted Total Trip Profit: 55.7 Million ISK**
 
-### 3. The Sinq Laison (Dodixie) Connection
+### 3. The Genesis (Apanake) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 11,666,666 x Compressed Pyroxeres -> Net Profit: **9.3M**
-**Predicted Total Trip Profit: 9.3 Million ISK**
+- **IN:** 11,666,666 x Compressed Pyroxeres -> Net Profit: **9.8M**
+**Predicted Total Trip Profit: 9.8 Million ISK**
 
 
 ## 📍 Station Reference Guide
