@@ -1,24 +1,24 @@
 # 🚀 EVE Arbitrage Daily Report (Final Corrected Logic)
-Last updated: 2026-02-18 13:00:15 UTC
+Last updated: 2026-02-19 13:00:15 UTC
 
 ### 🛡️ VERIFIED PAYLOAD LOGIC (EVE Tycoon API):
 - **Scam Protection:** Only uses **Top 5% Weighted Averages** from EVE Tycoon.
 - **Immediate Profit:** Buy Regional Sell -> Sell Regional Buy (Immediate liquidity).
 
 ## 🚛 Top 3 High-Volume Verified Runs (Round-Trip)
-### 1. The Heimatar (Rens) Connection
-- **OUT:** No profitable outbound goods.
-- **IN:** 35,000,000 x Compressed Veldspar -> Net Profit: **29.7M**
-**Predicted Total Trip Profit: 29.7 Million ISK**
+### 1. The Domain (Amarr) Connection
+- **OUT:** 7,000 x Nitrogen Fuel Block -> Net Profit: **2.4M**
+- **IN:** 3,500,000 x Antimatter Charge S -> Net Profit: **102.0M**
+**Predicted Total Trip Profit: 104.4 Million ISK**
 
-### 2. The Domain (Amarr) Connection
-- **OUT:** 7,000 x Nitrogen Fuel Block -> Net Profit: **2.2M**
-- **IN:** 11,666,666 x Compressed Pyroxeres -> Net Profit: **16.1M**
-**Predicted Total Trip Profit: 18.3 Million ISK**
+### 2. The Metropolis (Hek) Connection
+- **OUT:** No profitable outbound goods.
+- **IN:** 35,000,000 x Compressed Veldspar -> Net Profit: **29.4M**
+**Predicted Total Trip Profit: 29.4 Million ISK**
 
 ### 3. The Sinq Laison (Dodixie) Connection
 - **OUT:** No profitable outbound goods.
-- **IN:** 5,833,333 x Compressed Omber -> Net Profit: **14.0M**
+- **IN:** 2,916,666 x Compressed Kernite -> Net Profit: **14.0M**
 **Predicted Total Trip Profit: 14.0 Million ISK**
 
 
