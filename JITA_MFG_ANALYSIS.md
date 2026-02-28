@@ -1,5 +1,5 @@
 # 🛠️ Jita Manufacturing Analysis (High Demand)
-Last updated: 2026-02-27 13:01:27 UTC
+Last updated: 2026-02-28 13:02:55 UTC
 
 ### 🛡️ Analysis Parameters
 - **Region:** The Forge (Region-wide Jita stats).
@@ -11,32 +11,32 @@ These are the most liquid T1 items in Jita. Building these ensures instant sales
 
 | Item | Price (Sell) | Daily Volume | Net Spread |
 | :--- | :--- | :--- | :--- |
-| **Tritanium** | 3.60 | 20.2B | -13.7% |
-| **Pyerite** | 16.25 | 5.2B | -13.7% |
-| **Mexallon** | 46.34 | 743.7M | -36.4% |
-| **Isogen** | 180.10 | 498.3M | -8.8% |
-| **Nocxium** | 699.00 | 154.5M | -3.1% |
-| **Zydrine** | 998.30 | 101.1M | 1.2% |
-| **Antimatter Charge M** | 10.00 | 52.8M | 16.1% |
-| **EMP S** | 15.02 | 43.8M | -3.5% |
-| **Megacyber** | 2,788.00 | 21.0M | 6.1% |
-| **Nova Heavy Missile** | 108.00 | 16.8M | 15.7% |
+| **Tritanium** | 3.40 | 20.4B | -18.1% |
+| **Pyerite** | 18.53 | 5.7B | -4.3% |
+| **Mexallon** | 75.00 | 688.0M | 3.3% |
+| **Isogen** | 180.00 | 451.3M | -8.9% |
+| **Nocxium** | 707.20 | 205.9M | -1.8% |
+| **Zydrine** | 991.70 | 133.2M | 0.5% |
+| **Antimatter Charge M** | 10.00 | 54.7M | 16.1% |
+| **EMP S** | 17.79 | 43.7M | 14.3% |
+| **Megacyber** | 2,773.00 | 25.1M | 1.2% |
+| **Nova Heavy Missile** | 107.70 | 17.4M | 15.3% |
 
 ## 💎 Top 10 Liquid Profit Targets
 Items with high volume (>1k/day) and the best manufacturing spreads.
 
 | Item | Daily Volume | Net Spread | Recommendation |
 | :--- | :--- | :--- | :--- |
-| **1600mm Steel Plates I** | 1.9k | **53.6%** | Strong Buy |
-| **Acolyte I** | 51.3k | **50.0%** | Strong Buy |
-| **Damage Control I** | 15.1k | **49.7%** | Strong Buy |
-| **Medium Shield Extender I** | 5.9k | **32.9%** | Strong Buy |
-| **Scourge Heavy Missile** | 4.7M | **31.7%** | Strong Buy |
+| **1600mm Steel Plates I** | 1.8k | **53.5%** | Strong Buy |
+| **Damage Control I** | 14.8k | **49.5%** | Strong Buy |
+| **Acolyte I** | 53.4k | **47.2%** | Strong Buy |
+| **Medium Shield Extender I** | 5.5k | **31.5%** | Strong Buy |
 | **5MN Microwarpdrive I** | 5.1k | **28.8%** | Strong Buy |
-| **Antimatter Charge M** | 52.8M | **16.1%** | Stable |
-| **Nova Heavy Missile** | 16.8M | **15.7%** | Stable |
-| **Scourge Light Missile** | 12.0M | **9.7%** | Stable |
-| **Antimatter Charge L** | 6.7M | **8.9%** | Stable |
+| **Scourge Heavy Missile** | 4.7M | **19.2%** | Stable |
+| **Antimatter Charge M** | 54.7M | **16.1%** | Stable |
+| **Nova Heavy Missile** | 17.4M | **15.3%** | Stable |
+| **EMP S** | 43.7M | **14.3%** | Stable |
+| **Oxygen Fuel Block** | 5.6M | **12.0%** | Stable |
 
 
 --- 
