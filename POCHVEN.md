@@ -38,7 +38,7 @@ Stealth and speed are the primary defenses in Pochven.
 
 *   **Covert Ops Cloak:** Essential for invisible transitions and avoiding combat probes.
 *   **Target Ships:**
-    *   **Anathema (Amarr):** Recommended for its 3 High slots (Cloak, Probes, Salvager) and 4 Low slots (high agility/sub-2s align).
+    *   **Anathema (Amarr):** The "Runner." Features 3 High slots (Cloak, Probes, Salvager) and 4 Low slots (best in class). Designed for high agility and sub-2s align times, making it the hardest CovOps frigate to catch.
+    *   **Buzzard (Caldari):** The "Hacker." Features 3 High slots and 5 Mid slots (best in class). Superior for scanning accuracy and running specialized Data/Relic sites, though slower to align than the Anathema.
     *   **Prospect (ORE):** The premier ninja-miner with a Covert Ops cloak.
-    *   **Buzzard (Caldari):** Superior for hacking sites due to its 5 Mid slots.
 *   **The "Sub-2-Second" Rule:** Fitting for an align time under 2 seconds makes a ship nearly impossible to catch in gate-to-gate travel.
