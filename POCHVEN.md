@@ -42,3 +42,30 @@ Stealth and speed are the primary defenses in Pochven.
     *   **Buzzard (Caldari):** The "Hacker." Features 3 High slots and 5 Mid slots (best in class). Superior for scanning accuracy and running specialized Data/Relic sites, though slower to align than the Anathema.
     *   **Prospect (ORE):** The premier ninja-miner with a Covert Ops cloak.
 *   **The "Sub-2-Second" Rule:** Fitting for an align time under 2 seconds makes a ship nearly impossible to catch in gate-to-gate travel.
+
+## 5. Specialized Ship Roles
+While Covert Ops frigates are the baseline, other hulls offer specialized benefits for the Pochven environment.
+
+### 5.1 The "Space Janitor" (Scavenging)
+*   **Sunesis:** The go-to ship for low-cost salvaging.
+    *   **Motivation:** It features a sub-2s align time out of the box, decent cargo space for high-value salvage, and enough low slots for staying power. It is extremely cheap to replace when the "Wild West" gets too wild.
+
+### 5.2 The Combat Explorer
+*   **Astero:** The predator of the frigate class.
+    *   **Motivation:** Combines a Covert Ops cloak with a powerful drone bay. It can run Data/Relic sites and still hunt or defend against other explorers.
+
+### 5.3 The Jack-of-All-Trades
+*   **T3 Cruisers (Tengu, Loki):**
+    *   **Motivation:** With the "Interdiction Nullifier" and "Covert Reconfiguration" subsystems, these are the kings of the region. They can jump through bubbles, warp cloaked, and have the tank to survive inadvertent NPC aggression.
+
+### 5.4 High-End Fleet Combat
+*   **Marauders (Vargur, Paladin, Golem, Kronos):**
+    *   **Motivation:** Essential for high-payout sites like **Observatory Flashpoints**. Their Bastion module allows them to tank massive NPC damage, though they are vulnerable to player "drops" while immobile.
+
+### 5.5 Stealth Logistics
+*   **Blockade Runners (Viator, Prowler, Crane, Prudence):**
+    *   **Motivation:** The only way to safely move fuel and ammo into the region. They can warp cloaked and are immune to cargo scanners, making them the lifeblood of Triglavian-based operations.
+
+### 5.6 Specialized Mining
+*   **Endurance:** The alternative to the Prospect.
+    *   **Motivation:** While it lacks a Covert Ops cloak, it features a massive ore hold and high speed. Useful for "Orca-boosted" fleets or high-volume extraction where the Prospect's hold is too small.
