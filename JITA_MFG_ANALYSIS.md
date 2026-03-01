@@ -1,5 +1,5 @@
 # 🛠️ Jita Manufacturing Analysis (High Demand)
-Last updated: 2026-02-28 13:02:55 UTC
+Last updated: 2026-03-01 13:01:25 UTC
 
 ### 🛡️ Analysis Parameters
 - **Region:** The Forge (Region-wide Jita stats).
@@ -11,32 +11,32 @@ These are the most liquid T1 items in Jita. Building these ensures instant sales
 
 | Item | Price (Sell) | Daily Volume | Net Spread |
 | :--- | :--- | :--- | :--- |
-| **Tritanium** | 3.40 | 20.4B | -18.1% |
-| **Pyerite** | 18.53 | 5.7B | -4.3% |
-| **Mexallon** | 75.00 | 688.0M | 3.3% |
-| **Isogen** | 180.00 | 451.3M | -8.9% |
-| **Nocxium** | 707.20 | 205.9M | -1.8% |
-| **Zydrine** | 991.70 | 133.2M | 0.5% |
+| **Tritanium** | 3.00 | 20.9B | -28.9% |
+| **Pyerite** | 18.28 | 6.4B | -5.3% |
+| **Mexallon** | 74.99 | 742.2M | 3.3% |
+| **Isogen** | 180.00 | 448.9M | -8.9% |
+| **Nocxium** | 706.90 | 191.3M | -2.0% |
+| **Zydrine** | 944.00 | 162.9M | -21.6% |
 | **Antimatter Charge M** | 10.00 | 54.7M | 16.1% |
-| **EMP S** | 17.79 | 43.7M | 14.3% |
-| **Megacyber** | 2,773.00 | 25.1M | 1.2% |
-| **Nova Heavy Missile** | 107.70 | 17.4M | 15.3% |
+| **Megacyber** | 2,589.00 | 50.4M | -3.7% |
+| **EMP S** | 17.80 | 43.5M | 14.3% |
+| **Nova Heavy Missile** | 106.80 | 17.3M | 11.9% |
 
 ## 💎 Top 10 Liquid Profit Targets
 Items with high volume (>1k/day) and the best manufacturing spreads.
 
 | Item | Daily Volume | Net Spread | Recommendation |
 | :--- | :--- | :--- | :--- |
-| **1600mm Steel Plates I** | 1.8k | **53.5%** | Strong Buy |
-| **Damage Control I** | 14.8k | **49.5%** | Strong Buy |
-| **Acolyte I** | 53.4k | **47.2%** | Strong Buy |
-| **Medium Shield Extender I** | 5.5k | **31.5%** | Strong Buy |
-| **5MN Microwarpdrive I** | 5.1k | **28.8%** | Strong Buy |
-| **Scourge Heavy Missile** | 4.7M | **19.2%** | Stable |
+| **1600mm Steel Plates I** | 1.5k | **53.4%** | Strong Buy |
+| **Damage Control I** | 15.2k | **49.2%** | Strong Buy |
+| **Medium Shield Extender I** | 5.6k | **30.2%** | Strong Buy |
+| **5MN Microwarpdrive I** | 5.2k | **28.6%** | Strong Buy |
+| **Scourge Light Missile** | 10.9M | **19.3%** | Stable |
+| **Acolyte I** | 98.1k | **17.2%** | Stable |
 | **Antimatter Charge M** | 54.7M | **16.1%** | Stable |
-| **Nova Heavy Missile** | 17.4M | **15.3%** | Stable |
-| **EMP S** | 43.7M | **14.3%** | Stable |
-| **Oxygen Fuel Block** | 5.6M | **12.0%** | Stable |
+| **EMP S** | 43.5M | **14.3%** | Stable |
+| **Nova Heavy Missile** | 17.3M | **11.9%** | Stable |
+| **Antimatter Charge S** | 16.4M | **7.1%** | Stable |
 
 
 --- 
