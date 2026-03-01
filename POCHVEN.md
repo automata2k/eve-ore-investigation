@@ -69,3 +69,16 @@ While Covert Ops frigates are the baseline, other hulls offer specialized benefi
 ### 5.6 Specialized Mining
 *   **Endurance:** The alternative to the Prospect.
     *   **Motivation:** While it lacks a Covert Ops cloak, it features a massive ore hold and high speed. Useful for "Orca-boosted" fleets or high-volume extraction where the Prospect's hold is too small.
+
+## 6. Comparison: Pochven vs. Wormholes
+While both share the lack of a Local chat list, the environment and survival strategies differ.
+
+*   **Hostility (Pochven: High | Wormholes: Low to Medium):**
+    *   **Wormholes:** A "Quiet Hostility." Ambushes are rare but lethal. NPCs (Sleepers) stay in static signature sites.
+    *   **Pochven:** A "War Zone." NPCs (Triglavians, Drifters, Sleepers) are dynamic and will roam to celestial bodies and gates. You will encounter other players more frequently due to the region's small size.
+*   **Difficulty (Pochven: High | Wormholes: Scaled):**
+    *   **Wormholes:** Difficulty is tiered by class (C1-C6). Sleeper AI is predictable and follows older, static patterns.
+    *   **Pochven:** All content uses modern, reactive AI which includes focus-firing drones, warping away for reinforcements, and advanced fleet tactics.
+*   **Logistics & Extraction:**
+    *   **Wormholes:** High stress. If your hole collapses, you are stranded until you probe a new exit.
+    *   **Pochven:** Medium stress. As long as you have a Devana/Extraction filament and wait out your 15-minute timer, you can leave for regular space at any time.
