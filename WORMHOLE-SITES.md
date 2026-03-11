@@ -119,10 +119,22 @@ Wormhole gas (Fullerenes) is essential for Tech 3 production. Value varies wildl
 | **Fullerite-C70** | 1 m3 | 400 ISK | **400 ISK** | Perimeter Reservoirs | C1 - C4 |
 | **Fullerite-C60/50** | 1 m3 | < 300 ISK | **< 300 ISK** | Perimeter Reservoirs | C1 - C4 |
 
+### Clearing the Guards (Sleeper Rats)
+
+Gas sites are often guarded by Sleepers, but they don't always spawn immediately.
+
+| Site Category | Spawn Time | Difficulty | Guard Composition | Recommended Ship |
+| :--- | :--- | :--- | :--- | :--- |
+| **Perimeter (C1-C2)** | ~15-20 Min | Low | Frigates / Cruisers | Destroyer or T1 Cruiser |
+| **Ordinary Perim.** | **IMMEDIATE** | **TRAP** | 5x High-Damage Sentries | **DO NOT Nninja.** Need T3C/BC. |
+| **Frontier (C3-C4)** | ~15-20 Min | Medium | Cruisers / Frigates | Drake / Gila / Praxis |
+| **Core (C5-C6)** | 0 - 5 Min | **High** | 2x-4x Sleeper Battleships | Marauder / Rattlesnake |
+
 ### Pro-Tips for Gas Huffers
-1. **The "Ninja" Window:** Most gas sites have a **15-20 minute timer** after you warp in before the Sleeper sentries spawn. You can "Ninja" huff the most valuable gas and warp out before they arrive.
-2. **Instrumental/Vital:** These sites spawn **Sleepers immediately** (or very quickly) and they are very dangerous (Battleships). Do not enter these in a Prospect/Venture unless the site has been cleared.
-3. **C320 is King:** If you find an Instrumental Core Reservoir in a C5/C6, it is often worth more than the combat sites themselves.
+1. **The "Ninja" Window:** Most Perimeter and Frontier gas sites have a **15-20 minute timer** after you warp in before the Sleeper sentries spawn. You can "Ninja" huff the most valuable gas and warp out before they arrive.
+2. **Beware the Ordinary:** The "Ordinary Perimeter Reservoir" is a famous trap. Five high-alpha sentry towers spawn immediately. Never warp a Venture here unless it's already cleared.
+3. **Instrumental/Vital:** These sites in C5/C6 are the most dangerous. They spawn Sleeper Battleships that will instantly pop a mining frigate. They are worth the most but require a dedicated combat ship to clear.
+4. **C320 is King:** If you find an Instrumental Core Reservoir in a C5/C6, it is often worth more than the combat sites themselves.
 
 ---
 *Reference: EVE University Wiki & Community Data 2026*
