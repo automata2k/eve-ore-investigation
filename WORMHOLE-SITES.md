@@ -101,5 +101,28 @@ This guide documents the "Sleeper" combat anomalies found in wormhole space. Use
 | **C4** | High | 90m | Distance/Neuts | Dual Gila / Rattlesnake |
 | ****C5** | Very High | 300m+ | Heavy Neuts/Alpha | Marauder / Tinker Setup |
 
+## Gas Harvesting Intelligence (Fullerenes)
+
+Wormhole gas (Fullerenes) is essential for Tech 3 production. Value varies wildly—some sites are worth 5 minutes of your time, others are worth hundreds of millions.
+
+### Gas Value Table (Approx. Market Values)
+*Sorted by Value per m3 (Efficiency)*
+
+| Gas Type | Volume | Avg Unit Price | **Value / m3** | Primary Sites | WH Class |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Fullerite-C320** | 5 m3 | 90,000 ISK | **18,000 ISK** | Instrumental Core | C5, C6, Shattered |
+| **Fullerite-C540** | 10 m3 | 45,000 ISK | **4,500 ISK** | Vital Core | C5, C6, Shattered |
+| **Fullerite-C32** | 5 m3 | 13,000 ISK | **2,600 ISK** | Vast/Bountiful Frontier | C3 - C6 |
+| **Fullerite-C28** | 2 m3 | 3,000 ISK | **1,500 ISK** | Vast/Bountiful Frontier | C3 - C6 |
+| **Fullerite-C72** | 2 m3 | 1,200 ISK | **600 ISK** | Perimeter Reservoirs | C1 - C4 |
+| **Fullerite-C84** | 2 m3 | 1,100 ISK | **550 ISK** | Perimeter Reservoirs | C1 - C4 |
+| **Fullerite-C70** | 1 m3 | 400 ISK | **400 ISK** | Perimeter Reservoirs | C1 - C4 |
+| **Fullerite-C60/50** | 1 m3 | < 300 ISK | **< 300 ISK** | Perimeter Reservoirs | C1 - C4 |
+
+### Pro-Tips for Gas Huffers
+1. **The "Ninja" Window:** Most gas sites have a **15-20 minute timer** after you warp in before the Sleeper sentries spawn. You can "Ninja" huff the most valuable gas and warp out before they arrive.
+2. **Instrumental/Vital:** These sites spawn **Sleepers immediately** (or very quickly) and they are very dangerous (Battleships). Do not enter these in a Prospect/Venture unless the site has been cleared.
+3. **C320 is King:** If you find an Instrumental Core Reservoir in a C5/C6, it is often worth more than the combat sites themselves.
+
 ---
 *Reference: EVE University Wiki & Community Data 2026*
