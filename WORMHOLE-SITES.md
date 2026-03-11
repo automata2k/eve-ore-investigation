@@ -3,8 +3,8 @@
 This guide documents the "Sleeper" combat anomalies found in wormhole space. Use this to prepare your tank and prioritize triggers.
 
 ## 0. General Rules for All Classes
-- **Damage Types:** Sleepers deal **Omni damage** (EM, Thermal, Kinetic, Explosive). Your tank must be uniformly balanced.
-- **Resistances:** Sleepers have high, uniform resists.
+- **Damage Types:** Sleepers deal **Omni damage** (Equal parts EM, Thermal, Kinetic, and Explosive). Your tank must be uniformly balanced and should not have any "resist holes."
+- **Resistances:** Sleepers also have **Omni resists**, meaning you can use any damage type against them without a penalty. However, missiles and drones are popular because they can easily switch to whatever you're best trained in.
 - **Triggers:** Killing the "Trigger" ship instantly spawns the next wave. **Never kill the trigger first** unless you want to be overwhelmed.
 - **Point/Web:** In C2 and higher, frigates will frequently Warp Scramble or Web you.
 
