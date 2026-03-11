@@ -76,7 +76,7 @@ Just like with refining, manufacturing in an NPC station (like the *Iskuhone Cor
 | **Pro Spread** | **Dodixie** | **Jita** | Kernite / Isogen | Medium |
 | **Industrial** | **Local EC** | **Osmon** | Drones / T1 Ammo | High (Market) |
 
-## 🍤 Shrimp's Location Cheat Sheet
+## 📍 Location Cheat Sheet
 *   **Jita IV - Moon 4:** The Center of the Universe. Sell everything here.
 *   **Perimeter:** Check player structures for 0% tax refining/manufacturing.
 *   **Osmon / Apanake:** High-volume mission systems for selling finished goods.
@@ -142,4 +142,4 @@ Since you are primarily a missile pilot:
 2.  **Frigates tackling you?** Switch to **Precision** or **Faction** immediately.
 3.  **Site boss out of range?** Load **Javelin** (if using HAMs) or **Faction** (for HMLs).
 
-**Shrimp's Tip:** Just because you *can* fit Furies doesn't mean you *should* use them. If your volley doesn't take out at least 15% of a frigate's health, you're wasting expensive ammo on a target that's "too small" for your explosion. Change the ammo, not the launcher.
+**Pro-Tip:** Just because you *can* fit Furies doesn't mean you *should* use them. If your volley doesn't take out at least 15% of a frigate's health, you're wasting expensive ammo on a target that's "too small" for your explosion. Change the ammo, not the launcher.

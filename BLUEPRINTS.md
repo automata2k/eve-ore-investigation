@@ -36,7 +36,7 @@ To compete in High Sec, you **must** use a player-owned Engineering Complex:
 | **Azbel** | Large-scale production | Higher efficiency and rig bonuses |
 | **Public ECs** | Low volume | Find public complexes in **Perimeter** or **Ashab** with 0% tax. |
 
-## 🍤 Shrimp's Pro Tips
+## 🛠️ Manufacturing Tips
 1.  **Don't overproduce:** Markets in mission hubs are shallow. 50,000 rounds of ammo might sell in a day; 5,000,000 will crash the local price.
 2.  **Watch the "Job Installation" tax:** If the System Manufacuring Cost Index is >5%, move your production one or two jumps away.
 3.  **BPO over BPC:** For T1 items, always buy the BPO. The research time is an investment that turns into pure passive potential.

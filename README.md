@@ -32,7 +32,7 @@ In the current EVE Online ecosystem (Feb 2026), High Sec mining and trading have
 *   [Cerlestes Ore Table](https://ore.cerlestes.de/ore) - Best for identifying current ISK/m³ yield per ship type.
 *   [EVE Market Browser](https://evemarketbrowser.com/) - Essential for tracking real-time hub spreads.
 
-## 🍤 Shrimp's Tip
+## 💡 Pro Tip
 Don't haul uncompressed ore. The fuel and risk significantly outweigh the profit. **Compressed Isogen-rich ores** are the current "Gold Coast" of High Sec trading.
 
 ## 🔍 Deep Dive: High Sec Mining Nuances (2026)

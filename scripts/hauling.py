@@ -53,7 +53,7 @@ def fetch_tycoon_stats(region_id, type_id):
     url = f"https://evetycoon.com/api/v1/market/stats/{region_id}/{type_id}"
     ctx = ssl._create_unverified_context()
     try:
-        req = urllib.request.Request(url, headers={'User-Agent': 'ShrimpBot-Final-StationRef'})
+        req = urllib.request.Request(url, headers={'User-Agent': 'EVE-Hauling-Tool'})
         with urllib.request.urlopen(req, context=ctx) as r:
             return json.loads(r.read().decode())
     except: return {}

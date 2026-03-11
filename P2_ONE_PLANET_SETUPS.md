@@ -48,7 +48,7 @@ If you want to move from "stable" to "lucrative," you move into the Robotics cha
 
 ---
 
-## 🍤 Shrimp’s Setup Philosophy:
+## 💡 Setup Philosophy:
 1.  **23-Hour Cycles:** In High-Sec, don't use long cycles. Reset your extractors daily to keep the intake high enough to feed your factories.
 2.  **The "Launchpad Hub":** Never route extractors directly to factories. If the extractor stops, the factory jams. Route EVERYTHING through the Launchpad as a buffer.
 3.  **Taxes:** At 11% tax, these setups will still make you approx. 50M+ ISK per month, per planet, purely from "zero-cost" extraction.
