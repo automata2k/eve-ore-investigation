@@ -23,10 +23,11 @@ In the current EVE Online ecosystem (Feb 2026), High Sec mining and trading have
 *   **Action:** Buy uncompressed ore at low price, dock at a local player structure with **Reprocessing/Compression**, compress it (volume reduction ~100x), and haul to the nearest hub.
 
 ## 📚 Project Documentation
-*   [Ore & Minerals Arbitrage](README.md) - Analysis of raw material trading.
-*   [Blueprints & Manufacturing](BLUEPRINTS.md) - How to turn minerals into ISK in High Sec.
-*   [Starter Strategy](STRATEGY.md) - Technical recommendations on where to start and which routes to fly.
-*   [Live Market Data](HAULING.md) - Aucollaboratoratically updated weekly report on the best High Sec margins.
+* [Ore & Minerals Arbitrage](README.md) - Analysis of raw material trading.
+* [Blueprints & Manufacturing](BLUEPRINTS.md) - How to turn minerals into ISK in High Sec.
+* [Starter Strategy](STRATEGY.md) - Technical recommendations on where to start and which routes to fly.
+* [Strategic Cruisers](STRATEGIC_CRUISERS.md) - Analysis of T3C meta and fitting challenges.
+* [Live Market Data](HAULING.md) - Automatically updated weekly report on the best High Sec margins.
 
 ## 📊 Market Resources
 *   [Cerlestes Ore Table](https://ore.cerlestes.de/ore) - Best for identifying current ISK/m³ yield per ship type.
@@ -87,5 +88,5 @@ Instead of hauling ore, check the price of **T1 Industry Blueprints** in student
 | **Hek** | **Rens** | Refined Mexallon | 6-9% | Low |
 | **Starter Sys** | **Major Hub** | T1 Ammo BPOs | 5-10% | **Zero** |
 
-## 🛠️ Aucollaboratorated Price Tracking (Internal Dev Note)
+## 🛠️ Automated Price Tracking (Internal Dev Note)
 *Python scripts for polling market data are located in the `scripts/` folder.*
