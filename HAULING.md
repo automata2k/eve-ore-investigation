@@ -35,4 +35,4 @@ Set your in-game destination to these specific hub stations:
 | **Genesis (Apanake)** | Apanake IV - Moon 4 - Sisters of EVE Bureau |
 
 
-*Generated via EVE Tycoon Regional Weighted Averages.* 🍤
+*Generated via EVE Tycoon Regional Weighted Averages.* 

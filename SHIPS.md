@@ -1,6 +1,6 @@
 # EVE Online Ship Comparison: Gnosis vs. Drake vs. Praxis
 
-This research was conducted to evaluate ship performance for DED sites (High/Low-sec) and J-Space (Wormhole) ratting.
+Ship performance evaluation for DED sites (High/Low-sec) and J-Space (Wormhole) ratting.
 
 ## Executive Summary
 
@@ -16,8 +16,8 @@ This research was conducted to evaluate ship performance for DED sites (High/Low
 ---
 
 ## 1. DED Site Efficiency
-*   **Gnosis:** Best for 3/10 and 4/10. Its universal damage bonus allowing it to target enemy resist holes (e.g., Thermal for Guristas) makes it faster than the Drake.
-*   **Drake:** The gold standard for 5/10s. Its passive shield recharge and kinetic lock align perfectly with Guristas/Serpentis sites. It is "un-killable" by most DED bosses.
+*   **Gnosis:** Best for 3/10 and 4/10. Universal damage bonus allows targeting enemy resist holes (e.g., Thermal for Guristas), resulting in faster clears.
+*   **Drake:** The standard for 5/10s. Passive shield recharge and kinetic lock align with Guristas/Serpentis site profiles.
 
 ## 2. J-Space (Wormhole) Analysis
 
@@ -25,18 +25,17 @@ This research was conducted to evaluate ship performance for DED sites (High/Low
 Calculations based on average clear times and blue loot value.
 
 *   **Drake (C2):** 
-    *   *Site Clear Time:* 12-15 mins.
+    *   *Clear Time:* 12-15 mins.
     *   *Blue Loot:* ~8-12M per site.
     *   *Total:* ~40M ISK/hr.
 *   **Praxis (C3):**
-    *   *Site Clear Time:* 15-20 mins (Fortified Frontier Stronghold).
+    *   *Clear Time:* 15-20 mins (Fortified Frontier Stronghold).
     *   *Blue Loot:* ~45M per site.
     *   *Total:* ~135M ISK/hr.
 
-### Survival & The "Proteus" Factor
-The Proteus is a player-controlled Strategic Cruiser. It uses Covert Ops cloaks to stalk prey. 
-*   **Drake:** Harder to catch (medium signature), but slow to warp.
-*   **Praxis:** Massive target. If a hunter enters the hole, you are the first thing they see on D-Scan. Always run with a Core Probe Launcher fitted to ensure you can find a backup exit.
+### Survival & Strategic Threats
+*   **Drake:** Harder to detect (medium signature), but slow to warp.
+*   **Praxis:** High-profile target. High visibility on D-Scan. Integration of a Core Probe Launcher is mandatory for identifying emergency exits.
 
 ## 3. Recommended Fits
 
@@ -48,24 +47,24 @@ The Proteus is a player-controlled Strategic Cruiser. It uses Covert Ops cloaks 
 
 ---
 
-## 🛡️ Case Study: The "apider Drake E4" Refinement
-A breakdown of the Guristas DED 4/10 Drake fit.
+## 🛡️ Case Study: Drake E4 Refinement
+Technical analysis of the Guristas DED 4/10 Drake configuration.
 
-### 1. The Current "E4" Fit Critique
-The E4 is a "Hybrid Active" build. While it works, it has an **Identity Crisis**:
-*   **The Tank:** Combining a *Medium Shield Booster* with a *Large Shield Extender* is inefficient. Because passive shield recharge is based on a percentage of your total shield pool, adding more HP (Extenders) directly boosts your "natural" healing. 
-*   **The Weapon:** Heavy Assault Missiles (HAMs) have amazing DPS, but a Drake moves like a planet. You will spend 70% of the site just slow-boating toward targets at 20km.
+### 1. Hybrid Fit Analysis
+Standard "E4" builds often utilize a Hybrid Active configuration.
+*   **Tanking Efficiency:** Combining a *Medium Shield Booster* with a *Large Shield Extender* is suboptimal. Passive shield recharge is based on a percentage of the total pool; increasing capacity (Extenders) directly enhances natural regeneration.
+*   **Weapon Application:** Heavy Assault Missiles (HAMs) offer high DPS but restricted range.
 
-### 2. Suggested Improvement: The "Passive Sniper" Drake
-This version swaps the active booster for more "passive" regen and swaps HAMs for Heavies (HML) to clear the field from the warp-in point.
+### 2. Proposed Configuration: Passive Sniper
+Utilizing a passive regeneration tank and Heavy Missiles (HML) for long-range engagement.
 
-**The Refined Fit:**
+**The Fit:**
 *   **Highs:** 6x Heavy Missile Launcher II (Scourge Fury/Faction).
 *   **Mids:** 3x Large Shield Extender II, 1x 10MN Afterburner II, 1x Multispectrum Shield Hardener II, 1x Kinetic Shield Hardener II.
 *   **Lows:** 3x Ballistic Control System II, 1x Damage Control II.
-*   **Rigs:** 3x **Medium Core Defense Field Purger I/II**.
+*   **Rigs:** 3x Medium Core Defense Field Purger I/II.
 
-### 3. Why this is better for Guristas 4/10:
-1.  **Zero-Cap Tank:** You can stay on the field even if your capacitor is empty.
-2.  **Range:** You can hit targets at 50-70km. Total time to clear the site drops because you don't have to fly to every target.
-3.  **The "Passive" Math:** With 3x Purger rigs and 3x Extenders, your shield will naturally regenerate ~150-200 HP per second. This is more than enough to tank a Guristas 4/10 without ever clicking a button.
+### 3. Performance Advantages (Guristas 4/10):
+1.  **Capacitor Independence:** Operable with zero capacitor availability.
+2.  **Engagement Range:** 50-70km reach reduces transit time between NPC groups.
+3.  **Passive Mitigation:** 3x Purger rigs and 3x Extenders provide ~150-200 HP/s regeneration, neutralizing 4/10 incoming damage profiles.

@@ -140,7 +140,7 @@ def calculate_spreads():
     for key, full_name in STATION_NAMES.items():
         summary += f"| **{key}** | {full_name} |\n"
 
-    summary += "\n\n*Generated via EVE Tycoon Regional Weighted Averages.* 🍤"
+    summary += "\n\n*Generated via EVE Tycoon Regional Weighted Averages.* "
     return summary
 
 if __name__ == "__main__":

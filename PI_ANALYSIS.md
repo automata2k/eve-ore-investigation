@@ -27,7 +27,7 @@ This guide breaks down the PI P1 market based on industrial demand, price tiers,
 ### 4. THE NANO-TECH BULK (MASSIVE DEMAND / LOW PRICE)
 *   **Materials:** Reactive Metals, Toxic Metals
 *   **The Why:** Core inputs for Construction Blocks and **Nano-Factories** (P4). 
-*   **Significance:** These are the "dirty metals" found abundantly on nearly every Barren or Lava planet. While demanded in massive numbers for P4 production, the supply is so overwhelming that the price stays at the bottom (approx. 200 ISK).
+*   **Significance:** These are the "dirty metals" found abundantly on nearly every Barren or Lava planet. While demanded in massive numbers for P4 production, the supply is so overwhelming that the price stays at the botcollaborator (approx. 200 ISK).
 *   **Verdict:** Only worth the effort if you are moving massive "Epithal-sized" tonnage. High-volume, low-margin "grunt work."
 
 ### 5. THE "FILLER" TIER (LOW DEMAND / LOW PRICE)
@@ -38,10 +38,10 @@ This guide breaks down the PI P1 market based on industrial demand, price tiers,
 
 ---
 
-## 🍤 High-Sec Manufacturing Reality Check
+##  High-Sec Manufacturing Reality Check
 *   **Importing P1 to make P2:** Generally a **loss-making strategy** in High-Sec due to the "Double-Dip Tax" (Tax on importing raw ingredients + Tax on exporting finished product).
 *   **The "Golden Rule":** To make money in High-Sec PI, you must **Extract on-site**. If the P1 ingredients stay on the planet, you pay **Zero Import Tax**. 
-*   **Skill Check:** Always train **Customs Code Expertise** to Level 4 or 5 to reduce the NPC portion of the tax by 40-50%.
+*   **Skill Check:** Always train **Cuscollaborators Code Expertise** to Level 4 or 5 to reduce the NPC portion of the tax by 40-50%.
 
 ---
 
