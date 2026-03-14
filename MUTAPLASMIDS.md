@@ -32,12 +32,7 @@ When "rolling" a module, you choose one of three tiers of mutaplasmids. The high
 
 ## "Synth" Variations
 
-The term "Synth" in New Eden usually refers to low-impact, risk-free modifications or boosters.
-
-### Synth Boosters (Drugs)
-* **Examples:** *Synth Blue Pill*, *Synth Frentix*, *Synth Exile*.
-* **Benefit:** Provides a flat **+3% bonus** to a specific attribute.
-* **Safety:** **Zero side effects.** No need for the Biology or Neurotoxin Recovery skills. Completely legal in all security space.
+In the context of Abyssal modules, "Synth" is often used loosely to describe the baseline, low-impact versions of mutation.
 
 ### Decayed Mutaplasmids (The "Synth" of Rolls)
 * Often called "Synth" by players because they represent the baseline, low-impact version of mutation.
