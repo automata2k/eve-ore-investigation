@@ -4,14 +4,14 @@ NPC Null-Sec is a unique tier of space where sovereignty is held by NPC pirate f
 
 ## 📍 Key NPC Null-Sec Regions
 
-| Region | Primary Faction | Notes |
-| :--- | :--- | :--- |
-| **Stain** | Sansha's Nation | High-value Relic sites. Drops Sansha salvages/BPCs (Nightmare/Slave). |
-| **Venal** | Guristas Pirates | Caldari pirate heartland. Excellent for Pith/Dread Guristas loot. |
-| **Curse** | Angel Cartel | Rugged terrain with many "pipes." Dominant tactical region for travel. |
-| **Syndicate** | Intaki Syndicate | Home to mercenaries/independent corps. Good for learning Null-Sec flow. |
-| **Outer Ring** | ORE | The gold standard for high-end mining and gas in dangerous space. |
-| **Great Wildlands** | Thukker Tribe | Lonely region. **Caution:** No NPC stations; must use player structures. |
+| Region | Primary Faction | Notes | Wiki Link |
+| :--- | :--- | :--- | :--- |
+| **Stain** | Sansha's Nation | High-value Relic sites. Drops Sansha salvages/BPCs (Nightmare/Slave). | [Wiki](https://wiki.eveuniversity.org/Stain) |
+| **Venal** | Guristas Pirates | Caldari pirate heartland. Excellent for Pith/Dread Guristas loot. Hub: **N5Y-4N** | [Wiki](https://wiki.eveuniversity.org/Venal) |
+| **Curse** | Angel Cartel | Rugged terrain with many "pipes." Dominant tactical region for travel. Hub: **G-0Q86** | [Wiki](https://wiki.eveuniversity.org/Curse) |
+| **Syndicate** | Intaki Syndicate | Home to mercenaries/independent corps. Good for training. Hub: **PC9-AY** | [Wiki](https://wiki.eveuniversity.org/Syndicate) |
+| **Outer Ring** | ORE | The gold standard for high-end mining and gas. Hub: **4C-B7X** | [Wiki](https://wiki.eveuniversity.org/Outer_Ring) |
+| **Great Wildlands** | Thukker Tribe | Lonely region. **Caution:** No NPC stations; must use player structures. | [Wiki](https://wiki.eveuniversity.org/Great_Wildlands) |
 
 ## 🎭 The Culture of NPC Null
 
