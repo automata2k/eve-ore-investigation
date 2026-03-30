@@ -13,6 +13,20 @@ NPC Null-Sec is a unique tier of space where sovereignty is held by NPC pirate f
 | **Outer Ring** | ORE | The gold standard for high-end mining and gas. Hub: **4C-B7X** | [Wiki](https://wiki.eveuniversity.org/Outer_Ring) |
 | **Great Wildlands** | Thukker Tribe | Lonely region. **Caution:** No NPC stations; must use player structures. | [Wiki](https://wiki.eveuniversity.org/Great_Wildlands) |
 
+## 🏢 Key Systems with NPC Stations
+
+Below are some of the primary logistical hubs within each NPC region where you can always find NPC stations for docking, repair, and storage.
+
+| Region | Key Systems with NPC Stations |
+| :--- | :--- |
+| **Venal** | N5Y-4N, 6NJ8-V, H-PA29, Y-9GQN |
+| **Stain** | TG-Z23, LG-K23, 9-F06P, 4-EP12 |
+| **Curse** | G-0Q86, K-0NW8, Sendaya, MO-GZ5 |
+| **Syndicate** | PC9-AY, VSIG-K, X-M2LR, 6-4H2A |
+| **Outer Ring** | 4C-B7X, M-OEE8, J-G98D, ORE-44 |
+
+*Note: Great Wildlands is omitted as it contains zero NPC stations.*
+
 ## 🎭 The Culture of NPC Null
 
 - **Livable Security:** Unlike player-owned Null-Sec, NPC stations **always allow docking** regardless of your standings. They serve as permanent "Safe Harbors."
