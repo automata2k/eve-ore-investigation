@@ -23,7 +23,7 @@ NPC Null-Sec is a unique tier of space where sovereignty is held by NPC pirate f
 ## 🍤 Shrimp's Tactical Advice
 
 1.  **Entrance Priority:** **Syndicate** is best for practice (close to K-Space). **Venal** is best for profit (if you can survive the travel).
-2.  **Survival:** Always use sub-2.0s align ships (like the specialized **Jackdaw** hauler) to bypass gate-camp bubbles.
+2.  **Survival:** Always use sub-2.0s align ships (like the **Jackdaw**) to avoid insta-locks, but remember they are **not immune to bubbles.** For bubble-prone "pipes," use an Interceptor or Blockade Runner with an **Interdiction Nullifier.**
 3.  **Intel:** Check ZKillboard for the home station before docking to see if it's a known "Kick-out" station or gate-camp hub.
 
 *Source: EVE University & Shrimp Tactical Analysis 2026-03-30*
